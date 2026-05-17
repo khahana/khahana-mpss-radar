@@ -1,0 +1,125 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-05-17",
+  "strategy_context": {
+    "product": "VDR MPSS 3350 — 3,344 kWh containerised mobile BESS",
+    "applications": ["fleet electrification", "shore power", "EV fast-charging", "mining microgrids", "construction power", "event power", "grid-edge resilience"],
+    "territory": "MEA + Turkey",
+    "commercial_models": ["direct sale ~$1M-1.34M", "leasing ~$18-20k/month", "EaaS ~$0.28/kWh delivered"],
+    "differentiators": ["IP65 enclosure", "-30 to +55 °C envelope", "3,344 kWh largest in class", "Sale+EaaS+Lease+TotalCare flexibility"]
+  },
+  "competitors": {
+    "direct_mobile_bess": [
+      { "id": "zes", "name": "Zero Emission Services (ZES)", "country": "Netherlands", "products": ["ZESpack 2.0"], "linkedin_company": "zero-emission-services-bv", "website": "https://zeroemissionservices.nl", "priority": "critical" },
+      { "id": "atlas_copco", "name": "Atlas Copco — ZBC", "country": "Global", "products": ["ZBC battery containers"], "linkedin_company": "atlas-copco", "website": "https://www.atlascopco.com/en-us/construction-equipment/products/energy-storage", "priority": "critical" },
+      { "id": "aggreko", "name": "Aggreko — Y.Cube", "country": "UK/Global", "products": ["Y.Cube battery storage"], "linkedin_company": "aggreko", "website": "https://www.aggreko.com/en/products/battery-energy-storage-systems", "priority": "high" },
+      { "id": "powr2", "name": "POWR2 — Powrbank", "country": "UK", "products": ["Powrbank mobile BESS"], "linkedin_company": "powr2", "website": "https://www.powr2.com", "priority": "medium" },
+      { "id": "northvolt", "name": "Northvolt — Voltpack Mobile", "country": "Sweden", "products": ["Voltpack Mobile System"], "linkedin_company": "northvolt", "website": "https://northvolt.com/products/voltpack-mobile", "priority": "medium" },
+      { "id": "nomad", "name": "Nomad — Traveler", "country": "UK", "products": ["Nomad Traveler"], "linkedin_company": "nomad-power", "website": "https://www.nomad.global", "priority": "medium" },
+      { "id": "wartsila_es", "name": "Wärtsilä Energy Storage", "country": "Finland", "products": ["GridSolv Quantum"], "linkedin_company": "wartsila-energy-storage", "website": "https://www.wartsila.com/energy/solutions/energy-storage", "priority": "high" }
+    ],
+    "chinese_threats": [
+      { "id": "catl_tener", "name": "CATL TENER", "country": "China", "products": ["TENER stationary, watch for mobile"], "linkedin_company": "catl", "website": "https://www.catl.com", "priority": "high" },
+      { "id": "sungrow", "name": "Sungrow PowerStack", "country": "China", "products": ["PowerStack 200, 255 series"], "linkedin_company": "sungrow", "website": "https://en.sungrowpower.com", "priority": "high" },
+      { "id": "byd_bb", "name": "BYD Battery Box / Commercial BESS", "country": "China", "products": ["BYD Cube, BYD Chess"], "linkedin_company": "byd-company", "website": "https://en.byd.com", "priority": "medium" },
+      { "id": "trina", "name": "Trina Solar Storage", "country": "China", "products": ["Elementa series"], "linkedin_company": "trina-solar", "website": "https://www.trinasolar.com", "priority": "medium" },
+      { "id": "eve_energy", "name": "EVE Energy Commercial BESS", "country": "China", "products": ["Mr.Big, Mr.Giant"], "linkedin_company": "eve-energy", "website": "https://www.evebattery.com", "priority": "medium" }
+    ],
+    "regional_mea": [
+      { "id": "masdar", "name": "Masdar", "country": "UAE", "products": ["BESS project developer"], "linkedin_company": "masdar", "website": "https://masdar.ae", "priority": "high" },
+      { "id": "acwa", "name": "ACWA Power", "country": "Saudi Arabia", "products": ["BESS projects, Sudair"], "linkedin_company": "acwa-power", "website": "https://acwapower.com", "priority": "high" },
+      { "id": "amea_power", "name": "AMEA Power", "country": "UAE", "products": ["Regional renewable+storage"], "linkedin_company": "amea-power", "website": "https://ameapower.com", "priority": "medium" }
+    ]
+  },
+  "prospects": {
+    "fleet_electrification": [
+      { "id": "dtc", "name": "Dubai Taxi Corporation", "country": "UAE", "linkedin_company": "dubai-taxi-corporation", "website": "https://www.dubaitaxi.ae", "priority": "critical", "notes": "Active MPSS opportunity" },
+      { "id": "rta_dubai", "name": "RTA Dubai", "country": "UAE", "linkedin_company": "roads-and-transport-authority", "website": "https://www.rta.ae", "priority": "high" },
+      { "id": "karwa", "name": "Karwa (Mowasalat)", "country": "Qatar", "linkedin_company": "mowasalat", "website": "https://www.mowasalat.com", "priority": "high" },
+      { "id": "ad_mobility", "name": "Abu Dhabi Mobility", "country": "UAE", "linkedin_company": "abudhabimobility", "website": "https://www.itc.gov.ae", "priority": "high" },
+      { "id": "saptco", "name": "SAPTCO Saudi Public Transport", "country": "Saudi Arabia", "linkedin_company": "saptco", "website": "https://www.saptco.com.sa", "priority": "high" },
+      { "id": "bpt", "name": "Bahrain Public Transport", "country": "Bahrain", "linkedin_company": "ministry-of-transportation-and-telecommunications-bahrain", "website": "https://www.transportation.gov.bh", "priority": "medium" },
+      { "id": "kpt", "name": "Kuwait Public Transport", "country": "Kuwait", "linkedin_company": "kuwait-public-transport-company", "website": "https://www.kptc.com.kw", "priority": "medium" },
+      { "id": "iett", "name": "IETT Istanbul Transport", "country": "Turkey", "linkedin_company": "iett", "website": "https://www.iett.istanbul", "priority": "high" },
+      { "id": "ego", "name": "EGO Ankara Transport", "country": "Turkey", "linkedin_company": "ego-genel-mudurlugu", "website": "https://www.ego.gov.tr", "priority": "medium" }
+    ],
+    "ports_shore_power": [
+      { "id": "dp_world", "name": "DP World (Group)", "country": "UAE/Global", "linkedin_company": "dp-world", "website": "https://www.dpworld.com", "priority": "critical", "notes": "Multiple terminals: Jebel Ali, Sokhna, Berbera, Mombasa, Maputo, Dakar, Mersin" },
+      { "id": "ad_ports", "name": "AD Ports Group", "country": "UAE", "linkedin_company": "ad-ports-group", "website": "https://www.adportsgroup.com", "priority": "high" },
+      { "id": "king_abdullah_port", "name": "King Abdullah Port", "country": "Saudi Arabia", "linkedin_company": "king-abdullah-port", "website": "https://kingabdullahport.com.sa", "priority": "high" },
+      { "id": "jeddah_port", "name": "Jeddah Islamic Port", "country": "Saudi Arabia", "linkedin_company": "saudi-ports-authority", "website": "https://mawani.gov.sa", "priority": "high" },
+      { "id": "sohar_port", "name": "Sohar Port", "country": "Oman", "linkedin_company": "sohar-port-and-freezone", "website": "https://www.soharportandfreezone.com", "priority": "medium" },
+      { "id": "hamad_port", "name": "Hamad Port Qatar", "country": "Qatar", "linkedin_company": "qatar-ports-management-company", "website": "https://www.mwani.com.qa", "priority": "medium" },
+      { "id": "aqaba", "name": "Aqaba Port", "country": "Jordan", "linkedin_company": "aqaba-container-terminal", "website": "https://www.act.com.jo", "priority": "medium" },
+      { "id": "mersin", "name": "Port of Mersin (MIP)", "country": "Turkey", "linkedin_company": "mip-mersin-international-port", "website": "https://mersinport.com.tr", "priority": "high" },
+      { "id": "asyaport", "name": "Asyaport", "country": "Turkey", "linkedin_company": "asyaport-liman", "website": "https://www.asyaport.com", "priority": "medium" }
+    ],
+    "mining_oil_gas": [
+      { "id": "adnoc", "name": "ADNOC", "country": "UAE", "linkedin_company": "adnoc", "website": "https://www.adnoc.ae", "priority": "critical" },
+      { "id": "aramco", "name": "Saudi Aramco", "country": "Saudi Arabia", "linkedin_company": "saudi-aramco", "website": "https://www.aramco.com", "priority": "critical" },
+      { "id": "ocp", "name": "OCP Group (Morocco)", "country": "Morocco", "linkedin_company": "ocp-group", "website": "https://www.ocpgroup.ma", "priority": "high" },
+      { "id": "managem", "name": "Managem", "country": "Morocco", "linkedin_company": "managem-group", "website": "https://www.managemgroup.com", "priority": "medium" },
+      { "id": "fqm", "name": "First Quantum Minerals Zambia", "country": "Zambia", "linkedin_company": "first-quantum-minerals-ltd", "website": "https://www.first-quantum.com", "priority": "medium" },
+      { "id": "anglo_sa", "name": "Anglo American South Africa", "country": "South Africa", "linkedin_company": "anglo-american", "website": "https://www.angloamerican.com", "priority": "high" },
+      { "id": "sibanye", "name": "Sibanye-Stillwater", "country": "South Africa", "linkedin_company": "sibanye-stillwater", "website": "https://www.sibanyestillwater.com", "priority": "medium" },
+      { "id": "etimaden", "name": "Eti Maden Turkey", "country": "Turkey", "linkedin_company": "eti-maden", "website": "https://www.etimaden.gov.tr", "priority": "medium" },
+      { "id": "tupras", "name": "Tüpraş", "country": "Turkey", "linkedin_company": "tupras", "website": "https://www.tupras.com.tr", "priority": "medium" }
+    ],
+    "construction_events_utilities": [
+      { "id": "neom", "name": "NEOM", "country": "Saudi Arabia", "linkedin_company": "neom", "website": "https://www.neom.com", "priority": "critical" },
+      { "id": "roshn", "name": "ROSHN", "country": "Saudi Arabia", "linkedin_company": "roshn-group", "website": "https://www.roshn.sa", "priority": "high" },
+      { "id": "dgda", "name": "Diriyah Gate Development Authority", "country": "Saudi Arabia", "linkedin_company": "diriyah-gate", "website": "https://www.diriyah.sa", "priority": "high" },
+      { "id": "ega", "name": "EGA Emirates Global Aluminium", "country": "UAE", "linkedin_company": "emirates-global-aluminium", "website": "https://www.ega.ae", "priority": "medium" },
+      { "id": "borouge", "name": "Borouge", "country": "UAE", "linkedin_company": "borouge", "website": "https://www.borouge.com", "priority": "medium" },
+      { "id": "expo_legacy", "name": "Expo City Dubai operators", "country": "UAE", "linkedin_company": "expo-city-dubai", "website": "https://www.expocitydubai.com", "priority": "medium" },
+      { "id": "f1_saudi", "name": "F1 Saudi Arabian Grand Prix", "country": "Saudi Arabia", "linkedin_company": "saudi-motorsport-company", "website": "https://saudiarabiangp.com", "priority": "medium" },
+      { "id": "f1_abu_dhabi", "name": "F1 Abu Dhabi Grand Prix (Yas Marina)", "country": "UAE", "linkedin_company": "yas-marina-circuit", "website": "https://www.yasmarinacircuit.com", "priority": "medium" },
+      { "id": "dewa", "name": "DEWA", "country": "UAE", "linkedin_company": "dubai-electricity-and-water-authority", "website": "https://www.dewa.gov.ae", "priority": "critical" },
+      { "id": "adwea", "name": "ADWEA / EWEC", "country": "UAE", "linkedin_company": "emirates-water-and-electricity-company", "website": "https://www.ewec.ae", "priority": "high" },
+      { "id": "sewa", "name": "SEWA Sharjah", "country": "UAE", "linkedin_company": "sewa", "website": "https://www.sewa.gov.ae", "priority": "medium" },
+      { "id": "fewa", "name": "FEWA Federal Electricity", "country": "UAE", "linkedin_company": "federal-electricity-and-water-authority", "website": "https://www.fewa.gov.ae", "priority": "medium" },
+      { "id": "sec_saudi", "name": "Saudi Electricity Company (SEC)", "country": "Saudi Arabia", "linkedin_company": "saudi-electricity-company", "website": "https://www.se.com.sa", "priority": "high" },
+      { "id": "tedas", "name": "TEDAŞ Turkey Electricity Distribution", "country": "Turkey", "linkedin_company": "tedas", "website": "https://www.tedas.gov.tr", "priority": "medium" }
+    ]
+  },
+  "regulators": [
+    { "id": "dewa_reg", "name": "DEWA EV Charging Regulations", "country": "UAE", "website": "https://www.dewa.gov.ae", "priority": "critical" },
+    { "id": "adnoc_proc", "name": "ADNOC Procurement", "country": "UAE", "website": "https://eprocurement.adnoc.ae", "priority": "high" },
+    { "id": "saudi_energy", "name": "Saudi Ministry of Energy", "country": "Saudi Arabia", "website": "https://www.moenergy.gov.sa", "priority": "critical" },
+    { "id": "etimad", "name": "Etimad Saudi e-procurement", "country": "Saudi Arabia", "website": "https://etimad.sa", "priority": "high" },
+    { "id": "adwea_tenders", "name": "EWEC Tenders", "country": "UAE", "website": "https://www.ewec.ae", "priority": "medium" },
+    { "id": "epdk", "name": "Turkey EPDK Energy Regulator", "country": "Turkey", "website": "https://www.epdk.gov.tr", "priority": "high" },
+    { "id": "egyptera", "name": "Egypt EgyptERA", "country": "Egypt", "website": "https://egyptera.org", "priority": "medium" },
+    { "id": "onee", "name": "Morocco ONEE", "country": "Morocco", "website": "http://www.one.org.ma", "priority": "medium" },
+    { "id": "jordan_emrc", "name": "Jordan EMRC", "country": "Jordan", "website": "https://www.emrc.gov.jo", "priority": "medium" },
+    { "id": "uae_moei", "name": "UAE Ministry of Energy and Infrastructure", "country": "UAE", "website": "https://www.moei.gov.ae", "priority": "high" }
+  ],
+  "trade_press": [
+    { "id": "maritime_exec", "name": "Maritime Executive", "rss": "https://www.maritime-executive.com/articles.rss", "priority": "high" },
+    { "id": "offshore_energy", "name": "Offshore Energy", "rss": "https://www.offshore-energy.biz/feed", "priority": "high" },
+    { "id": "plugboats", "name": "Plugboats", "rss": "https://plugboats.com/feed", "priority": "high" },
+    { "id": "esn", "name": "Energy Storage News", "rss": "https://www.energy-storage.news/feed", "priority": "critical" },
+    { "id": "pv_mena", "name": "PV Magazine MENA", "rss": "https://www.pv-magazine.com/feed", "priority": "high" },
+    { "id": "gulf_construction", "name": "Gulf Construction", "rss": "https://www.gulfconstructionworldwide.com/feed", "priority": "medium" },
+    { "id": "construction_week", "name": "Construction Week Middle East", "rss": "https://www.constructionweekonline.com/rss", "priority": "medium" },
+    { "id": "electrive", "name": "electrive.com", "rss": "https://www.electrive.com/feed", "priority": "high" },
+    { "id": "middle_east_energy", "name": "Middle East Energy / Big 5 Insider", "rss": "https://www.middleeastelectricity.com/en-gb/news.rss.html", "priority": "high" },
+    { "id": "zawya_energy", "name": "Zawya Energy", "rss": "https://www.zawya.com/en/business/energy/rss", "priority": "high" },
+    { "id": "port_strategy", "name": "Port Strategy", "rss": "https://www.portstrategy.com/news.rss", "priority": "medium" },
+    { "id": "mining_weekly", "name": "Mining Weekly", "rss": "https://www.miningweekly.com/topic/africa/rss", "priority": "medium" },
+    { "id": "enerji_gunlugu", "name": "Enerji Günlüğü Turkey", "rss": "https://www.enerjigunlugu.net/rss", "priority": "medium" },
+    { "id": "deniz_haber", "name": "DenizHaber Turkey", "rss": "https://www.denizhaber.com.tr/rss", "priority": "low" }
+  ],
+  "themes": [
+    "mobile battery storage Middle East",
+    "BESS tender GCC",
+    "shore power port MENA",
+    "fleet electrification Dubai OR Saudi",
+    "battery as a service Middle East",
+    "DEWA EV charging",
+    "megawatt charging MCS",
+    "Energy as a Service infrastructure",
+    "diesel replacement battery GCC",
+    "MPSS mobile power storage"
+  ]
+}

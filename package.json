@@ -1,0 +1,19 @@
+{
+  "name": "mpss-radar",
+  "version": "1.0.0",
+  "description": "MPSS market intelligence and LinkedIn content studio — KhahanA Insights",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "scrape:rss": "node scrapers/rss-scraper.js",
+    "scrape:web": "node scrapers/web-scraper.js",
+    "score": "node scorer/score.js",
+    "seed:watchlist": "node scripts/seed-watchlist.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "cheerio": "^1.0.0",
+    "rss-parser": "^3.13.0"
+  }
+}
