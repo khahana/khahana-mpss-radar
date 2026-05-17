@@ -1,232 +1,4249 @@
 {
-  "version": "2.0",
+  "version": "2.2",
   "last_updated": "2026-05-17",
   "strategy_context": {
     "product": "VDR MPSS 3350 — 3,344 kWh containerised mobile BESS",
-    "applications": ["fleet electrification", "shore power", "EV fast-charging", "mining microgrids", "construction power", "event power", "grid-edge resilience"],
-    "territories": ["EMEA", "Americas", "APAC"],
-    "commercial_models": ["direct sale ~$1M-1.34M", "leasing ~$18-20k/month", "EaaS ~$0.28/kWh delivered"],
-    "differentiators": ["IP65 enclosure", "-30 to +55 °C envelope", "3,344 kWh largest in class", "Sale+EaaS+Lease+TotalCare flexibility"]
+    "applications": [
+      "fleet electrification",
+      "shore power",
+      "EV fast-charging",
+      "mining microgrids",
+      "construction power",
+      "event power",
+      "grid-edge resilience"
+    ],
+    "territories": [
+      "Europe",
+      "MEA_T",
+      "Americas",
+      "APAC"
+    ],
+    "commercial_models": [
+      "direct sale ~$1M-1.34M",
+      "leasing ~$18-20k/month",
+      "EaaS ~$0.28/kWh delivered"
+    ],
+    "differentiators": [
+      "IP65 enclosure",
+      "-30 to +55 °C envelope",
+      "3,344 kWh largest in class",
+      "Sale+EaaS+Lease+TotalCare flexibility"
+    ]
   },
   "regions": {
-    "EMEA": "Europe, Middle East, Africa, Turkey",
+    "Europe": "Continental Europe, UK, Nordics, EU",
+    "MEA_T": "Middle East, Africa, Turkey",
     "Americas": "North America, Central America, South America, Caribbean",
     "APAC": "East Asia, South Asia, Southeast Asia, Oceania"
   },
   "competitors": [
-    { "id": "zes", "name": "Zero Emission Services (ZES)", "country": "Netherlands", "region": "EMEA", "subcategory": "direct_mobile_bess", "products": ["ZESpack 2.0"], "linkedin_company": "zero-emission-services-bv", "website": "https://zeroemissionservices.nl", "priority": "critical" },
-    { "id": "atlas_copco", "name": "Atlas Copco — ZBC", "country": "Sweden/Global", "region": "EMEA", "subcategory": "direct_mobile_bess", "products": ["ZBC battery containers"], "linkedin_company": "atlas-copco", "website": "https://www.atlascopco.com/en-us/construction-equipment/products/energy-storage", "priority": "critical" },
-    { "id": "aggreko", "name": "Aggreko — Y.Cube", "country": "UK/Global", "region": "EMEA", "subcategory": "direct_mobile_bess", "products": ["Y.Cube battery storage"], "linkedin_company": "aggreko", "website": "https://www.aggreko.com/en/products/battery-energy-storage-systems", "priority": "high" },
-    { "id": "powr2", "name": "POWR2 — Powrbank", "country": "UK", "region": "EMEA", "subcategory": "direct_mobile_bess", "products": ["Powrbank mobile BESS"], "linkedin_company": "powr2", "website": "https://www.powr2.com", "priority": "medium" },
-    { "id": "northvolt", "name": "Northvolt — Voltpack Mobile", "country": "Sweden", "region": "EMEA", "subcategory": "direct_mobile_bess", "products": ["Voltpack Mobile System"], "linkedin_company": "northvolt", "website": "https://northvolt.com/products/voltpack-mobile", "priority": "medium" },
-    { "id": "nomad", "name": "Nomad — Traveler", "country": "UK", "region": "EMEA", "subcategory": "direct_mobile_bess", "products": ["Nomad Traveler"], "linkedin_company": "nomad-power", "website": "https://www.nomad.global", "priority": "medium" },
-    { "id": "wartsila_es", "name": "Wärtsilä Energy Storage", "country": "Finland", "region": "EMEA", "subcategory": "direct_mobile_bess", "products": ["GridSolv Quantum"], "linkedin_company": "wartsila-energy-storage", "website": "https://www.wartsila.com/energy/solutions/energy-storage", "priority": "high" },
-    { "id": "moxion", "name": "Moxion Power", "country": "USA", "region": "Americas", "subcategory": "direct_mobile_bess", "products": ["MP-75 Mobile Power Unit"], "linkedin_company": "moxion-power", "website": "https://www.moxionpower.com", "priority": "high" },
-    { "id": "portable_electric", "name": "Portable Electric — Voltstack", "country": "Canada", "region": "Americas", "subcategory": "direct_mobile_bess", "products": ["Voltstack series"], "linkedin_company": "portable-electric", "website": "https://www.portable-electric.com", "priority": "medium" },
-    { "id": "enchanted_rock", "name": "Enchanted Rock", "country": "USA", "region": "Americas", "subcategory": "direct_mobile_bess", "products": ["Mobile microgrid units"], "linkedin_company": "enchanted-rock", "website": "https://www.enchantedrock.com", "priority": "medium" },
-    { "id": "fluence", "name": "Fluence Energy", "country": "USA", "region": "Americas", "subcategory": "direct_mobile_bess", "products": ["Gridstack, Sunstack, Edgestack"], "linkedin_company": "fluence-energy", "website": "https://fluenceenergy.com", "priority": "high" },
-    { "id": "tesla_megapack", "name": "Tesla Megapack", "country": "USA", "region": "Americas", "subcategory": "direct_mobile_bess", "products": ["Megapack, Megapack 2 XL"], "linkedin_company": "tesla-motors", "website": "https://www.tesla.com/megapack", "priority": "high" },
-    { "id": "powin", "name": "Powin Energy", "country": "USA", "region": "Americas", "subcategory": "direct_mobile_bess", "products": ["Centipede, Pod"], "linkedin_company": "powin-energy", "website": "https://powin.com", "priority": "medium" },
-    { "id": "catl_tener", "name": "CATL TENER", "country": "China", "region": "APAC", "subcategory": "chinese_threats", "products": ["TENER stationary, watch for mobile"], "linkedin_company": "catl", "website": "https://www.catl.com", "priority": "critical" },
-    { "id": "sungrow", "name": "Sungrow PowerStack", "country": "China", "region": "APAC", "subcategory": "chinese_threats", "products": ["PowerStack 200, 255 series"], "linkedin_company": "sungrow", "website": "https://en.sungrowpower.com", "priority": "high" },
-    { "id": "byd_bb", "name": "BYD Battery Box / Commercial BESS", "country": "China", "region": "APAC", "subcategory": "chinese_threats", "products": ["BYD Cube, BYD Chess"], "linkedin_company": "byd-company", "website": "https://en.byd.com", "priority": "high" },
-    { "id": "trina", "name": "Trina Storage", "country": "China", "region": "APAC", "subcategory": "chinese_threats", "products": ["Elementa series"], "linkedin_company": "trina-solar", "website": "https://www.trinasolar.com", "priority": "medium" },
-    { "id": "eve_energy", "name": "EVE Energy Commercial BESS", "country": "China", "region": "APAC", "subcategory": "chinese_threats", "products": ["Mr.Big, Mr.Giant"], "linkedin_company": "eve-energy", "website": "https://www.evebattery.com", "priority": "medium" },
-    { "id": "huawei_digital_power", "name": "Huawei Digital Power", "country": "China", "region": "APAC", "subcategory": "chinese_threats", "products": ["LUNA2000, StorPro"], "linkedin_company": "huawei-digital-power", "website": "https://digitalpower.huawei.com", "priority": "high" },
-    { "id": "hyosung", "name": "Hyosung Heavy Industries", "country": "South Korea", "region": "APAC", "subcategory": "chinese_threats", "products": ["BESS containers"], "linkedin_company": "hyosung", "website": "https://www.hyosung.com", "priority": "medium" },
-    { "id": "lg_energy_solution", "name": "LG Energy Solution", "country": "South Korea", "region": "APAC", "subcategory": "chinese_threats", "products": ["RESU, ESS containers"], "linkedin_company": "lg-energy-solution", "website": "https://www.lgensol.com", "priority": "high" },
-    { "id": "masdar", "name": "Masdar", "country": "UAE", "region": "EMEA", "subcategory": "regional", "products": ["BESS project developer"], "linkedin_company": "masdar", "website": "https://masdar.ae", "priority": "high" },
-    { "id": "acwa", "name": "ACWA Power", "country": "Saudi Arabia", "region": "EMEA", "subcategory": "regional", "products": ["BESS projects, Sudair"], "linkedin_company": "acwa-power", "website": "https://acwapower.com", "priority": "high" },
-    { "id": "amea_power", "name": "AMEA Power", "country": "UAE", "region": "EMEA", "subcategory": "regional", "products": ["Regional renewable+storage"], "linkedin_company": "amea-power", "website": "https://ameapower.com", "priority": "medium" },
-    { "id": "engie", "name": "ENGIE", "country": "France", "region": "EMEA", "subcategory": "regional", "products": ["Mobile BESS projects, ZES partner"], "linkedin_company": "engie", "website": "https://www.engie.com", "priority": "high" },
-    { "id": "edf_renewables", "name": "EDF Renewables", "country": "France", "region": "EMEA", "subcategory": "regional", "products": ["Storage projects"], "linkedin_company": "edf-renewables", "website": "https://www.edf-renewables.com", "priority": "medium" },
-    { "id": "iberdrola", "name": "Iberdrola", "country": "Spain", "region": "EMEA", "subcategory": "regional", "products": ["BESS deployments"], "linkedin_company": "iberdrola", "website": "https://www.iberdrola.com", "priority": "medium" },
-    { "id": "enel_x", "name": "Enel X", "country": "Italy", "region": "EMEA", "subcategory": "regional", "products": ["Mobile + stationary storage"], "linkedin_company": "enel-x", "website": "https://www.enelx.com", "priority": "medium" }
+    {
+      "id": "zes",
+      "name": "Zero Emission Services (ZES)",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "ZESpack 2.0"
+      ],
+      "linkedin_company": "zero-emission-services-bv",
+      "website": "https://zeroemissionservices.nl",
+      "priority": "critical"
+    },
+    {
+      "id": "atlas_copco",
+      "name": "Atlas Copco — ZBC",
+      "country": "Sweden",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "ZBC battery containers"
+      ],
+      "linkedin_company": "atlas-copco",
+      "website": "https://www.atlascopco.com",
+      "priority": "critical"
+    },
+    {
+      "id": "aggreko",
+      "name": "Aggreko — Y.Cube",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Y.Cube battery storage"
+      ],
+      "linkedin_company": "aggreko",
+      "website": "https://www.aggreko.com",
+      "priority": "high"
+    },
+    {
+      "id": "powr2",
+      "name": "POWR2 — Powrbank",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Powrbank mobile BESS"
+      ],
+      "linkedin_company": "powr2",
+      "website": "https://www.powr2.com",
+      "priority": "medium"
+    },
+    {
+      "id": "northvolt",
+      "name": "Northvolt — Voltpack Mobile",
+      "country": "Sweden",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Voltpack Mobile System"
+      ],
+      "linkedin_company": "northvolt",
+      "website": "https://northvolt.com",
+      "priority": "medium"
+    },
+    {
+      "id": "nomad",
+      "name": "Nomad — Traveler",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Nomad Traveler"
+      ],
+      "linkedin_company": "nomad-power",
+      "website": "https://www.nomad.global",
+      "priority": "medium"
+    },
+    {
+      "id": "wartsila_es",
+      "name": "Wärtsilä Energy Storage",
+      "country": "Finland",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "GridSolv Quantum"
+      ],
+      "linkedin_company": "wartsila-energy-storage",
+      "website": "https://www.wartsila.com",
+      "priority": "high"
+    },
+    {
+      "id": "engie",
+      "name": "ENGIE",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "regional",
+      "products": [
+        "Mobile BESS projects, ZES partner"
+      ],
+      "linkedin_company": "engie",
+      "website": "https://www.engie.com",
+      "priority": "high"
+    },
+    {
+      "id": "edf_renewables",
+      "name": "EDF Renewables",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "regional",
+      "products": [
+        "Storage projects"
+      ],
+      "linkedin_company": "edf-renewables",
+      "website": "https://www.edf-renewables.com",
+      "priority": "medium"
+    },
+    {
+      "id": "iberdrola",
+      "name": "Iberdrola",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "regional",
+      "products": [
+        "BESS deployments"
+      ],
+      "linkedin_company": "iberdrola",
+      "website": "https://www.iberdrola.com",
+      "priority": "medium"
+    },
+    {
+      "id": "enel_x",
+      "name": "Enel X",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "regional",
+      "products": [
+        "Mobile + stationary storage"
+      ],
+      "linkedin_company": "enel-x",
+      "website": "https://www.enelx.com",
+      "priority": "medium"
+    },
+    {
+      "id": "saft",
+      "name": "Saft — Intensium",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Intensium Max, Shift"
+      ],
+      "linkedin_company": "saft",
+      "website": "https://www.saftbatteries.com",
+      "priority": "high"
+    },
+    {
+      "id": "siemens_energy_storage",
+      "name": "Siemens Energy Storage",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "SIESTORAGE"
+      ],
+      "linkedin_company": "siemens-energy",
+      "website": "https://www.siemens-energy.com",
+      "priority": "high"
+    },
+    {
+      "id": "abb_energy_storage",
+      "name": "ABB Energy Storage",
+      "country": "Switzerland",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "BESS systems"
+      ],
+      "linkedin_company": "abb",
+      "website": "https://www.abb.com",
+      "priority": "high"
+    },
+    {
+      "id": "schneider_electric",
+      "name": "Schneider Electric",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Mobile microgrid solutions"
+      ],
+      "linkedin_company": "schneider-electric",
+      "website": "https://www.se.com",
+      "priority": "high"
+    },
+    {
+      "id": "man_energy",
+      "name": "MAN Energy Solutions",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Hybrid power systems"
+      ],
+      "linkedin_company": "man-energy-solutions",
+      "website": "https://www.man-es.com",
+      "priority": "medium"
+    },
+    {
+      "id": "voith_hybrid",
+      "name": "Voith Hybrid Solutions",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "regional",
+      "products": [
+        "Hybrid drives"
+      ],
+      "linkedin_company": "voith",
+      "website": "https://voith.com",
+      "priority": "medium"
+    },
+    {
+      "id": "masdar",
+      "name": "Masdar",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "regional",
+      "products": [
+        "BESS project developer"
+      ],
+      "linkedin_company": "masdar",
+      "website": "https://masdar.ae",
+      "priority": "high"
+    },
+    {
+      "id": "acwa",
+      "name": "ACWA Power",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "subcategory": "regional",
+      "products": [
+        "BESS projects, Sudair"
+      ],
+      "linkedin_company": "acwa-power",
+      "website": "https://acwapower.com",
+      "priority": "high"
+    },
+    {
+      "id": "amea_power",
+      "name": "AMEA Power",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "regional",
+      "products": [
+        "Regional renewable+storage"
+      ],
+      "linkedin_company": "amea-power",
+      "website": "https://ameapower.com",
+      "priority": "medium"
+    },
+    {
+      "id": "moxion",
+      "name": "Moxion Power",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "MP-75 Mobile Power Unit"
+      ],
+      "linkedin_company": "moxion-power",
+      "website": "https://www.moxionpower.com",
+      "priority": "critical"
+    },
+    {
+      "id": "portable_electric",
+      "name": "Portable Electric — Voltstack",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Voltstack series"
+      ],
+      "linkedin_company": "portable-electric",
+      "website": "https://www.portable-electric.com",
+      "priority": "high"
+    },
+    {
+      "id": "enchanted_rock",
+      "name": "Enchanted Rock",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Mobile microgrid units"
+      ],
+      "linkedin_company": "enchanted-rock",
+      "website": "https://www.enchantedrock.com",
+      "priority": "medium"
+    },
+    {
+      "id": "fluence",
+      "name": "Fluence Energy",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Gridstack, Sunstack, Edgestack"
+      ],
+      "linkedin_company": "fluence-energy",
+      "website": "https://fluenceenergy.com",
+      "priority": "high"
+    },
+    {
+      "id": "tesla_megapack",
+      "name": "Tesla Megapack",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Megapack, Megapack 2 XL"
+      ],
+      "linkedin_company": "tesla-motors",
+      "website": "https://www.tesla.com/megapack",
+      "priority": "high"
+    },
+    {
+      "id": "powin",
+      "name": "Powin Energy",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Centipede, Pod"
+      ],
+      "linkedin_company": "powin-energy",
+      "website": "https://powin.com",
+      "priority": "medium"
+    },
+    {
+      "id": "sunrun",
+      "name": "Sunrun",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Brightbox storage"
+      ],
+      "linkedin_company": "sunrun",
+      "website": "https://www.sunrun.com",
+      "priority": "low"
+    },
+    {
+      "id": "generac_grid",
+      "name": "Generac Grid Services",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "direct_mobile_bess",
+      "products": [
+        "Generac PWRcell, Grid Services"
+      ],
+      "linkedin_company": "generac-power-systems",
+      "website": "https://www.generac.com",
+      "priority": "medium"
+    },
+    {
+      "id": "invenergy",
+      "name": "Invenergy",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "regional",
+      "products": [
+        "BESS project developer"
+      ],
+      "linkedin_company": "invenergy-llc",
+      "website": "https://invenergy.com",
+      "priority": "medium"
+    },
+    {
+      "id": "catl_tener",
+      "name": "CATL TENER",
+      "country": "China",
+      "region": "APAC",
+      "subcategory": "chinese_threats",
+      "products": [
+        "TENER stationary, watch for mobile"
+      ],
+      "linkedin_company": "catl",
+      "website": "https://www.catl.com",
+      "priority": "critical"
+    },
+    {
+      "id": "sungrow",
+      "name": "Sungrow PowerStack",
+      "country": "China",
+      "region": "APAC",
+      "subcategory": "chinese_threats",
+      "products": [
+        "PowerStack 200, 255 series"
+      ],
+      "linkedin_company": "sungrow",
+      "website": "https://en.sungrowpower.com",
+      "priority": "high"
+    },
+    {
+      "id": "byd_bb",
+      "name": "BYD Battery Box / Commercial BESS",
+      "country": "China",
+      "region": "APAC",
+      "subcategory": "chinese_threats",
+      "products": [
+        "BYD Cube, BYD Chess"
+      ],
+      "linkedin_company": "byd-company",
+      "website": "https://en.byd.com",
+      "priority": "high"
+    },
+    {
+      "id": "trina",
+      "name": "Trina Storage",
+      "country": "China",
+      "region": "APAC",
+      "subcategory": "chinese_threats",
+      "products": [
+        "Elementa series"
+      ],
+      "linkedin_company": "trina-solar",
+      "website": "https://www.trinasolar.com",
+      "priority": "medium"
+    },
+    {
+      "id": "eve_energy",
+      "name": "EVE Energy Commercial BESS",
+      "country": "China",
+      "region": "APAC",
+      "subcategory": "chinese_threats",
+      "products": [
+        "Mr.Big, Mr.Giant"
+      ],
+      "linkedin_company": "eve-energy",
+      "website": "https://www.evebattery.com",
+      "priority": "medium"
+    },
+    {
+      "id": "huawei_digital_power",
+      "name": "Huawei Digital Power",
+      "country": "China",
+      "region": "APAC",
+      "subcategory": "chinese_threats",
+      "products": [
+        "LUNA2000, StorPro"
+      ],
+      "linkedin_company": "huawei-digital-power",
+      "website": "https://digitalpower.huawei.com",
+      "priority": "high"
+    },
+    {
+      "id": "hyosung",
+      "name": "Hyosung Heavy Industries",
+      "country": "South Korea",
+      "region": "APAC",
+      "subcategory": "chinese_threats",
+      "products": [
+        "BESS containers"
+      ],
+      "linkedin_company": "hyosung",
+      "website": "https://www.hyosung.com",
+      "priority": "medium"
+    },
+    {
+      "id": "lg_energy_solution",
+      "name": "LG Energy Solution",
+      "country": "South Korea",
+      "region": "APAC",
+      "subcategory": "chinese_threats",
+      "products": [
+        "RESU, ESS containers"
+      ],
+      "linkedin_company": "lg-energy-solution",
+      "website": "https://www.lgensol.com",
+      "priority": "high"
+    }
   ],
   "prospects": [
-    { "id": "dtc", "name": "Dubai Taxi Corporation", "country": "UAE", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "dubai-taxi-corporation", "website": "https://www.dubaitaxi.ae", "priority": "critical", "notes": "Active MPSS opportunity" },
-    { "id": "rta_dubai", "name": "RTA Dubai", "country": "UAE", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "roads-and-transport-authority", "website": "https://www.rta.ae", "priority": "high" },
-    { "id": "karwa", "name": "Karwa (Mowasalat)", "country": "Qatar", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "mowasalat", "website": "https://www.mowasalat.com", "priority": "high" },
-    { "id": "ad_mobility", "name": "Abu Dhabi Mobility", "country": "UAE", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "abudhabimobility", "website": "https://www.itc.gov.ae", "priority": "high" },
-    { "id": "saptco", "name": "SAPTCO Saudi Public Transport", "country": "Saudi Arabia", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "saptco", "website": "https://www.saptco.com.sa", "priority": "high" },
-    { "id": "iett", "name": "IETT Istanbul Transport", "country": "Turkey", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "iett", "website": "https://www.iett.istanbul", "priority": "high" },
-    { "id": "ego", "name": "EGO Ankara Transport", "country": "Turkey", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "ego-genel-mudurlugu", "website": "https://www.ego.gov.tr", "priority": "medium" },
-    { "id": "bpt", "name": "Bahrain Public Transport", "country": "Bahrain", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "ministry-of-transportation-and-telecommunications-bahrain", "website": "https://www.transportation.gov.bh", "priority": "medium" },
-    { "id": "kpt", "name": "Kuwait Public Transport", "country": "Kuwait", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "kuwait-public-transport-company", "website": "https://www.kptc.com.kw", "priority": "medium" },
-    { "id": "ratp", "name": "RATP Group (Paris)", "country": "France", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "ratp", "website": "https://www.ratp.fr", "priority": "high" },
-    { "id": "transport_for_london", "name": "Transport for London", "country": "UK", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "transport-for-london", "website": "https://tfl.gov.uk", "priority": "high" },
-    { "id": "deutsche_bahn", "name": "Deutsche Bahn", "country": "Germany", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "deutsche-bahn", "website": "https://www.deutschebahn.com", "priority": "high" },
-    { "id": "atm_milan", "name": "ATM Milan", "country": "Italy", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "atm-milano", "website": "https://www.atm.it", "priority": "medium" },
-    { "id": "renfe", "name": "Renfe", "country": "Spain", "region": "EMEA", "subcategory": "fleet_electrification", "linkedin_company": "renfe", "website": "https://www.renfe.com", "priority": "medium" },
-    { "id": "mta_ny", "name": "MTA (New York)", "country": "USA", "region": "Americas", "subcategory": "fleet_electrification", "linkedin_company": "mta", "website": "https://new.mta.info", "priority": "high" },
-    { "id": "la_metro", "name": "LA Metro", "country": "USA", "region": "Americas", "subcategory": "fleet_electrification", "linkedin_company": "la-metro", "website": "https://www.metro.net", "priority": "high" },
-    { "id": "ttc_toronto", "name": "TTC Toronto", "country": "Canada", "region": "Americas", "subcategory": "fleet_electrification", "linkedin_company": "ttc", "website": "https://www.ttc.ca", "priority": "medium" },
-    { "id": "yellow_cab_nyc", "name": "NYC Taxi & Limousine Commission", "country": "USA", "region": "Americas", "subcategory": "fleet_electrification", "linkedin_company": "nyctaxiandlimousinecommission", "website": "https://www.nyc.gov/site/tlc", "priority": "medium" },
-    { "id": "metro_sp", "name": "Metrô São Paulo", "country": "Brazil", "region": "Americas", "subcategory": "fleet_electrification", "linkedin_company": "metro-cptm-sp", "website": "https://www.metro.sp.gov.br", "priority": "medium" },
-    { "id": "transmilenio", "name": "TransMilenio Bogotá", "country": "Colombia", "region": "Americas", "subcategory": "fleet_electrification", "linkedin_company": "transmilenio-s-a-", "website": "https://www.transmilenio.gov.co", "priority": "medium" },
-    { "id": "lta_singapore", "name": "LTA Singapore", "country": "Singapore", "region": "APAC", "subcategory": "fleet_electrification", "linkedin_company": "lta-singapore", "website": "https://www.lta.gov.sg", "priority": "high" },
-    { "id": "mtr_hong_kong", "name": "MTR Hong Kong", "country": "Hong Kong", "region": "APAC", "subcategory": "fleet_electrification", "linkedin_company": "mtr-corporation", "website": "https://www.mtr.com.hk", "priority": "high" },
-    { "id": "tokyo_metro", "name": "Tokyo Metro", "country": "Japan", "region": "APAC", "subcategory": "fleet_electrification", "linkedin_company": "tokyo-metro", "website": "https://www.tokyometro.jp", "priority": "high" },
-    { "id": "seoul_metro", "name": "Seoul Metro", "country": "South Korea", "region": "APAC", "subcategory": "fleet_electrification", "linkedin_company": "seoul-metro", "website": "http://www.seoulmetro.co.kr", "priority": "medium" },
-    { "id": "transperth", "name": "Transperth", "country": "Australia", "region": "APAC", "subcategory": "fleet_electrification", "linkedin_company": "public-transport-authority-of-western-australia", "website": "https://www.pta.wa.gov.au", "priority": "medium" },
-    { "id": "kmb_hk", "name": "Kowloon Motor Bus", "country": "Hong Kong", "region": "APAC", "subcategory": "fleet_electrification", "linkedin_company": "kmb", "website": "https://www.kmb.hk", "priority": "medium" },
-    { "id": "dp_world", "name": "DP World (Group)", "country": "UAE/Global", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "dp-world", "website": "https://www.dpworld.com", "priority": "critical", "notes": "Multiple terminals: Jebel Ali, Sokhna, Berbera, Mombasa, Maputo, Dakar, Mersin, London Gateway, Vancouver, Callao" },
-    { "id": "ad_ports", "name": "AD Ports Group", "country": "UAE", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "ad-ports-group", "website": "https://www.adportsgroup.com", "priority": "high" },
-    { "id": "king_abdullah_port", "name": "King Abdullah Port", "country": "Saudi Arabia", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "king-abdullah-port", "website": "https://kingabdullahport.com.sa", "priority": "high" },
-    { "id": "jeddah_port", "name": "Jeddah Islamic Port", "country": "Saudi Arabia", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "saudi-ports-authority", "website": "https://mawani.gov.sa", "priority": "high" },
-    { "id": "sohar_port", "name": "Sohar Port", "country": "Oman", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "sohar-port-and-freezone", "website": "https://www.soharportandfreezone.com", "priority": "medium" },
-    { "id": "hamad_port", "name": "Hamad Port Qatar", "country": "Qatar", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "qatar-ports-management-company", "website": "https://www.mwani.com.qa", "priority": "medium" },
-    { "id": "aqaba", "name": "Aqaba Port", "country": "Jordan", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "aqaba-container-terminal", "website": "https://www.act.com.jo", "priority": "medium" },
-    { "id": "mersin", "name": "Port of Mersin (MIP)", "country": "Turkey", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "mip-mersin-international-port", "website": "https://mersinport.com.tr", "priority": "high" },
-    { "id": "asyaport", "name": "Asyaport", "country": "Turkey", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "asyaport-liman", "website": "https://www.asyaport.com", "priority": "medium" },
-    { "id": "port_rotterdam", "name": "Port of Rotterdam", "country": "Netherlands", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "port-of-rotterdam", "website": "https://www.portofrotterdam.com", "priority": "critical" },
-    { "id": "port_antwerp", "name": "Port of Antwerp-Bruges", "country": "Belgium", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "port-of-antwerp-bruges", "website": "https://www.portofantwerpbruges.com", "priority": "high" },
-    { "id": "port_hamburg", "name": "Port of Hamburg", "country": "Germany", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "hamburg-port-authority", "website": "https://www.hamburg-port-authority.de", "priority": "high" },
-    { "id": "port_valencia", "name": "Port of Valencia", "country": "Spain", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "valenciaport", "website": "https://www.valenciaport.com", "priority": "medium" },
-    { "id": "port_barcelona", "name": "Port of Barcelona", "country": "Spain", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "port-de-barcelona", "website": "https://www.portdebarcelona.cat", "priority": "medium" },
-    { "id": "port_marseille", "name": "Port of Marseille Fos", "country": "France", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "marseille-fos-port", "website": "https://www.marseille-port.fr", "priority": "medium" },
-    { "id": "port_piraeus", "name": "Port of Piraeus", "country": "Greece", "region": "EMEA", "subcategory": "ports_shore_power", "linkedin_company": "piraeus-port-authority", "website": "https://www.olp.gr", "priority": "medium" },
-    { "id": "port_la", "name": "Port of Los Angeles", "country": "USA", "region": "Americas", "subcategory": "ports_shore_power", "linkedin_company": "port-of-los-angeles", "website": "https://www.portoflosangeles.org", "priority": "critical" },
-    { "id": "port_long_beach", "name": "Port of Long Beach", "country": "USA", "region": "Americas", "subcategory": "ports_shore_power", "linkedin_company": "port-of-long-beach", "website": "https://polb.com", "priority": "critical" },
-    { "id": "port_ny_nj", "name": "Port Authority of NY & NJ", "country": "USA", "region": "Americas", "subcategory": "ports_shore_power", "linkedin_company": "the-port-authority-of-new-york-new-jersey", "website": "https://www.panynj.gov", "priority": "high" },
-    { "id": "port_seattle", "name": "Port of Seattle (Northwest Seaport Alliance)", "country": "USA", "region": "Americas", "subcategory": "ports_shore_power", "linkedin_company": "port-of-seattle", "website": "https://www.portseattle.org", "priority": "high" },
-    { "id": "port_oakland", "name": "Port of Oakland", "country": "USA", "region": "Americas", "subcategory": "ports_shore_power", "linkedin_company": "port-of-oakland", "website": "https://www.portofoakland.com", "priority": "medium" },
-    { "id": "port_houston", "name": "Port Houston", "country": "USA", "region": "Americas", "subcategory": "ports_shore_power", "linkedin_company": "port-of-houston-authority", "website": "https://porthouston.com", "priority": "medium" },
-    { "id": "port_vancouver", "name": "Port of Vancouver", "country": "Canada", "region": "Americas", "subcategory": "ports_shore_power", "linkedin_company": "port-of-vancouver", "website": "https://www.portvancouver.com", "priority": "medium" },
-    { "id": "port_santos", "name": "Port of Santos", "country": "Brazil", "region": "Americas", "subcategory": "ports_shore_power", "linkedin_company": "santos-port-authority", "website": "https://www.portodesantos.com.br", "priority": "medium" },
-    { "id": "port_callao", "name": "Port of Callao", "country": "Peru", "region": "Americas", "subcategory": "ports_shore_power", "linkedin_company": "apn-peru", "website": "https://www.apn.gob.pe", "priority": "medium" },
-    { "id": "psa_singapore", "name": "PSA Singapore", "country": "Singapore", "region": "APAC", "subcategory": "ports_shore_power", "linkedin_company": "psa-international", "website": "https://www.singaporepsa.com", "priority": "critical" },
-    { "id": "shanghai_port", "name": "Shanghai International Port", "country": "China", "region": "APAC", "subcategory": "ports_shore_power", "linkedin_company": "shanghai-international-port-group", "website": "http://www.portshanghai.com.cn", "priority": "high" },
-    { "id": "ningbo_port", "name": "Ningbo-Zhoushan Port", "country": "China", "region": "APAC", "subcategory": "ports_shore_power", "linkedin_company": "ningbo-zhoushan-port-company-limited", "website": "https://www.nbport.com.cn", "priority": "medium" },
-    { "id": "port_busan", "name": "Port of Busan", "country": "South Korea", "region": "APAC", "subcategory": "ports_shore_power", "linkedin_company": "busan-port-authority", "website": "https://www.busanpa.com", "priority": "high" },
-    { "id": "port_yokohama", "name": "Port of Yokohama", "country": "Japan", "region": "APAC", "subcategory": "ports_shore_power", "linkedin_company": "city-of-yokohama", "website": "https://www.city.yokohama.lg.jp", "priority": "medium" },
-    { "id": "port_kaohsiung", "name": "Port of Kaohsiung", "country": "Taiwan", "region": "APAC", "subcategory": "ports_shore_power", "linkedin_company": "twport", "website": "https://www.twport.com.tw", "priority": "medium" },
-    { "id": "port_klang", "name": "Port Klang", "country": "Malaysia", "region": "APAC", "subcategory": "ports_shore_power", "linkedin_company": "port-klang-authority", "website": "https://www.pka.gov.my", "priority": "medium" },
-    { "id": "tanjung_pelepas", "name": "Port of Tanjung Pelepas", "country": "Malaysia", "region": "APAC", "subcategory": "ports_shore_power", "linkedin_company": "pelepasptp", "website": "https://www.ptp.com.my", "priority": "medium" },
-    { "id": "port_botany", "name": "Port Botany (NSW Ports)", "country": "Australia", "region": "APAC", "subcategory": "ports_shore_power", "linkedin_company": "nsw-ports", "website": "https://www.nswports.com.au", "priority": "medium" },
-    { "id": "port_melbourne", "name": "Port of Melbourne", "country": "Australia", "region": "APAC", "subcategory": "ports_shore_power", "linkedin_company": "port-of-melbourne", "website": "https://www.portofmelbourne.com", "priority": "medium" },
-    { "id": "adnoc", "name": "ADNOC", "country": "UAE", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "adnoc", "website": "https://www.adnoc.ae", "priority": "critical" },
-    { "id": "aramco", "name": "Saudi Aramco", "country": "Saudi Arabia", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "saudi-aramco", "website": "https://www.aramco.com", "priority": "critical" },
-    { "id": "ocp", "name": "OCP Group (Morocco)", "country": "Morocco", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "ocp-group", "website": "https://www.ocpgroup.ma", "priority": "high" },
-    { "id": "managem", "name": "Managem", "country": "Morocco", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "managem-group", "website": "https://www.managemgroup.com", "priority": "medium" },
-    { "id": "fqm", "name": "First Quantum Minerals Zambia", "country": "Zambia", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "first-quantum-minerals-ltd", "website": "https://www.first-quantum.com", "priority": "medium" },
-    { "id": "anglo_sa", "name": "Anglo American South Africa", "country": "South Africa", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "anglo-american", "website": "https://www.angloamerican.com", "priority": "high" },
-    { "id": "sibanye", "name": "Sibanye-Stillwater", "country": "South Africa", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "sibanye-stillwater", "website": "https://www.sibanyestillwater.com", "priority": "medium" },
-    { "id": "etimaden", "name": "Eti Maden Turkey", "country": "Turkey", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "eti-maden", "website": "https://www.etimaden.gov.tr", "priority": "medium" },
-    { "id": "tupras", "name": "Tüpraş", "country": "Turkey", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "tupras", "website": "https://www.tupras.com.tr", "priority": "medium" },
-    { "id": "shell", "name": "Shell", "country": "UK/Netherlands", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "shell", "website": "https://www.shell.com", "priority": "high" },
-    { "id": "bp", "name": "BP", "country": "UK", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "bp", "website": "https://www.bp.com", "priority": "high" },
-    { "id": "totalenergies", "name": "TotalEnergies", "country": "France", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "totalenergies", "website": "https://totalenergies.com", "priority": "high" },
-    { "id": "equinor", "name": "Equinor", "country": "Norway", "region": "EMEA", "subcategory": "mining_oil_gas", "linkedin_company": "equinor", "website": "https://www.equinor.com", "priority": "medium" },
-    { "id": "exxon", "name": "ExxonMobil", "country": "USA", "region": "Americas", "subcategory": "mining_oil_gas", "linkedin_company": "exxonmobil", "website": "https://corporate.exxonmobil.com", "priority": "high" },
-    { "id": "chevron", "name": "Chevron", "country": "USA", "region": "Americas", "subcategory": "mining_oil_gas", "linkedin_company": "chevron", "website": "https://www.chevron.com", "priority": "high" },
-    { "id": "freeport", "name": "Freeport-McMoRan", "country": "USA", "region": "Americas", "subcategory": "mining_oil_gas", "linkedin_company": "freeport-mcmoran-inc-", "website": "https://www.fcx.com", "priority": "medium" },
-    { "id": "barrick", "name": "Barrick Gold", "country": "Canada", "region": "Americas", "subcategory": "mining_oil_gas", "linkedin_company": "barrick-gold-corporation", "website": "https://www.barrick.com", "priority": "medium" },
-    { "id": "teck", "name": "Teck Resources", "country": "Canada", "region": "Americas", "subcategory": "mining_oil_gas", "linkedin_company": "teck-resources-limited", "website": "https://www.teck.com", "priority": "medium" },
-    { "id": "petrobras", "name": "Petrobras", "country": "Brazil", "region": "Americas", "subcategory": "mining_oil_gas", "linkedin_company": "petrobras", "website": "https://petrobras.com.br", "priority": "high" },
-    { "id": "vale", "name": "Vale", "country": "Brazil", "region": "Americas", "subcategory": "mining_oil_gas", "linkedin_company": "vale", "website": "https://www.vale.com", "priority": "high" },
-    { "id": "codelco", "name": "Codelco", "country": "Chile", "region": "Americas", "subcategory": "mining_oil_gas", "linkedin_company": "codelco", "website": "https://www.codelco.com", "priority": "high" },
-    { "id": "antofagasta", "name": "Antofagasta Plc", "country": "Chile", "region": "Americas", "subcategory": "mining_oil_gas", "linkedin_company": "antofagasta-plc", "website": "https://www.antofagasta.co.uk", "priority": "medium" },
-    { "id": "pemex", "name": "Pemex", "country": "Mexico", "region": "Americas", "subcategory": "mining_oil_gas", "linkedin_company": "pemex", "website": "https://www.pemex.com", "priority": "medium" },
-    { "id": "sinopec", "name": "Sinopec", "country": "China", "region": "APAC", "subcategory": "mining_oil_gas", "linkedin_company": "sinopec", "website": "https://www.sinopec.com", "priority": "high" },
-    { "id": "cnpc", "name": "CNPC PetroChina", "country": "China", "region": "APAC", "subcategory": "mining_oil_gas", "linkedin_company": "petrochina", "website": "https://www.petrochina.com.cn", "priority": "high" },
-    { "id": "rio_tinto", "name": "Rio Tinto", "country": "Australia/UK", "region": "APAC", "subcategory": "mining_oil_gas", "linkedin_company": "rio-tinto", "website": "https://www.riotinto.com", "priority": "critical" },
-    { "id": "bhp", "name": "BHP", "country": "Australia", "region": "APAC", "subcategory": "mining_oil_gas", "linkedin_company": "bhp", "website": "https://www.bhp.com", "priority": "critical" },
-    { "id": "fortescue", "name": "Fortescue Metals", "country": "Australia", "region": "APAC", "subcategory": "mining_oil_gas", "linkedin_company": "fortescue", "website": "https://www.fortescue.com", "priority": "high" },
-    { "id": "indonesia_petromindo", "name": "Pertamina", "country": "Indonesia", "region": "APAC", "subcategory": "mining_oil_gas", "linkedin_company": "pertamina", "website": "https://www.pertamina.com", "priority": "medium" },
-    { "id": "reliance", "name": "Reliance Industries", "country": "India", "region": "APAC", "subcategory": "mining_oil_gas", "linkedin_company": "reliance", "website": "https://www.ril.com", "priority": "high" },
-    { "id": "neom", "name": "NEOM", "country": "Saudi Arabia", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "neom", "website": "https://www.neom.com", "priority": "critical" },
-    { "id": "roshn", "name": "ROSHN", "country": "Saudi Arabia", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "roshn-group", "website": "https://www.roshn.sa", "priority": "high" },
-    { "id": "dgda", "name": "Diriyah Gate Development Authority", "country": "Saudi Arabia", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "diriyah-gate", "website": "https://www.diriyah.sa", "priority": "high" },
-    { "id": "ega", "name": "EGA Emirates Global Aluminium", "country": "UAE", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "emirates-global-aluminium", "website": "https://www.ega.ae", "priority": "medium" },
-    { "id": "borouge", "name": "Borouge", "country": "UAE", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "borouge", "website": "https://www.borouge.com", "priority": "medium" },
-    { "id": "expo_legacy", "name": "Expo City Dubai operators", "country": "UAE", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "expo-city-dubai", "website": "https://www.expocitydubai.com", "priority": "medium" },
-    { "id": "f1_saudi", "name": "F1 Saudi Arabian Grand Prix", "country": "Saudi Arabia", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "saudi-motorsport-company", "website": "https://saudiarabiangp.com", "priority": "medium" },
-    { "id": "f1_abu_dhabi", "name": "F1 Abu Dhabi Grand Prix (Yas Marina)", "country": "UAE", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "yas-marina-circuit", "website": "https://www.yasmarinacircuit.com", "priority": "medium" },
-    { "id": "dewa", "name": "DEWA", "country": "UAE", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "dubai-electricity-and-water-authority", "website": "https://www.dewa.gov.ae", "priority": "critical" },
-    { "id": "adwea", "name": "ADWEA / EWEC", "country": "UAE", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "emirates-water-and-electricity-company", "website": "https://www.ewec.ae", "priority": "high" },
-    { "id": "sewa", "name": "SEWA Sharjah", "country": "UAE", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "sewa", "website": "https://www.sewa.gov.ae", "priority": "medium" },
-    { "id": "fewa", "name": "FEWA Federal Electricity", "country": "UAE", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "federal-electricity-and-water-authority", "website": "https://www.fewa.gov.ae", "priority": "medium" },
-    { "id": "sec_saudi", "name": "Saudi Electricity Company (SEC)", "country": "Saudi Arabia", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "saudi-electricity-company", "website": "https://www.se.com.sa", "priority": "high" },
-    { "id": "tedas", "name": "TEDAŞ Turkey Electricity Distribution", "country": "Turkey", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "tedas", "website": "https://www.tedas.gov.tr", "priority": "medium" },
-    { "id": "edf", "name": "EDF (France)", "country": "France", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "edf", "website": "https://www.edf.fr", "priority": "high" },
-    { "id": "national_grid_uk", "name": "National Grid UK", "country": "UK", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "national-grid", "website": "https://www.nationalgrid.com", "priority": "high" },
-    { "id": "tennet", "name": "TenneT", "country": "Netherlands/Germany", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "tennet", "website": "https://www.tennet.eu", "priority": "high" },
-    { "id": "rwe", "name": "RWE", "country": "Germany", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "rwe", "website": "https://www.rwe.com", "priority": "medium" },
-    { "id": "vattenfall", "name": "Vattenfall", "country": "Sweden", "region": "EMEA", "subcategory": "construction_events_utilities", "linkedin_company": "vattenfall", "website": "https://www.vattenfall.com", "priority": "medium" },
-    { "id": "us_navy_shore_power", "name": "US Navy Shore Power (NAVFAC)", "country": "USA", "region": "Americas", "subcategory": "construction_events_utilities", "linkedin_company": "naval-facilities-engineering-command", "website": "https://www.navfac.navy.mil", "priority": "high" },
-    { "id": "californiaiso", "name": "California ISO (CAISO)", "country": "USA", "region": "Americas", "subcategory": "construction_events_utilities", "linkedin_company": "california-iso", "website": "https://www.caiso.com", "priority": "high" },
-    { "id": "ercot", "name": "ERCOT (Texas)", "country": "USA", "region": "Americas", "subcategory": "construction_events_utilities", "linkedin_company": "ercot", "website": "https://www.ercot.com", "priority": "high" },
-    { "id": "pge", "name": "PG&E (Pacific Gas & Electric)", "country": "USA", "region": "Americas", "subcategory": "construction_events_utilities", "linkedin_company": "pacific-gas-and-electric-company", "website": "https://www.pge.com", "priority": "high" },
-    { "id": "sce", "name": "Southern California Edison", "country": "USA", "region": "Americas", "subcategory": "construction_events_utilities", "linkedin_company": "southern-california-edison", "website": "https://www.sce.com", "priority": "high" },
-    { "id": "hydro_quebec", "name": "Hydro-Québec", "country": "Canada", "region": "Americas", "subcategory": "construction_events_utilities", "linkedin_company": "hydro-quebec", "website": "https://www.hydroquebec.com", "priority": "medium" },
-    { "id": "eletrobras", "name": "Eletrobras", "country": "Brazil", "region": "Americas", "subcategory": "construction_events_utilities", "linkedin_company": "eletrobras", "website": "https://www.eletrobras.com", "priority": "medium" },
-    { "id": "cfe_mexico", "name": "CFE (Mexico)", "country": "Mexico", "region": "Americas", "subcategory": "construction_events_utilities", "linkedin_company": "cfemx", "website": "https://www.cfe.mx", "priority": "medium" },
-    { "id": "ena_chile", "name": "Empresas Eléctricas Chile", "country": "Chile", "region": "Americas", "subcategory": "construction_events_utilities", "linkedin_company": "empresa-electrica-chile", "website": "https://www.electricas.cl", "priority": "medium" },
-    { "id": "state_grid", "name": "State Grid Corporation of China", "country": "China", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "state-grid-corporation-of-china", "website": "http://www.sgcc.com.cn", "priority": "high" },
-    { "id": "tepco", "name": "TEPCO Japan", "country": "Japan", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "tokyo-electric-power-company", "website": "https://www.tepco.co.jp", "priority": "medium" },
-    { "id": "kepco_korea", "name": "KEPCO Korea", "country": "South Korea", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "kepco", "website": "https://home.kepco.co.kr", "priority": "medium" },
-    { "id": "sp_group", "name": "SP Group Singapore", "country": "Singapore", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "spgroup", "website": "https://www.spgroup.com.sg", "priority": "high" },
-    { "id": "tnb", "name": "Tenaga Nasional Berhad (TNB)", "country": "Malaysia", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "tenaga-nasional-berhad", "website": "https://www.tnb.com.my", "priority": "medium" },
-    { "id": "pln", "name": "PLN Indonesia", "country": "Indonesia", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "pln", "website": "https://web.pln.co.id", "priority": "medium" },
-    { "id": "egat", "name": "EGAT Thailand", "country": "Thailand", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "egat-international", "website": "https://www.egat.co.th", "priority": "medium" },
-    { "id": "agl_australia", "name": "AGL Energy Australia", "country": "Australia", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "agl-energy", "website": "https://www.agl.com.au", "priority": "high" },
-    { "id": "origin_energy", "name": "Origin Energy", "country": "Australia", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "origin-energy", "website": "https://www.originenergy.com.au", "priority": "medium" },
-    { "id": "ntpc", "name": "NTPC India", "country": "India", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "ntpc-limited", "website": "https://www.ntpc.co.in", "priority": "high" },
-    { "id": "adani_green", "name": "Adani Green Energy", "country": "India", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "adani-green-energy", "website": "https://www.adanigreenenergy.com", "priority": "high" },
-    { "id": "tata_power", "name": "Tata Power", "country": "India", "region": "APAC", "subcategory": "construction_events_utilities", "linkedin_company": "tata-power", "website": "https://www.tatapower.com", "priority": "medium" }
+    {
+      "id": "deutsche_bahn",
+      "name": "Deutsche Bahn",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "deutsche-bahn",
+      "website": "https://www.deutschebahn.com",
+      "priority": "high"
+    },
+    {
+      "id": "mvg_munich",
+      "name": "MVG Munich",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "mvg-muenchner-verkehrsgesellschaft",
+      "website": "https://www.mvg.de",
+      "priority": "medium"
+    },
+    {
+      "id": "bvg_berlin",
+      "name": "BVG Berlin",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "berliner-verkehrsbetriebe",
+      "website": "https://www.bvg.de",
+      "priority": "high"
+    },
+    {
+      "id": "hochbahn_hamburg",
+      "name": "Hamburger Hochbahn",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "hamburger-hochbahn-ag",
+      "website": "https://www.hochbahn.de",
+      "priority": "medium"
+    },
+    {
+      "id": "rhein_neckar_verkehr",
+      "name": "Rhein-Neckar-Verkehr (RNV)",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "rhein-neckar-verkehr-gmbh",
+      "website": "https://www.rnv-online.de",
+      "priority": "low"
+    },
+    {
+      "id": "port_hamburg",
+      "name": "Port of Hamburg (HHLA)",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "hhla",
+      "website": "https://www.hhla.de",
+      "priority": "critical"
+    },
+    {
+      "id": "port_bremerhaven",
+      "name": "Bremenports / Bremerhaven",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "bremenports-gmbh-co-kg",
+      "website": "https://www.bremenports.de",
+      "priority": "high"
+    },
+    {
+      "id": "duisport",
+      "name": "Duisport (inland)",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "duisport",
+      "website": "https://www.duisport.de",
+      "priority": "high"
+    },
+    {
+      "id": "port_wilhelmshaven",
+      "name": "JadeWeserPort Wilhelmshaven",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "jadeweserport-marketing",
+      "website": "https://www.jadeweserport.de",
+      "priority": "medium"
+    },
+    {
+      "id": "rwe",
+      "name": "RWE",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "rwe",
+      "website": "https://www.rwe.com",
+      "priority": "high"
+    },
+    {
+      "id": "enbw",
+      "name": "EnBW Energie Baden-Württemberg",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "enbw-energie-baden-w-rttemberg-ag",
+      "website": "https://www.enbw.com",
+      "priority": "high"
+    },
+    {
+      "id": "eon",
+      "name": "E.ON",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "e_on",
+      "website": "https://www.eon.com",
+      "priority": "high"
+    },
+    {
+      "id": "tennet_de",
+      "name": "TenneT (DE/NL)",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "tennet",
+      "website": "https://www.tennet.eu",
+      "priority": "high"
+    },
+    {
+      "id": "50hertz",
+      "name": "50Hertz Transmission",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "50hertz",
+      "website": "https://www.50hertz.com",
+      "priority": "medium"
+    },
+    {
+      "id": "thyssenkrupp",
+      "name": "thyssenkrupp",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "thyssenkrupp",
+      "website": "https://www.thyssenkrupp.com",
+      "priority": "medium"
+    },
+    {
+      "id": "salzgitter_ag",
+      "name": "Salzgitter AG",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "salzgitter-ag",
+      "website": "https://www.salzgitter-ag.com",
+      "priority": "low"
+    },
+    {
+      "id": "frankfurt_airport",
+      "name": "Fraport (Frankfurt Airport)",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "fraport-ag",
+      "website": "https://www.fraport.com",
+      "priority": "medium"
+    },
+    {
+      "id": "iaa_munich",
+      "name": "IAA Mobility Munich",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "vda-german-association-of-the-automotive-industry",
+      "website": "https://www.iaa.de",
+      "priority": "low"
+    },
+    {
+      "id": "transport_for_london",
+      "name": "Transport for London (TfL)",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "transport-for-london",
+      "website": "https://tfl.gov.uk",
+      "priority": "critical"
+    },
+    {
+      "id": "firstgroup",
+      "name": "FirstGroup",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "firstgroup-plc",
+      "website": "https://www.firstgroupplc.com",
+      "priority": "high"
+    },
+    {
+      "id": "stagecoach",
+      "name": "Stagecoach Group",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "stagecoachgroup",
+      "website": "https://www.stagecoachgroup.com",
+      "priority": "high"
+    },
+    {
+      "id": "arriva_uk",
+      "name": "Arriva Group",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "arriva-group",
+      "website": "https://www.arriva.co.uk",
+      "priority": "medium"
+    },
+    {
+      "id": "national_express",
+      "name": "National Express",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "national-express-group-plc",
+      "website": "https://www.nationalexpressgroup.com",
+      "priority": "medium"
+    },
+    {
+      "id": "network_rail",
+      "name": "Network Rail",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "network-rail",
+      "website": "https://www.networkrail.co.uk",
+      "priority": "medium"
+    },
+    {
+      "id": "port_felixstowe",
+      "name": "Port of Felixstowe",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-felixstowe",
+      "website": "https://www.portoffelixstowe.co.uk",
+      "priority": "high"
+    },
+    {
+      "id": "port_southampton",
+      "name": "Port of Southampton (ABP)",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "associated-british-ports",
+      "website": "https://www.abports.co.uk",
+      "priority": "high"
+    },
+    {
+      "id": "london_gateway",
+      "name": "London Gateway (DP World)",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "dp-world-london-gateway",
+      "website": "https://www.londongateway.com",
+      "priority": "high"
+    },
+    {
+      "id": "port_liverpool",
+      "name": "Port of Liverpool (Peel Ports)",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "peel-ports-group",
+      "website": "https://www.peelports.com",
+      "priority": "medium"
+    },
+    {
+      "id": "port_dover",
+      "name": "Port of Dover",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-dover",
+      "website": "https://www.doverport.co.uk",
+      "priority": "medium"
+    },
+    {
+      "id": "national_grid_uk",
+      "name": "National Grid UK",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "national-grid",
+      "website": "https://www.nationalgrid.com",
+      "priority": "high"
+    },
+    {
+      "id": "sse",
+      "name": "SSE plc",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "sse",
+      "website": "https://www.sse.com",
+      "priority": "high"
+    },
+    {
+      "id": "centrica",
+      "name": "Centrica",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "centrica",
+      "website": "https://www.centrica.com",
+      "priority": "medium"
+    },
+    {
+      "id": "shell",
+      "name": "Shell",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "shell",
+      "website": "https://www.shell.com",
+      "priority": "high"
+    },
+    {
+      "id": "bp",
+      "name": "BP",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "bp",
+      "website": "https://www.bp.com",
+      "priority": "high"
+    },
+    {
+      "id": "heathrow",
+      "name": "Heathrow Airport",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "heathrow-airport",
+      "website": "https://www.heathrow.com",
+      "priority": "medium"
+    },
+    {
+      "id": "hs2",
+      "name": "HS2 Ltd",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "hs2-ltd",
+      "website": "https://www.hs2.org.uk",
+      "priority": "medium"
+    },
+    {
+      "id": "silverstone",
+      "name": "Silverstone Circuit (F1 UK)",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "silverstone-circuit",
+      "website": "https://www.silverstone.co.uk",
+      "priority": "low"
+    },
+    {
+      "id": "ratp",
+      "name": "RATP Group (Paris)",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "ratp",
+      "website": "https://www.ratp.fr",
+      "priority": "critical"
+    },
+    {
+      "id": "sncf",
+      "name": "SNCF",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "sncf",
+      "website": "https://www.sncf.com",
+      "priority": "high"
+    },
+    {
+      "id": "keolis",
+      "name": "Keolis",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "keolis",
+      "website": "https://www.keolis.com",
+      "priority": "high"
+    },
+    {
+      "id": "transdev",
+      "name": "Transdev",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "transdev",
+      "website": "https://www.transdev.com",
+      "priority": "high"
+    },
+    {
+      "id": "tcl_lyon",
+      "name": "TCL Lyon",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "sytral",
+      "website": "https://www.tcl.fr",
+      "priority": "medium"
+    },
+    {
+      "id": "port_marseille",
+      "name": "Port of Marseille Fos",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "marseille-fos-port",
+      "website": "https://www.marseille-port.fr",
+      "priority": "high"
+    },
+    {
+      "id": "port_le_havre",
+      "name": "Port of Le Havre (HAROPA)",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "haropa-port",
+      "website": "https://www.haropaport.com",
+      "priority": "high"
+    },
+    {
+      "id": "port_dunkirk",
+      "name": "Port of Dunkirk",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "dunkerque-port",
+      "website": "https://www.dunkerque-port.fr",
+      "priority": "medium"
+    },
+    {
+      "id": "port_calais",
+      "name": "Port of Calais",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-boulogne-calais",
+      "website": "https://www.portboulognecalais.com",
+      "priority": "low"
+    },
+    {
+      "id": "edf",
+      "name": "EDF Group",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "edf",
+      "website": "https://www.edf.fr",
+      "priority": "high"
+    },
+    {
+      "id": "totalenergies",
+      "name": "TotalEnergies",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "totalenergies",
+      "website": "https://totalenergies.com",
+      "priority": "high"
+    },
+    {
+      "id": "rte_france",
+      "name": "RTE France",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "rte-r%C3%A9seau-de-transport-d-%C3%A9lectricit%C3%A9",
+      "website": "https://www.rte-france.com",
+      "priority": "medium"
+    },
+    {
+      "id": "alstom",
+      "name": "Alstom",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "alstom",
+      "website": "https://www.alstom.com",
+      "priority": "medium"
+    },
+    {
+      "id": "aeroports_paris",
+      "name": "Aéroports de Paris (ADP)",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "a-roports-de-paris",
+      "website": "https://www.parisaeroport.fr",
+      "priority": "medium"
+    },
+    {
+      "id": "f1_france",
+      "name": "F1 French Grand Prix (Paul Ricard)",
+      "country": "France",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "circuit-paul-ricard",
+      "website": "https://www.circuitpaulricard.com",
+      "priority": "low"
+    },
+    {
+      "id": "gvb_amsterdam",
+      "name": "GVB Amsterdam",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "gvb",
+      "website": "https://www.gvb.nl",
+      "priority": "high"
+    },
+    {
+      "id": "ret_rotterdam",
+      "name": "RET Rotterdam",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "ret-nv",
+      "website": "https://www.ret.nl",
+      "priority": "high"
+    },
+    {
+      "id": "htm_hague",
+      "name": "HTM The Hague",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "htm-personenvervoer-nv",
+      "website": "https://www.htm.nl",
+      "priority": "medium"
+    },
+    {
+      "id": "ns_nederlandse_spoorwegen",
+      "name": "NS (Dutch Railways)",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "nederlandse-spoorwegen-ns",
+      "website": "https://www.ns.nl",
+      "priority": "medium"
+    },
+    {
+      "id": "port_rotterdam",
+      "name": "Port of Rotterdam",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-rotterdam",
+      "website": "https://www.portofrotterdam.com",
+      "priority": "critical"
+    },
+    {
+      "id": "port_amsterdam",
+      "name": "Port of Amsterdam",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-amsterdam",
+      "website": "https://www.portofamsterdam.com",
+      "priority": "high"
+    },
+    {
+      "id": "port_moerdijk",
+      "name": "Port of Moerdijk",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-moerdijk",
+      "website": "https://www.portofmoerdijk.nl",
+      "priority": "high"
+    },
+    {
+      "id": "port_ijmuiden",
+      "name": "Port of IJmuiden / Tata Steel",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "tata-steel",
+      "website": "https://www.tatasteeleurope.com",
+      "priority": "medium"
+    },
+    {
+      "id": "tennet_nl",
+      "name": "TenneT TSO Netherlands",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "tennet",
+      "website": "https://www.tennet.eu",
+      "priority": "high"
+    },
+    {
+      "id": "shell_nl",
+      "name": "Shell Netherlands",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "shell",
+      "website": "https://www.shell.nl",
+      "priority": "high"
+    },
+    {
+      "id": "stedin",
+      "name": "Stedin",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "stedin",
+      "website": "https://www.stedin.net",
+      "priority": "medium"
+    },
+    {
+      "id": "eneco",
+      "name": "Eneco",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "eneco",
+      "website": "https://www.eneco.com",
+      "priority": "medium"
+    },
+    {
+      "id": "schiphol",
+      "name": "Schiphol Group",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "royal-schiphol-group",
+      "website": "https://www.schiphol.nl",
+      "priority": "medium"
+    },
+    {
+      "id": "f1_zandvoort",
+      "name": "F1 Dutch GP (Zandvoort)",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "circuit-zandvoort",
+      "website": "https://www.circuitzandvoort.nl",
+      "priority": "low"
+    },
+    {
+      "id": "renfe",
+      "name": "Renfe",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "renfe",
+      "website": "https://www.renfe.com",
+      "priority": "high"
+    },
+    {
+      "id": "emt_madrid",
+      "name": "EMT Madrid",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "emt-madrid",
+      "website": "https://www.emtmadrid.es",
+      "priority": "high"
+    },
+    {
+      "id": "tmb_barcelona",
+      "name": "TMB Barcelona",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "transports-metropolitans-de-barcelona",
+      "website": "https://www.tmb.cat",
+      "priority": "high"
+    },
+    {
+      "id": "metro_bilbao",
+      "name": "Metro Bilbao",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "metro-bilbao",
+      "website": "https://www.metrobilbao.eus",
+      "priority": "medium"
+    },
+    {
+      "id": "port_valencia",
+      "name": "Port of Valencia",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "valenciaport",
+      "website": "https://www.valenciaport.com",
+      "priority": "high"
+    },
+    {
+      "id": "port_barcelona",
+      "name": "Port of Barcelona",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-de-barcelona",
+      "website": "https://www.portdebarcelona.cat",
+      "priority": "high"
+    },
+    {
+      "id": "port_algeciras",
+      "name": "Port of Algeciras",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "apba",
+      "website": "https://www.apba.es",
+      "priority": "high"
+    },
+    {
+      "id": "port_bilbao",
+      "name": "Port of Bilbao",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-bilbao",
+      "website": "https://www.bilbaoport.eus",
+      "priority": "medium"
+    },
+    {
+      "id": "endesa",
+      "name": "Endesa",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "endesa",
+      "website": "https://www.endesa.com",
+      "priority": "high"
+    },
+    {
+      "id": "naturgy",
+      "name": "Naturgy",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "naturgy",
+      "website": "https://www.naturgy.com",
+      "priority": "medium"
+    },
+    {
+      "id": "acciona_energia",
+      "name": "Acciona Energía",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "acciona-energia",
+      "website": "https://www.acciona-energia.com",
+      "priority": "medium"
+    },
+    {
+      "id": "red_electrica",
+      "name": "Red Eléctrica Española",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "red-electrica-de-espana",
+      "website": "https://www.ree.es",
+      "priority": "medium"
+    },
+    {
+      "id": "aena",
+      "name": "Aena (Spanish Airports)",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "aena",
+      "website": "https://www.aena.es",
+      "priority": "medium"
+    },
+    {
+      "id": "f1_spain",
+      "name": "F1 Spanish GP (Circuit Barcelona)",
+      "country": "Spain",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "circuit-de-barcelona-catalunya",
+      "website": "https://www.circuitcat.com",
+      "priority": "low"
+    },
+    {
+      "id": "atm_milan",
+      "name": "ATM Milan",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "atm-milano",
+      "website": "https://www.atm.it",
+      "priority": "high"
+    },
+    {
+      "id": "atac_rome",
+      "name": "ATAC Rome",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "atac",
+      "website": "https://www.atac.roma.it",
+      "priority": "medium"
+    },
+    {
+      "id": "anm_naples",
+      "name": "ANM Naples",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "anm-spa",
+      "website": "https://www.anm.it",
+      "priority": "low"
+    },
+    {
+      "id": "trenitalia",
+      "name": "Trenitalia",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "trenitalia",
+      "website": "https://www.trenitalia.com",
+      "priority": "medium"
+    },
+    {
+      "id": "port_genoa",
+      "name": "Port of Genoa",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-genoa",
+      "website": "https://www.portsofgenoa.com",
+      "priority": "high"
+    },
+    {
+      "id": "port_la_spezia",
+      "name": "Port of La Spezia",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "autorita-portuale-della-spezia",
+      "website": "https://www.adsplaspezia.it",
+      "priority": "medium"
+    },
+    {
+      "id": "port_trieste",
+      "name": "Port of Trieste",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "porto-di-trieste",
+      "website": "https://www.porto.trieste.it",
+      "priority": "medium"
+    },
+    {
+      "id": "port_civitavecchia",
+      "name": "Port of Civitavecchia",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "autorita-di-sistema-portuale-del-mar-tirreno-centro-settentrionale",
+      "website": "https://www.portidiroma.it",
+      "priority": "low"
+    },
+    {
+      "id": "enel",
+      "name": "Enel",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "enel",
+      "website": "https://www.enel.com",
+      "priority": "high"
+    },
+    {
+      "id": "eni",
+      "name": "Eni",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "eni",
+      "website": "https://www.eni.com",
+      "priority": "high"
+    },
+    {
+      "id": "terna",
+      "name": "Terna",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "terna",
+      "website": "https://www.terna.it",
+      "priority": "medium"
+    },
+    {
+      "id": "f1_monza",
+      "name": "F1 Italian GP (Monza)",
+      "country": "Italy",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "autodromo-nazionale-monza",
+      "website": "https://www.monzanet.it",
+      "priority": "low"
+    },
+    {
+      "id": "stib_brussels",
+      "name": "STIB Brussels",
+      "country": "Belgium",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "stib",
+      "website": "https://www.stib-mivb.be",
+      "priority": "high"
+    },
+    {
+      "id": "delijn",
+      "name": "De Lijn (Flanders)",
+      "country": "Belgium",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "de-lijn",
+      "website": "https://www.delijn.be",
+      "priority": "medium"
+    },
+    {
+      "id": "tec_wallonia",
+      "name": "TEC (Wallonia)",
+      "country": "Belgium",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "opt-tec",
+      "website": "https://www.letec.be",
+      "priority": "low"
+    },
+    {
+      "id": "port_antwerp",
+      "name": "Port of Antwerp-Bruges",
+      "country": "Belgium",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-antwerp-bruges",
+      "website": "https://www.portofantwerpbruges.com",
+      "priority": "critical"
+    },
+    {
+      "id": "port_zeebrugge",
+      "name": "Port of Zeebrugge",
+      "country": "Belgium",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-antwerp-bruges",
+      "website": "https://www.portofantwerpbruges.com",
+      "priority": "medium"
+    },
+    {
+      "id": "port_ghent",
+      "name": "North Sea Port (Ghent)",
+      "country": "Belgium",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "north-sea-port",
+      "website": "https://www.northseaport.com",
+      "priority": "medium"
+    },
+    {
+      "id": "engie_be",
+      "name": "Engie Belgium / Electrabel",
+      "country": "Belgium",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "engie-belgium",
+      "website": "https://corporate.engie-electrabel.be",
+      "priority": "medium"
+    },
+    {
+      "id": "fluxys",
+      "name": "Fluxys",
+      "country": "Belgium",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "fluxys",
+      "website": "https://www.fluxys.com",
+      "priority": "medium"
+    },
+    {
+      "id": "f1_spa",
+      "name": "F1 Belgian GP (Spa-Francorchamps)",
+      "country": "Belgium",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "circuit-de-spa-francorchamps",
+      "website": "https://www.spa-francorchamps.be",
+      "priority": "low"
+    },
+    {
+      "id": "ruter_oslo",
+      "name": "Ruter Oslo",
+      "country": "Norway",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "ruter-as",
+      "website": "https://ruter.no",
+      "priority": "high"
+    },
+    {
+      "id": "nobina",
+      "name": "Nobina",
+      "country": "Sweden",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "nobina-ab",
+      "website": "https://www.nobina.com",
+      "priority": "medium"
+    },
+    {
+      "id": "mtr_stockholm",
+      "name": "MTR Nordic (Stockholm)",
+      "country": "Sweden",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "mtr-nordic",
+      "website": "https://www.mtrnordic.com",
+      "priority": "medium"
+    },
+    {
+      "id": "movia_copenhagen",
+      "name": "Movia (Copenhagen)",
+      "country": "Denmark",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "movia",
+      "website": "https://www.moviatrafik.dk",
+      "priority": "medium"
+    },
+    {
+      "id": "hsl_helsinki",
+      "name": "HSL Helsinki",
+      "country": "Finland",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "hsl-helsinki-region-transport",
+      "website": "https://www.hsl.fi",
+      "priority": "medium"
+    },
+    {
+      "id": "port_gothenburg",
+      "name": "Port of Gothenburg",
+      "country": "Sweden",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-gothenburg",
+      "website": "https://www.portofgothenburg.com",
+      "priority": "high"
+    },
+    {
+      "id": "port_stockholm",
+      "name": "Ports of Stockholm",
+      "country": "Sweden",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "ports-of-stockholm",
+      "website": "https://www.portsofstockholm.com",
+      "priority": "medium"
+    },
+    {
+      "id": "port_oslo",
+      "name": "Port of Oslo",
+      "country": "Norway",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "oslo-havn-kf",
+      "website": "https://www.oslohavn.no",
+      "priority": "medium"
+    },
+    {
+      "id": "port_helsinki",
+      "name": "Port of Helsinki",
+      "country": "Finland",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-helsinki",
+      "website": "https://www.portofhelsinki.fi",
+      "priority": "medium"
+    },
+    {
+      "id": "port_copenhagen",
+      "name": "CMP (Copenhagen-Malmö Port)",
+      "country": "Denmark",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "copenhagen-malmo-port",
+      "website": "https://www.cmport.com",
+      "priority": "medium"
+    },
+    {
+      "id": "vattenfall",
+      "name": "Vattenfall",
+      "country": "Sweden",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "vattenfall",
+      "website": "https://www.vattenfall.com",
+      "priority": "high"
+    },
+    {
+      "id": "fortum",
+      "name": "Fortum",
+      "country": "Finland",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "fortum",
+      "website": "https://www.fortum.com",
+      "priority": "high"
+    },
+    {
+      "id": "equinor",
+      "name": "Equinor",
+      "country": "Norway",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "equinor",
+      "website": "https://www.equinor.com",
+      "priority": "high"
+    },
+    {
+      "id": "statkraft",
+      "name": "Statkraft",
+      "country": "Norway",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "statkraft",
+      "website": "https://www.statkraft.com",
+      "priority": "medium"
+    },
+    {
+      "id": "dsv",
+      "name": "DSV (logistics)",
+      "country": "Denmark",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "dsv",
+      "website": "https://www.dsv.com",
+      "priority": "medium"
+    },
+    {
+      "id": "orsted",
+      "name": "Ørsted",
+      "country": "Denmark",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "%C3%B8rsted",
+      "website": "https://orsted.com",
+      "priority": "high"
+    },
+    {
+      "id": "mza_warsaw",
+      "name": "MZA Warsaw",
+      "country": "Poland",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "miejskie-zaklady-autobusowe",
+      "website": "https://www.mza.waw.pl",
+      "priority": "medium"
+    },
+    {
+      "id": "mpk_krakow",
+      "name": "MPK Kraków",
+      "country": "Poland",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "mpk-krakow",
+      "website": "https://www.mpk.krakow.pl",
+      "priority": "medium"
+    },
+    {
+      "id": "pkp",
+      "name": "PKP (Polish Railways)",
+      "country": "Poland",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "pkp-s-a-",
+      "website": "https://www.pkp.pl",
+      "priority": "medium"
+    },
+    {
+      "id": "port_gdansk",
+      "name": "Port of Gdansk",
+      "country": "Poland",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-gdansk-authority",
+      "website": "https://www.portgdansk.pl",
+      "priority": "high"
+    },
+    {
+      "id": "port_gdynia",
+      "name": "Port of Gdynia",
+      "country": "Poland",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-gdynia-authority-sa",
+      "website": "https://www.port.gdynia.pl",
+      "priority": "medium"
+    },
+    {
+      "id": "pge",
+      "name": "PGE Polska Grupa Energetyczna",
+      "country": "Poland",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "pge-polska-grupa-energetyczna",
+      "website": "https://www.gkpge.pl",
+      "priority": "medium"
+    },
+    {
+      "id": "pkn_orlen",
+      "name": "PKN Orlen",
+      "country": "Poland",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "pkn-orlen",
+      "website": "https://www.orlen.pl",
+      "priority": "medium"
+    },
+    {
+      "id": "kghm",
+      "name": "KGHM Polska Miedź",
+      "country": "Poland",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "kghm",
+      "website": "https://kghm.com",
+      "priority": "medium"
+    },
+    {
+      "id": "wiener_linien",
+      "name": "Wiener Linien",
+      "country": "Austria",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "wienerlinien",
+      "website": "https://www.wienerlinien.at",
+      "priority": "medium"
+    },
+    {
+      "id": "oebb",
+      "name": "ÖBB (Austrian Federal Railways)",
+      "country": "Austria",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "-bb-holding-ag",
+      "website": "https://www.oebb.at",
+      "priority": "medium"
+    },
+    {
+      "id": "sbb_swiss",
+      "name": "SBB CFF FFS (Swiss Federal Railways)",
+      "country": "Switzerland",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "sbb-cff-ffs",
+      "website": "https://www.sbb.ch",
+      "priority": "medium"
+    },
+    {
+      "id": "verbund",
+      "name": "Verbund AG",
+      "country": "Austria",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "verbund-ag",
+      "website": "https://www.verbund.com",
+      "priority": "medium"
+    },
+    {
+      "id": "omv",
+      "name": "OMV Group",
+      "country": "Austria",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "omv",
+      "website": "https://www.omv.com",
+      "priority": "medium"
+    },
+    {
+      "id": "axpo",
+      "name": "Axpo Group",
+      "country": "Switzerland",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "axpo",
+      "website": "https://www.axpo.com",
+      "priority": "medium"
+    },
+    {
+      "id": "bkw",
+      "name": "BKW Energie",
+      "country": "Switzerland",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "bkw",
+      "website": "https://www.bkw.ch",
+      "priority": "low"
+    },
+    {
+      "id": "port_piraeus",
+      "name": "Port of Piraeus (COSCO)",
+      "country": "Greece",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "piraeus-port-authority",
+      "website": "https://www.olp.gr",
+      "priority": "high"
+    },
+    {
+      "id": "port_thessaloniki",
+      "name": "Port of Thessaloniki",
+      "country": "Greece",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "thessaloniki-port-authority-s-a-",
+      "website": "https://www.thpa.gr",
+      "priority": "medium"
+    },
+    {
+      "id": "ppc_greece",
+      "name": "PPC (Public Power Corporation)",
+      "country": "Greece",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "public-power-corporation",
+      "website": "https://www.dei.gr",
+      "priority": "medium"
+    },
+    {
+      "id": "port_sines",
+      "name": "Port of Sines",
+      "country": "Portugal",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "porto-de-sines",
+      "website": "https://www.portodesines.pt",
+      "priority": "medium"
+    },
+    {
+      "id": "port_leixoes",
+      "name": "Port of Leixões",
+      "country": "Portugal",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "apdl",
+      "website": "https://www.apdl.pt",
+      "priority": "low"
+    },
+    {
+      "id": "edp",
+      "name": "EDP (Energias de Portugal)",
+      "country": "Portugal",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "edp",
+      "website": "https://www.edp.com",
+      "priority": "medium"
+    },
+    {
+      "id": "galp",
+      "name": "Galp Energia",
+      "country": "Portugal",
+      "region": "Europe",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "galp",
+      "website": "https://www.galp.com",
+      "priority": "low"
+    },
+    {
+      "id": "dublin_bus",
+      "name": "Dublin Bus",
+      "country": "Ireland",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "dublin-bus",
+      "website": "https://www.dublinbus.ie",
+      "priority": "low"
+    },
+    {
+      "id": "port_dublin",
+      "name": "Dublin Port",
+      "country": "Ireland",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "dublin-port-company",
+      "website": "https://www.dublinport.ie",
+      "priority": "low"
+    },
+    {
+      "id": "esb_ireland",
+      "name": "ESB Group Ireland",
+      "country": "Ireland",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "electricity-supply-board",
+      "website": "https://www.esb.ie",
+      "priority": "medium"
+    },
+    {
+      "id": "dpp_prague",
+      "name": "DPP (Prague Transit)",
+      "country": "Czech Republic",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "dopravni-podnik-hl-m-prahy",
+      "website": "https://www.dpp.cz",
+      "priority": "low"
+    },
+    {
+      "id": "bkv_budapest",
+      "name": "BKV (Budapest Transit)",
+      "country": "Hungary",
+      "region": "Europe",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "bkv-zrt-",
+      "website": "https://www.bkv.hu",
+      "priority": "low"
+    },
+    {
+      "id": "cez",
+      "name": "ČEZ Group",
+      "country": "Czech Republic",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "%C4%8Dez-a-s-",
+      "website": "https://www.cez.cz",
+      "priority": "medium"
+    },
+    {
+      "id": "mvm",
+      "name": "MVM Hungarian Electrical Works",
+      "country": "Hungary",
+      "region": "Europe",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "mvm-zrt-",
+      "website": "https://www.mvm.hu",
+      "priority": "low"
+    },
+    {
+      "id": "port_constanta",
+      "name": "Port of Constanța",
+      "country": "Romania",
+      "region": "Europe",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "compania-nationala-administratia-porturilor-maritime-sa-constanta",
+      "website": "https://www.portofconstantza.com",
+      "priority": "medium"
+    },
+    {
+      "id": "dtc",
+      "name": "Dubai Taxi Corporation",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "dubai-taxi-corporation",
+      "website": "https://www.dubaitaxi.ae",
+      "priority": "critical",
+      "notes": "Active MPSS opportunity"
+    },
+    {
+      "id": "rta_dubai",
+      "name": "RTA Dubai",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "roads-and-transport-authority",
+      "website": "https://www.rta.ae",
+      "priority": "high"
+    },
+    {
+      "id": "karwa",
+      "name": "Karwa (Mowasalat)",
+      "country": "Qatar",
+      "region": "MEA_T",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "mowasalat",
+      "website": "https://www.mowasalat.com",
+      "priority": "high"
+    },
+    {
+      "id": "ad_mobility",
+      "name": "Abu Dhabi Mobility",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "abudhabimobility",
+      "website": "https://www.itc.gov.ae",
+      "priority": "high"
+    },
+    {
+      "id": "saptco",
+      "name": "SAPTCO Saudi Public Transport",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "saptco",
+      "website": "https://www.saptco.com.sa",
+      "priority": "high"
+    },
+    {
+      "id": "iett",
+      "name": "IETT Istanbul Transport",
+      "country": "Turkey",
+      "region": "MEA_T",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "iett",
+      "website": "https://www.iett.istanbul",
+      "priority": "high"
+    },
+    {
+      "id": "ego",
+      "name": "EGO Ankara Transport",
+      "country": "Turkey",
+      "region": "MEA_T",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "ego-genel-mudurlugu",
+      "website": "https://www.ego.gov.tr",
+      "priority": "medium"
+    },
+    {
+      "id": "bpt",
+      "name": "Bahrain Public Transport",
+      "country": "Bahrain",
+      "region": "MEA_T",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "ministry-of-transportation-and-telecommunications-bahrain",
+      "website": "https://www.transportation.gov.bh",
+      "priority": "medium"
+    },
+    {
+      "id": "kpt",
+      "name": "Kuwait Public Transport",
+      "country": "Kuwait",
+      "region": "MEA_T",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "kuwait-public-transport-company",
+      "website": "https://www.kptc.com.kw",
+      "priority": "medium"
+    },
+    {
+      "id": "dp_world",
+      "name": "DP World (Group)",
+      "country": "UAE/Global",
+      "region": "MEA_T",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "dp-world",
+      "website": "https://www.dpworld.com",
+      "priority": "critical",
+      "notes": "Multiple terminals: Jebel Ali, Sokhna, Berbera, Mombasa, Maputo, Dakar, Mersin, London Gateway, Vancouver, Callao"
+    },
+    {
+      "id": "ad_ports",
+      "name": "AD Ports Group",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "ad-ports-group",
+      "website": "https://www.adportsgroup.com",
+      "priority": "high"
+    },
+    {
+      "id": "king_abdullah_port",
+      "name": "King Abdullah Port",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "king-abdullah-port",
+      "website": "https://kingabdullahport.com.sa",
+      "priority": "high"
+    },
+    {
+      "id": "jeddah_port",
+      "name": "Jeddah Islamic Port",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "saudi-ports-authority",
+      "website": "https://mawani.gov.sa",
+      "priority": "high"
+    },
+    {
+      "id": "sohar_port",
+      "name": "Sohar Port",
+      "country": "Oman",
+      "region": "MEA_T",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "sohar-port-and-freezone",
+      "website": "https://www.soharportandfreezone.com",
+      "priority": "medium"
+    },
+    {
+      "id": "hamad_port",
+      "name": "Hamad Port Qatar",
+      "country": "Qatar",
+      "region": "MEA_T",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "qatar-ports-management-company",
+      "website": "https://www.mwani.com.qa",
+      "priority": "medium"
+    },
+    {
+      "id": "aqaba",
+      "name": "Aqaba Port",
+      "country": "Jordan",
+      "region": "MEA_T",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "aqaba-container-terminal",
+      "website": "https://www.act.com.jo",
+      "priority": "medium"
+    },
+    {
+      "id": "mersin",
+      "name": "Port of Mersin (MIP)",
+      "country": "Turkey",
+      "region": "MEA_T",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "mip-mersin-international-port",
+      "website": "https://mersinport.com.tr",
+      "priority": "high"
+    },
+    {
+      "id": "asyaport",
+      "name": "Asyaport",
+      "country": "Turkey",
+      "region": "MEA_T",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "asyaport-liman",
+      "website": "https://www.asyaport.com",
+      "priority": "medium"
+    },
+    {
+      "id": "adnoc",
+      "name": "ADNOC",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "adnoc",
+      "website": "https://www.adnoc.ae",
+      "priority": "critical"
+    },
+    {
+      "id": "aramco",
+      "name": "Saudi Aramco",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "saudi-aramco",
+      "website": "https://www.aramco.com",
+      "priority": "critical"
+    },
+    {
+      "id": "ocp",
+      "name": "OCP Group (Morocco)",
+      "country": "Morocco",
+      "region": "MEA_T",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "ocp-group",
+      "website": "https://www.ocpgroup.ma",
+      "priority": "high"
+    },
+    {
+      "id": "managem",
+      "name": "Managem",
+      "country": "Morocco",
+      "region": "MEA_T",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "managem-group",
+      "website": "https://www.managemgroup.com",
+      "priority": "medium"
+    },
+    {
+      "id": "fqm",
+      "name": "First Quantum Minerals Zambia",
+      "country": "Zambia",
+      "region": "MEA_T",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "first-quantum-minerals-ltd",
+      "website": "https://www.first-quantum.com",
+      "priority": "medium"
+    },
+    {
+      "id": "anglo_sa",
+      "name": "Anglo American South Africa",
+      "country": "South Africa",
+      "region": "MEA_T",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "anglo-american",
+      "website": "https://www.angloamerican.com",
+      "priority": "high"
+    },
+    {
+      "id": "sibanye",
+      "name": "Sibanye-Stillwater",
+      "country": "South Africa",
+      "region": "MEA_T",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "sibanye-stillwater",
+      "website": "https://www.sibanyestillwater.com",
+      "priority": "medium"
+    },
+    {
+      "id": "etimaden",
+      "name": "Eti Maden Turkey",
+      "country": "Turkey",
+      "region": "MEA_T",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "eti-maden",
+      "website": "https://www.etimaden.gov.tr",
+      "priority": "medium"
+    },
+    {
+      "id": "tupras",
+      "name": "Tüpraş",
+      "country": "Turkey",
+      "region": "MEA_T",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "tupras",
+      "website": "https://www.tupras.com.tr",
+      "priority": "medium"
+    },
+    {
+      "id": "neom",
+      "name": "NEOM",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "neom",
+      "website": "https://www.neom.com",
+      "priority": "critical"
+    },
+    {
+      "id": "roshn",
+      "name": "ROSHN",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "roshn-group",
+      "website": "https://www.roshn.sa",
+      "priority": "high"
+    },
+    {
+      "id": "dgda",
+      "name": "Diriyah Gate Development Authority",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "diriyah-gate",
+      "website": "https://www.diriyah.sa",
+      "priority": "high"
+    },
+    {
+      "id": "ega",
+      "name": "EGA Emirates Global Aluminium",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "emirates-global-aluminium",
+      "website": "https://www.ega.ae",
+      "priority": "medium"
+    },
+    {
+      "id": "borouge",
+      "name": "Borouge",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "borouge",
+      "website": "https://www.borouge.com",
+      "priority": "medium"
+    },
+    {
+      "id": "expo_legacy",
+      "name": "Expo City Dubai operators",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "expo-city-dubai",
+      "website": "https://www.expocitydubai.com",
+      "priority": "medium"
+    },
+    {
+      "id": "f1_saudi",
+      "name": "F1 Saudi Arabian Grand Prix",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "saudi-motorsport-company",
+      "website": "https://saudiarabiangp.com",
+      "priority": "medium"
+    },
+    {
+      "id": "f1_abu_dhabi",
+      "name": "F1 Abu Dhabi Grand Prix (Yas Marina)",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "yas-marina-circuit",
+      "website": "https://www.yasmarinacircuit.com",
+      "priority": "medium"
+    },
+    {
+      "id": "dewa",
+      "name": "DEWA",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "dubai-electricity-and-water-authority",
+      "website": "https://www.dewa.gov.ae",
+      "priority": "critical"
+    },
+    {
+      "id": "adwea",
+      "name": "ADWEA / EWEC",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "emirates-water-and-electricity-company",
+      "website": "https://www.ewec.ae",
+      "priority": "high"
+    },
+    {
+      "id": "sewa",
+      "name": "SEWA Sharjah",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "sewa",
+      "website": "https://www.sewa.gov.ae",
+      "priority": "medium"
+    },
+    {
+      "id": "fewa",
+      "name": "FEWA Federal Electricity",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "federal-electricity-and-water-authority",
+      "website": "https://www.fewa.gov.ae",
+      "priority": "medium"
+    },
+    {
+      "id": "sec_saudi",
+      "name": "Saudi Electricity Company (SEC)",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "saudi-electricity-company",
+      "website": "https://www.se.com.sa",
+      "priority": "high"
+    },
+    {
+      "id": "tedas",
+      "name": "TEDAŞ Turkey Electricity Distribution",
+      "country": "Turkey",
+      "region": "MEA_T",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "tedas",
+      "website": "https://www.tedas.gov.tr",
+      "priority": "medium"
+    },
+    {
+      "id": "mta_ny",
+      "name": "MTA (New York)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "mta",
+      "website": "https://new.mta.info",
+      "priority": "critical"
+    },
+    {
+      "id": "la_metro",
+      "name": "LA Metro",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "la-metro",
+      "website": "https://www.metro.net",
+      "priority": "critical"
+    },
+    {
+      "id": "chicago_cta",
+      "name": "Chicago Transit Authority (CTA)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "chicago-transit-authority",
+      "website": "https://www.transitchicago.com",
+      "priority": "high"
+    },
+    {
+      "id": "wmata",
+      "name": "WMATA (Washington Metro)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "washington-metropolitan-area-transit-authority",
+      "website": "https://www.wmata.com",
+      "priority": "high"
+    },
+    {
+      "id": "septa_philly",
+      "name": "SEPTA (Philadelphia)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "septa",
+      "website": "https://www.septa.org",
+      "priority": "medium"
+    },
+    {
+      "id": "mbta_boston",
+      "name": "MBTA (Boston)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "massachusetts-bay-transportation-authority",
+      "website": "https://www.mbta.com",
+      "priority": "medium"
+    },
+    {
+      "id": "metra_chicago",
+      "name": "Metra (Chicago commuter rail)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "metra",
+      "website": "https://metrarail.com",
+      "priority": "low"
+    },
+    {
+      "id": "sfmta",
+      "name": "SFMTA (San Francisco)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "sfmta",
+      "website": "https://www.sfmta.com",
+      "priority": "medium"
+    },
+    {
+      "id": "king_county_metro",
+      "name": "King County Metro (Seattle)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "king-county-metro-transit",
+      "website": "https://kingcounty.gov/depts/transportation/metro.aspx",
+      "priority": "medium"
+    },
+    {
+      "id": "yellow_cab_nyc",
+      "name": "NYC Taxi & Limousine Commission",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "nyctaxiandlimousinecommission",
+      "website": "https://www.nyc.gov/site/tlc",
+      "priority": "medium"
+    },
+    {
+      "id": "uber_us",
+      "name": "Uber (Fleet Decarb)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "uber-com",
+      "website": "https://www.uber.com",
+      "priority": "medium"
+    },
+    {
+      "id": "lyft",
+      "name": "Lyft (Green Mode)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "lyft",
+      "website": "https://www.lyft.com",
+      "priority": "low"
+    },
+    {
+      "id": "port_la",
+      "name": "Port of Los Angeles",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-los-angeles",
+      "website": "https://www.portoflosangeles.org",
+      "priority": "critical"
+    },
+    {
+      "id": "port_long_beach",
+      "name": "Port of Long Beach",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-long-beach",
+      "website": "https://polb.com",
+      "priority": "critical"
+    },
+    {
+      "id": "port_ny_nj",
+      "name": "Port Authority of NY & NJ",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "the-port-authority-of-new-york-new-jersey",
+      "website": "https://www.panynj.gov",
+      "priority": "high"
+    },
+    {
+      "id": "port_seattle",
+      "name": "Port of Seattle / NWSA",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-seattle",
+      "website": "https://www.portseattle.org",
+      "priority": "high"
+    },
+    {
+      "id": "port_oakland",
+      "name": "Port of Oakland",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-oakland",
+      "website": "https://www.portofoakland.com",
+      "priority": "medium"
+    },
+    {
+      "id": "port_houston",
+      "name": "Port Houston",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-houston-authority",
+      "website": "https://porthouston.com",
+      "priority": "medium"
+    },
+    {
+      "id": "port_savannah",
+      "name": "Port of Savannah (Georgia Ports)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "georgia-ports-authority",
+      "website": "https://gaports.com",
+      "priority": "medium"
+    },
+    {
+      "id": "port_miami",
+      "name": "PortMiami",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "portmiami",
+      "website": "https://www.miamidade.gov/portmiami/",
+      "priority": "medium"
+    },
+    {
+      "id": "port_charleston",
+      "name": "South Carolina Ports / Charleston",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "south-carolina-ports",
+      "website": "https://scspa.com",
+      "priority": "medium"
+    },
+    {
+      "id": "port_virginia",
+      "name": "Port of Virginia",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-virginia",
+      "website": "https://www.portofvirginia.com",
+      "priority": "low"
+    },
+    {
+      "id": "caiso",
+      "name": "CAISO (California ISO)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "california-iso",
+      "website": "https://www.caiso.com",
+      "priority": "high"
+    },
+    {
+      "id": "ercot",
+      "name": "ERCOT (Texas)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "ercot",
+      "website": "https://www.ercot.com",
+      "priority": "high"
+    },
+    {
+      "id": "pjm",
+      "name": "PJM Interconnection",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "pjm",
+      "website": "https://www.pjm.com",
+      "priority": "medium"
+    },
+    {
+      "id": "nyiso",
+      "name": "NYISO",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "nyiso",
+      "website": "https://www.nyiso.com",
+      "priority": "medium"
+    },
+    {
+      "id": "pge",
+      "name": "PG&E (Pacific Gas & Electric)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "pacific-gas-and-electric-company",
+      "website": "https://www.pge.com",
+      "priority": "high"
+    },
+    {
+      "id": "sce",
+      "name": "Southern California Edison",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "southern-california-edison",
+      "website": "https://www.sce.com",
+      "priority": "high"
+    },
+    {
+      "id": "sdge",
+      "name": "San Diego Gas & Electric",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "san-diego-gas-electric",
+      "website": "https://www.sdge.com",
+      "priority": "medium"
+    },
+    {
+      "id": "duke_energy",
+      "name": "Duke Energy",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "duke-energy-corporation",
+      "website": "https://www.duke-energy.com",
+      "priority": "medium"
+    },
+    {
+      "id": "dominion_energy",
+      "name": "Dominion Energy",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "dominion-energy",
+      "website": "https://www.dominionenergy.com",
+      "priority": "medium"
+    },
+    {
+      "id": "exxon",
+      "name": "ExxonMobil",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "exxonmobil",
+      "website": "https://corporate.exxonmobil.com",
+      "priority": "high"
+    },
+    {
+      "id": "chevron",
+      "name": "Chevron",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "chevron",
+      "website": "https://www.chevron.com",
+      "priority": "high"
+    },
+    {
+      "id": "conocophillips",
+      "name": "ConocoPhillips",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "conocophillips",
+      "website": "https://www.conocophillips.com",
+      "priority": "medium"
+    },
+    {
+      "id": "freeport",
+      "name": "Freeport-McMoRan",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "freeport-mcmoran-inc-",
+      "website": "https://www.fcx.com",
+      "priority": "medium"
+    },
+    {
+      "id": "newmont",
+      "name": "Newmont Corporation",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "newmont",
+      "website": "https://www.newmont.com",
+      "priority": "high"
+    },
+    {
+      "id": "us_navy_shore_power",
+      "name": "US Navy Shore Power (NAVFAC)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "naval-facilities-engineering-command",
+      "website": "https://www.navfac.navy.mil",
+      "priority": "high"
+    },
+    {
+      "id": "us_army_corps",
+      "name": "US Army Corps of Engineers",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "u-s-army-corps-of-engineers",
+      "website": "https://www.usace.army.mil",
+      "priority": "medium"
+    },
+    {
+      "id": "fema",
+      "name": "FEMA (Disaster Response)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "federal-emergency-management-agency",
+      "website": "https://www.fema.gov",
+      "priority": "medium"
+    },
+    {
+      "id": "lax_airport",
+      "name": "LAX Airport",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "los-angeles-world-airports",
+      "website": "https://www.flylax.com",
+      "priority": "medium"
+    },
+    {
+      "id": "jfk_airport",
+      "name": "JFK International Airport",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "jfk-international-air-terminal-llc",
+      "website": "https://www.jfkiat.com",
+      "priority": "medium"
+    },
+    {
+      "id": "coachella",
+      "name": "Coachella Festival (Goldenvoice)",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "goldenvoice",
+      "website": "https://www.coachella.com",
+      "priority": "low"
+    },
+    {
+      "id": "f1_miami",
+      "name": "F1 Miami Grand Prix",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "f1-miami-grand-prix",
+      "website": "https://f1miamigp.com",
+      "priority": "low"
+    },
+    {
+      "id": "f1_vegas",
+      "name": "F1 Las Vegas Grand Prix",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "las-vegas-grand-prix",
+      "website": "https://www.f1lasvegasgp.com",
+      "priority": "low"
+    },
+    {
+      "id": "ttc_toronto",
+      "name": "TTC Toronto",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "ttc",
+      "website": "https://www.ttc.ca",
+      "priority": "high"
+    },
+    {
+      "id": "stm_montreal",
+      "name": "STM Montreal",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "soci-t--de-transport-de-montr-al",
+      "website": "https://www.stm.info",
+      "priority": "high"
+    },
+    {
+      "id": "translink_vancouver",
+      "name": "TransLink Vancouver",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "translink",
+      "website": "https://www.translink.ca",
+      "priority": "medium"
+    },
+    {
+      "id": "go_transit",
+      "name": "GO Transit (Metrolinx)",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "metrolinx",
+      "website": "https://www.metrolinx.com",
+      "priority": "medium"
+    },
+    {
+      "id": "via_rail",
+      "name": "VIA Rail Canada",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "via-rail-canada",
+      "website": "https://www.viarail.ca",
+      "priority": "low"
+    },
+    {
+      "id": "port_vancouver",
+      "name": "Port of Vancouver",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-vancouver",
+      "website": "https://www.portvancouver.com",
+      "priority": "high"
+    },
+    {
+      "id": "port_montreal",
+      "name": "Port of Montreal",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-montreal",
+      "website": "https://www.port-montreal.com",
+      "priority": "medium"
+    },
+    {
+      "id": "port_halifax",
+      "name": "Port of Halifax",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-halifax",
+      "website": "https://www.portofhalifax.ca",
+      "priority": "low"
+    },
+    {
+      "id": "hydro_quebec",
+      "name": "Hydro-Québec",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "hydro-quebec",
+      "website": "https://www.hydroquebec.com",
+      "priority": "medium"
+    },
+    {
+      "id": "bc_hydro",
+      "name": "BC Hydro",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "bc-hydro",
+      "website": "https://www.bchydro.com",
+      "priority": "medium"
+    },
+    {
+      "id": "ontario_power",
+      "name": "Ontario Power Generation",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "ontario-power-generation",
+      "website": "https://www.opg.com",
+      "priority": "medium"
+    },
+    {
+      "id": "enbridge",
+      "name": "Enbridge",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "enbridge",
+      "website": "https://www.enbridge.com",
+      "priority": "medium"
+    },
+    {
+      "id": "suncor",
+      "name": "Suncor Energy",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "suncor",
+      "website": "https://www.suncor.com",
+      "priority": "medium"
+    },
+    {
+      "id": "barrick",
+      "name": "Barrick Gold",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "barrick-gold-corporation",
+      "website": "https://www.barrick.com",
+      "priority": "medium"
+    },
+    {
+      "id": "teck",
+      "name": "Teck Resources",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "teck-resources-limited",
+      "website": "https://www.teck.com",
+      "priority": "medium"
+    },
+    {
+      "id": "first_quantum_canada",
+      "name": "First Quantum Minerals",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "first-quantum-minerals-ltd",
+      "website": "https://www.first-quantum.com",
+      "priority": "medium"
+    },
+    {
+      "id": "agnico_eagle",
+      "name": "Agnico Eagle Mines",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "agnico-eagle-mines-limited",
+      "website": "https://www.agnicoeagle.com",
+      "priority": "low"
+    },
+    {
+      "id": "f1_canada",
+      "name": "F1 Canadian GP (Montreal)",
+      "country": "Canada",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "circuit-gilles-villeneuve",
+      "website": "https://www.circuitgillesvilleneuve.ca",
+      "priority": "low"
+    },
+    {
+      "id": "metro_cdmx",
+      "name": "Metro CDMX (Mexico City)",
+      "country": "Mexico",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "sistema-de-transporte-colectivo-metro",
+      "website": "https://www.metro.cdmx.gob.mx",
+      "priority": "medium"
+    },
+    {
+      "id": "rtp_mexico",
+      "name": "RTP Mexico (Red de Transporte)",
+      "country": "Mexico",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "rtp-cdmx",
+      "website": "https://www.rtp.cdmx.gob.mx",
+      "priority": "low"
+    },
+    {
+      "id": "port_manzanillo",
+      "name": "Port of Manzanillo",
+      "country": "Mexico",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "api-manzanillo",
+      "website": "https://www.puertomanzanillo.com.mx",
+      "priority": "medium"
+    },
+    {
+      "id": "port_veracruz",
+      "name": "Port of Veracruz",
+      "country": "Mexico",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "api-veracruz",
+      "website": "https://www.puertodeveracruz.com.mx",
+      "priority": "medium"
+    },
+    {
+      "id": "port_lazaro",
+      "name": "Port of Lázaro Cárdenas",
+      "country": "Mexico",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "apilac",
+      "website": "https://www.puertolazarocardenas.com.mx",
+      "priority": "medium"
+    },
+    {
+      "id": "cfe_mexico",
+      "name": "CFE (Comisión Federal de Electricidad)",
+      "country": "Mexico",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "cfemx",
+      "website": "https://www.cfe.mx",
+      "priority": "high"
+    },
+    {
+      "id": "pemex",
+      "name": "Pemex",
+      "country": "Mexico",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "pemex",
+      "website": "https://www.pemex.com",
+      "priority": "high"
+    },
+    {
+      "id": "grupo_mexico",
+      "name": "Grupo México",
+      "country": "Mexico",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "grupo-mexico",
+      "website": "https://www.gmexico.com",
+      "priority": "medium"
+    },
+    {
+      "id": "penoles",
+      "name": "Industrias Peñoles",
+      "country": "Mexico",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "industrias-pe-oles",
+      "website": "https://www.penoles.com.mx",
+      "priority": "low"
+    },
+    {
+      "id": "f1_mexico",
+      "name": "F1 Mexico City Grand Prix",
+      "country": "Mexico",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "mexico-gp",
+      "website": "https://www.mexicogp.mx",
+      "priority": "low"
+    },
+    {
+      "id": "metro_sp",
+      "name": "Metrô São Paulo",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "metro-cptm-sp",
+      "website": "https://www.metro.sp.gov.br",
+      "priority": "high"
+    },
+    {
+      "id": "metro_rio",
+      "name": "MetrôRio",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "metro-rio",
+      "website": "https://www.metrorio.com.br",
+      "priority": "medium"
+    },
+    {
+      "id": "sptrans",
+      "name": "SPTrans (São Paulo Buses)",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "sptrans",
+      "website": "https://www.sptrans.com.br",
+      "priority": "high"
+    },
+    {
+      "id": "cptm",
+      "name": "CPTM (Companhia Paulista)",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "cptm-oficial",
+      "website": "https://www.cptm.sp.gov.br",
+      "priority": "medium"
+    },
+    {
+      "id": "port_santos",
+      "name": "Port of Santos",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "santos-port-authority",
+      "website": "https://www.portodesantos.com.br",
+      "priority": "high"
+    },
+    {
+      "id": "port_paranagua",
+      "name": "Port of Paranaguá",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "portos-do-parana",
+      "website": "https://www.portosdoparana.pr.gov.br",
+      "priority": "medium"
+    },
+    {
+      "id": "port_itaqui",
+      "name": "Port of Itaqui (Maranhão)",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "emap-empresa-maranhense-de-administracao-portuaria",
+      "website": "https://www.emap.ma.gov.br",
+      "priority": "medium"
+    },
+    {
+      "id": "eletrobras",
+      "name": "Eletrobras",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "eletrobras",
+      "website": "https://www.eletrobras.com",
+      "priority": "medium"
+    },
+    {
+      "id": "cemig",
+      "name": "CEMIG (Minas Gerais Energy)",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "cemig",
+      "website": "https://www.cemig.com.br",
+      "priority": "medium"
+    },
+    {
+      "id": "petrobras",
+      "name": "Petrobras",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "petrobras",
+      "website": "https://petrobras.com.br",
+      "priority": "high"
+    },
+    {
+      "id": "vale",
+      "name": "Vale",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "vale",
+      "website": "https://www.vale.com",
+      "priority": "critical"
+    },
+    {
+      "id": "csn",
+      "name": "CSN (Companhia Siderúrgica Nacional)",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "csn",
+      "website": "https://www.csn.com.br",
+      "priority": "medium"
+    },
+    {
+      "id": "gerdau",
+      "name": "Gerdau",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "gerdau",
+      "website": "https://www.gerdau.com",
+      "priority": "medium"
+    },
+    {
+      "id": "f1_brazil",
+      "name": "F1 São Paulo GP (Interlagos)",
+      "country": "Brazil",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "autodromo-jose-carlos-pace",
+      "website": "https://www.autodromodeinterlagos.com.br",
+      "priority": "low"
+    },
+    {
+      "id": "metro_santiago",
+      "name": "Metro de Santiago",
+      "country": "Chile",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "metro-de-santiago",
+      "website": "https://www.metro.cl",
+      "priority": "high"
+    },
+    {
+      "id": "red_movilidad",
+      "name": "Red Movilidad (Santiago)",
+      "country": "Chile",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "red-movilidad",
+      "website": "https://www.red.cl",
+      "priority": "high"
+    },
+    {
+      "id": "port_valparaiso",
+      "name": "Port of Valparaíso",
+      "country": "Chile",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "empresa-portuaria-valparaiso",
+      "website": "https://www.epv.cl",
+      "priority": "medium"
+    },
+    {
+      "id": "port_san_antonio",
+      "name": "Port of San Antonio",
+      "country": "Chile",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "empresa-portuaria-san-antonio",
+      "website": "https://www.sanantonioport.cc.cl",
+      "priority": "medium"
+    },
+    {
+      "id": "codelco",
+      "name": "Codelco (state copper)",
+      "country": "Chile",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "codelco",
+      "website": "https://www.codelco.com",
+      "priority": "critical"
+    },
+    {
+      "id": "antofagasta",
+      "name": "Antofagasta Plc",
+      "country": "Chile",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "antofagasta-plc",
+      "website": "https://www.antofagasta.co.uk",
+      "priority": "high"
+    },
+    {
+      "id": "sqm",
+      "name": "SQM (lithium)",
+      "country": "Chile",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "sqm",
+      "website": "https://www.sqm.com",
+      "priority": "high"
+    },
+    {
+      "id": "enel_chile",
+      "name": "Enel Chile",
+      "country": "Chile",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "enel-chile",
+      "website": "https://www.enel.cl",
+      "priority": "medium"
+    },
+    {
+      "id": "colbun",
+      "name": "Colbún",
+      "country": "Chile",
+      "region": "Americas",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "colbun",
+      "website": "https://www.colbun.cl",
+      "priority": "medium"
+    },
+    {
+      "id": "subte_buenos_aires",
+      "name": "Subte Buenos Aires",
+      "country": "Argentina",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "subte-buenos-aires",
+      "website": "https://www.buenosaires.gob.ar/subte",
+      "priority": "medium"
+    },
+    {
+      "id": "ypf",
+      "name": "YPF Argentina",
+      "country": "Argentina",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "ypf",
+      "website": "https://www.ypf.com",
+      "priority": "medium"
+    },
+    {
+      "id": "transmilenio",
+      "name": "TransMilenio Bogotá",
+      "country": "Colombia",
+      "region": "Americas",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "transmilenio-s-a-",
+      "website": "https://www.transmilenio.gov.co",
+      "priority": "high"
+    },
+    {
+      "id": "ecopetrol",
+      "name": "Ecopetrol",
+      "country": "Colombia",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "ecopetrol",
+      "website": "https://www.ecopetrol.com.co",
+      "priority": "medium"
+    },
+    {
+      "id": "cerrejon",
+      "name": "Cerrejón (coal mine)",
+      "country": "Colombia",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "cerrejon",
+      "website": "https://www.cerrejon.com",
+      "priority": "medium"
+    },
+    {
+      "id": "port_callao",
+      "name": "Port of Callao",
+      "country": "Peru",
+      "region": "Americas",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "apn-peru",
+      "website": "https://www.apn.gob.pe",
+      "priority": "medium"
+    },
+    {
+      "id": "southern_copper",
+      "name": "Southern Copper (Peru/Mexico)",
+      "country": "Peru",
+      "region": "Americas",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "southern-copper-corporation",
+      "website": "https://www.southerncoppercorp.com",
+      "priority": "medium"
+    },
+    {
+      "id": "lta_singapore",
+      "name": "LTA Singapore",
+      "country": "Singapore",
+      "region": "APAC",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "lta-singapore",
+      "website": "https://www.lta.gov.sg",
+      "priority": "high"
+    },
+    {
+      "id": "mtr_hong_kong",
+      "name": "MTR Hong Kong",
+      "country": "Hong Kong",
+      "region": "APAC",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "mtr-corporation",
+      "website": "https://www.mtr.com.hk",
+      "priority": "high"
+    },
+    {
+      "id": "tokyo_metro",
+      "name": "Tokyo Metro",
+      "country": "Japan",
+      "region": "APAC",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "tokyo-metro",
+      "website": "https://www.tokyometro.jp",
+      "priority": "high"
+    },
+    {
+      "id": "seoul_metro",
+      "name": "Seoul Metro",
+      "country": "South Korea",
+      "region": "APAC",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "seoul-metro",
+      "website": "http://www.seoulmetro.co.kr",
+      "priority": "medium"
+    },
+    {
+      "id": "transperth",
+      "name": "Transperth",
+      "country": "Australia",
+      "region": "APAC",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "public-transport-authority-of-western-australia",
+      "website": "https://www.pta.wa.gov.au",
+      "priority": "medium"
+    },
+    {
+      "id": "kmb_hk",
+      "name": "Kowloon Motor Bus",
+      "country": "Hong Kong",
+      "region": "APAC",
+      "subcategory": "fleet_electrification",
+      "linkedin_company": "kmb",
+      "website": "https://www.kmb.hk",
+      "priority": "medium"
+    },
+    {
+      "id": "psa_singapore",
+      "name": "PSA Singapore",
+      "country": "Singapore",
+      "region": "APAC",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "psa-international",
+      "website": "https://www.singaporepsa.com",
+      "priority": "critical"
+    },
+    {
+      "id": "shanghai_port",
+      "name": "Shanghai International Port",
+      "country": "China",
+      "region": "APAC",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "shanghai-international-port-group",
+      "website": "http://www.portshanghai.com.cn",
+      "priority": "high"
+    },
+    {
+      "id": "ningbo_port",
+      "name": "Ningbo-Zhoushan Port",
+      "country": "China",
+      "region": "APAC",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "ningbo-zhoushan-port-company-limited",
+      "website": "https://www.nbport.com.cn",
+      "priority": "medium"
+    },
+    {
+      "id": "port_busan",
+      "name": "Port of Busan",
+      "country": "South Korea",
+      "region": "APAC",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "busan-port-authority",
+      "website": "https://www.busanpa.com",
+      "priority": "high"
+    },
+    {
+      "id": "port_yokohama",
+      "name": "Port of Yokohama",
+      "country": "Japan",
+      "region": "APAC",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "city-of-yokohama",
+      "website": "https://www.city.yokohama.lg.jp",
+      "priority": "medium"
+    },
+    {
+      "id": "port_kaohsiung",
+      "name": "Port of Kaohsiung",
+      "country": "Taiwan",
+      "region": "APAC",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "twport",
+      "website": "https://www.twport.com.tw",
+      "priority": "medium"
+    },
+    {
+      "id": "port_klang",
+      "name": "Port Klang",
+      "country": "Malaysia",
+      "region": "APAC",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-klang-authority",
+      "website": "https://www.pka.gov.my",
+      "priority": "medium"
+    },
+    {
+      "id": "tanjung_pelepas",
+      "name": "Port of Tanjung Pelepas",
+      "country": "Malaysia",
+      "region": "APAC",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "pelepasptp",
+      "website": "https://www.ptp.com.my",
+      "priority": "medium"
+    },
+    {
+      "id": "port_botany",
+      "name": "Port Botany (NSW Ports)",
+      "country": "Australia",
+      "region": "APAC",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "nsw-ports",
+      "website": "https://www.nswports.com.au",
+      "priority": "medium"
+    },
+    {
+      "id": "port_melbourne",
+      "name": "Port of Melbourne",
+      "country": "Australia",
+      "region": "APAC",
+      "subcategory": "ports_shore_power",
+      "linkedin_company": "port-of-melbourne",
+      "website": "https://www.portofmelbourne.com",
+      "priority": "medium"
+    },
+    {
+      "id": "sinopec",
+      "name": "Sinopec",
+      "country": "China",
+      "region": "APAC",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "sinopec",
+      "website": "https://www.sinopec.com",
+      "priority": "high"
+    },
+    {
+      "id": "cnpc",
+      "name": "CNPC PetroChina",
+      "country": "China",
+      "region": "APAC",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "petrochina",
+      "website": "https://www.petrochina.com.cn",
+      "priority": "high"
+    },
+    {
+      "id": "rio_tinto",
+      "name": "Rio Tinto",
+      "country": "Australia/UK",
+      "region": "APAC",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "rio-tinto",
+      "website": "https://www.riotinto.com",
+      "priority": "critical"
+    },
+    {
+      "id": "bhp",
+      "name": "BHP",
+      "country": "Australia",
+      "region": "APAC",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "bhp",
+      "website": "https://www.bhp.com",
+      "priority": "critical"
+    },
+    {
+      "id": "fortescue",
+      "name": "Fortescue Metals",
+      "country": "Australia",
+      "region": "APAC",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "fortescue",
+      "website": "https://www.fortescue.com",
+      "priority": "high"
+    },
+    {
+      "id": "indonesia_petromindo",
+      "name": "Pertamina",
+      "country": "Indonesia",
+      "region": "APAC",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "pertamina",
+      "website": "https://www.pertamina.com",
+      "priority": "medium"
+    },
+    {
+      "id": "reliance",
+      "name": "Reliance Industries",
+      "country": "India",
+      "region": "APAC",
+      "subcategory": "mining_oil_gas",
+      "linkedin_company": "reliance",
+      "website": "https://www.ril.com",
+      "priority": "high"
+    },
+    {
+      "id": "state_grid",
+      "name": "State Grid Corporation of China",
+      "country": "China",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "state-grid-corporation-of-china",
+      "website": "http://www.sgcc.com.cn",
+      "priority": "high"
+    },
+    {
+      "id": "tepco",
+      "name": "TEPCO Japan",
+      "country": "Japan",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "tokyo-electric-power-company",
+      "website": "https://www.tepco.co.jp",
+      "priority": "medium"
+    },
+    {
+      "id": "kepco_korea",
+      "name": "KEPCO Korea",
+      "country": "South Korea",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "kepco",
+      "website": "https://home.kepco.co.kr",
+      "priority": "medium"
+    },
+    {
+      "id": "sp_group",
+      "name": "SP Group Singapore",
+      "country": "Singapore",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "spgroup",
+      "website": "https://www.spgroup.com.sg",
+      "priority": "high"
+    },
+    {
+      "id": "tnb",
+      "name": "Tenaga Nasional Berhad (TNB)",
+      "country": "Malaysia",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "tenaga-nasional-berhad",
+      "website": "https://www.tnb.com.my",
+      "priority": "medium"
+    },
+    {
+      "id": "pln",
+      "name": "PLN Indonesia",
+      "country": "Indonesia",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "pln",
+      "website": "https://web.pln.co.id",
+      "priority": "medium"
+    },
+    {
+      "id": "egat",
+      "name": "EGAT Thailand",
+      "country": "Thailand",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "egat-international",
+      "website": "https://www.egat.co.th",
+      "priority": "medium"
+    },
+    {
+      "id": "agl_australia",
+      "name": "AGL Energy Australia",
+      "country": "Australia",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "agl-energy",
+      "website": "https://www.agl.com.au",
+      "priority": "high"
+    },
+    {
+      "id": "origin_energy",
+      "name": "Origin Energy",
+      "country": "Australia",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "origin-energy",
+      "website": "https://www.originenergy.com.au",
+      "priority": "medium"
+    },
+    {
+      "id": "ntpc",
+      "name": "NTPC India",
+      "country": "India",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "ntpc-limited",
+      "website": "https://www.ntpc.co.in",
+      "priority": "high"
+    },
+    {
+      "id": "adani_green",
+      "name": "Adani Green Energy",
+      "country": "India",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "adani-green-energy",
+      "website": "https://www.adanigreenenergy.com",
+      "priority": "high"
+    },
+    {
+      "id": "tata_power",
+      "name": "Tata Power",
+      "country": "India",
+      "region": "APAC",
+      "subcategory": "construction_events_utilities",
+      "linkedin_company": "tata-power",
+      "website": "https://www.tatapower.com",
+      "priority": "medium"
+    }
   ],
   "regulators": [
-    { "id": "dewa_reg", "name": "DEWA EV Charging Regulations", "country": "UAE", "region": "EMEA", "website": "https://www.dewa.gov.ae", "priority": "critical" },
-    { "id": "adnoc_proc", "name": "ADNOC Procurement", "country": "UAE", "region": "EMEA", "website": "https://eprocurement.adnoc.ae", "priority": "high" },
-    { "id": "saudi_energy", "name": "Saudi Ministry of Energy", "country": "Saudi Arabia", "region": "EMEA", "website": "https://www.moenergy.gov.sa", "priority": "critical" },
-    { "id": "etimad", "name": "Etimad Saudi e-procurement", "country": "Saudi Arabia", "region": "EMEA", "website": "https://etimad.sa", "priority": "high" },
-    { "id": "adwea_tenders", "name": "EWEC Tenders", "country": "UAE", "region": "EMEA", "website": "https://www.ewec.ae", "priority": "medium" },
-    { "id": "epdk", "name": "Turkey EPDK Energy Regulator", "country": "Turkey", "region": "EMEA", "website": "https://www.epdk.gov.tr", "priority": "high" },
-    { "id": "egyptera", "name": "Egypt EgyptERA", "country": "Egypt", "region": "EMEA", "website": "https://egyptera.org", "priority": "medium" },
-    { "id": "onee", "name": "Morocco ONEE", "country": "Morocco", "region": "EMEA", "website": "http://www.one.org.ma", "priority": "medium" },
-    { "id": "jordan_emrc", "name": "Jordan EMRC", "country": "Jordan", "region": "EMEA", "website": "https://www.emrc.gov.jo", "priority": "medium" },
-    { "id": "uae_moei", "name": "UAE Ministry of Energy and Infrastructure", "country": "UAE", "region": "EMEA", "website": "https://www.moei.gov.ae", "priority": "high" },
-    { "id": "eu_ten_t", "name": "EU TEN-T Programme", "country": "EU", "region": "EMEA", "website": "https://transport.ec.europa.eu/transport-themes/infrastructure-and-investment/trans-european-transport-network-ten-t_en", "priority": "high" },
-    { "id": "acer_eu", "name": "ACER (EU Energy Regulators)", "country": "EU", "region": "EMEA", "website": "https://www.acer.europa.eu", "priority": "medium" },
-    { "id": "ofgem_uk", "name": "Ofgem UK", "country": "UK", "region": "EMEA", "website": "https://www.ofgem.gov.uk", "priority": "medium" },
-    { "id": "bnetza_germany", "name": "BNetzA Germany", "country": "Germany", "region": "EMEA", "website": "https://www.bundesnetzagentur.de", "priority": "medium" },
-    { "id": "ferc_us", "name": "FERC USA", "country": "USA", "region": "Americas", "website": "https://www.ferc.gov", "priority": "high" },
-    { "id": "doe_us", "name": "US Department of Energy", "country": "USA", "region": "Americas", "website": "https://www.energy.gov", "priority": "high" },
-    { "id": "epa_us", "name": "US EPA Clean Ports", "country": "USA", "region": "Americas", "website": "https://www.epa.gov/ports-initiative", "priority": "high" },
-    { "id": "carb", "name": "California Air Resources Board (CARB)", "country": "USA", "region": "Americas", "website": "https://ww2.arb.ca.gov", "priority": "high" },
-    { "id": "nerc", "name": "NERC North American Reliability", "country": "USA/Canada", "region": "Americas", "website": "https://www.nerc.com", "priority": "medium" },
-    { "id": "aneel_brazil", "name": "ANEEL Brazil", "country": "Brazil", "region": "Americas", "website": "https://www.gov.br/aneel", "priority": "medium" },
-    { "id": "cre_mexico", "name": "CRE Mexico", "country": "Mexico", "region": "Americas", "website": "https://www.gov.mx/cre", "priority": "medium" },
-    { "id": "nea_singapore", "name": "NEA Singapore", "country": "Singapore", "region": "APAC", "website": "https://www.nea.gov.sg", "priority": "high" },
-    { "id": "ema_singapore", "name": "EMA Singapore Energy Market Authority", "country": "Singapore", "region": "APAC", "website": "https://www.ema.gov.sg", "priority": "high" },
-    { "id": "meti_japan", "name": "METI Japan", "country": "Japan", "region": "APAC", "website": "https://www.meti.go.jp", "priority": "medium" },
-    { "id": "motie_korea", "name": "MOTIE Korea", "country": "South Korea", "region": "APAC", "website": "https://english.motie.go.kr", "priority": "medium" },
-    { "id": "aemc_australia", "name": "AEMC Australia", "country": "Australia", "region": "APAC", "website": "https://www.aemc.gov.au", "priority": "medium" },
-    { "id": "cerc_india", "name": "CERC India Central Electricity Regulatory", "country": "India", "region": "APAC", "website": "https://cercind.gov.in", "priority": "medium" },
-    { "id": "nrdc_china", "name": "NDRC China", "country": "China", "region": "APAC", "website": "https://en.ndrc.gov.cn", "priority": "medium" }
+    {
+      "id": "eu_ten_t",
+      "name": "EU TEN-T Programme",
+      "country": "EU",
+      "region": "Europe",
+      "website": "https://transport.ec.europa.eu/transport-themes/infrastructure-and-investment/trans-european-transport-network-ten-t_en",
+      "priority": "high"
+    },
+    {
+      "id": "acer_eu",
+      "name": "ACER (EU Energy Regulators)",
+      "country": "EU",
+      "region": "Europe",
+      "website": "https://www.acer.europa.eu",
+      "priority": "medium"
+    },
+    {
+      "id": "ec_clean_energy",
+      "name": "EU Clean Energy Package",
+      "country": "EU",
+      "region": "Europe",
+      "website": "https://energy.ec.europa.eu",
+      "priority": "high"
+    },
+    {
+      "id": "ofgem_uk",
+      "name": "Ofgem UK",
+      "country": "UK",
+      "region": "Europe",
+      "website": "https://www.ofgem.gov.uk",
+      "priority": "medium"
+    },
+    {
+      "id": "bnetza_germany",
+      "name": "BNetzA Germany",
+      "country": "Germany",
+      "region": "Europe",
+      "website": "https://www.bundesnetzagentur.de",
+      "priority": "medium"
+    },
+    {
+      "id": "cre_france",
+      "name": "CRE France Energy Regulator",
+      "country": "France",
+      "region": "Europe",
+      "website": "https://www.cre.fr",
+      "priority": "medium"
+    },
+    {
+      "id": "cnmc_spain",
+      "name": "CNMC Spain",
+      "country": "Spain",
+      "region": "Europe",
+      "website": "https://www.cnmc.es",
+      "priority": "medium"
+    },
+    {
+      "id": "arera_italy",
+      "name": "ARERA Italy",
+      "country": "Italy",
+      "region": "Europe",
+      "website": "https://www.arera.it",
+      "priority": "medium"
+    },
+    {
+      "id": "acm_netherlands",
+      "name": "ACM Netherlands",
+      "country": "Netherlands",
+      "region": "Europe",
+      "website": "https://www.acm.nl",
+      "priority": "medium"
+    },
+    {
+      "id": "creg_belgium",
+      "name": "CREG Belgium",
+      "country": "Belgium",
+      "region": "Europe",
+      "website": "https://www.creg.be",
+      "priority": "low"
+    },
+    {
+      "id": "nve_norway",
+      "name": "NVE Norway Energy Regulator",
+      "country": "Norway",
+      "region": "Europe",
+      "website": "https://www.nve.no",
+      "priority": "low"
+    },
+    {
+      "id": "dewa_reg",
+      "name": "DEWA EV Charging Regulations",
+      "country": "UAE",
+      "region": "MEA_T",
+      "website": "https://www.dewa.gov.ae",
+      "priority": "critical"
+    },
+    {
+      "id": "adnoc_proc",
+      "name": "ADNOC Procurement",
+      "country": "UAE",
+      "region": "MEA_T",
+      "website": "https://eprocurement.adnoc.ae",
+      "priority": "high"
+    },
+    {
+      "id": "saudi_energy",
+      "name": "Saudi Ministry of Energy",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "website": "https://www.moenergy.gov.sa",
+      "priority": "critical"
+    },
+    {
+      "id": "etimad",
+      "name": "Etimad Saudi e-procurement",
+      "country": "Saudi Arabia",
+      "region": "MEA_T",
+      "website": "https://etimad.sa",
+      "priority": "high"
+    },
+    {
+      "id": "adwea_tenders",
+      "name": "EWEC Tenders",
+      "country": "UAE",
+      "region": "MEA_T",
+      "website": "https://www.ewec.ae",
+      "priority": "medium"
+    },
+    {
+      "id": "epdk",
+      "name": "Turkey EPDK Energy Regulator",
+      "country": "Turkey",
+      "region": "MEA_T",
+      "website": "https://www.epdk.gov.tr",
+      "priority": "high"
+    },
+    {
+      "id": "egyptera",
+      "name": "Egypt EgyptERA",
+      "country": "Egypt",
+      "region": "MEA_T",
+      "website": "https://egyptera.org",
+      "priority": "medium"
+    },
+    {
+      "id": "onee",
+      "name": "Morocco ONEE",
+      "country": "Morocco",
+      "region": "MEA_T",
+      "website": "http://www.one.org.ma",
+      "priority": "medium"
+    },
+    {
+      "id": "jordan_emrc",
+      "name": "Jordan EMRC",
+      "country": "Jordan",
+      "region": "MEA_T",
+      "website": "https://www.emrc.gov.jo",
+      "priority": "medium"
+    },
+    {
+      "id": "uae_moei",
+      "name": "UAE Ministry of Energy and Infrastructure",
+      "country": "UAE",
+      "region": "MEA_T",
+      "website": "https://www.moei.gov.ae",
+      "priority": "high"
+    },
+    {
+      "id": "ferc_us",
+      "name": "FERC USA",
+      "country": "USA",
+      "region": "Americas",
+      "website": "https://www.ferc.gov",
+      "priority": "high"
+    },
+    {
+      "id": "doe_us",
+      "name": "US Department of Energy",
+      "country": "USA",
+      "region": "Americas",
+      "website": "https://www.energy.gov",
+      "priority": "high"
+    },
+    {
+      "id": "epa_us",
+      "name": "US EPA Clean Ports Program",
+      "country": "USA",
+      "region": "Americas",
+      "website": "https://www.epa.gov/ports-initiative",
+      "priority": "high"
+    },
+    {
+      "id": "carb",
+      "name": "California Air Resources Board (CARB)",
+      "country": "USA",
+      "region": "Americas",
+      "website": "https://ww2.arb.ca.gov",
+      "priority": "high"
+    },
+    {
+      "id": "cpuc",
+      "name": "CPUC California Public Utilities",
+      "country": "USA",
+      "region": "Americas",
+      "website": "https://www.cpuc.ca.gov",
+      "priority": "medium"
+    },
+    {
+      "id": "nyserda",
+      "name": "NYSERDA New York Energy Research",
+      "country": "USA",
+      "region": "Americas",
+      "website": "https://www.nyserda.ny.gov",
+      "priority": "medium"
+    },
+    {
+      "id": "nerc",
+      "name": "NERC North American Reliability",
+      "country": "USA",
+      "region": "Americas",
+      "website": "https://www.nerc.com",
+      "priority": "medium"
+    },
+    {
+      "id": "fhwa",
+      "name": "FHWA Federal Highway Administration",
+      "country": "USA",
+      "region": "Americas",
+      "website": "https://highways.dot.gov",
+      "priority": "low"
+    },
+    {
+      "id": "cer_canada",
+      "name": "Canada Energy Regulator (CER)",
+      "country": "Canada",
+      "region": "Americas",
+      "website": "https://www.cer-rec.gc.ca",
+      "priority": "medium"
+    },
+    {
+      "id": "ieso_ontario",
+      "name": "IESO Ontario",
+      "country": "Canada",
+      "region": "Americas",
+      "website": "https://www.ieso.ca",
+      "priority": "low"
+    },
+    {
+      "id": "aneel_brazil",
+      "name": "ANEEL Brazil",
+      "country": "Brazil",
+      "region": "Americas",
+      "website": "https://www.gov.br/aneel",
+      "priority": "medium"
+    },
+    {
+      "id": "cre_mexico",
+      "name": "CRE Mexico",
+      "country": "Mexico",
+      "region": "Americas",
+      "website": "https://www.gov.mx/cre",
+      "priority": "medium"
+    },
+    {
+      "id": "cne_chile",
+      "name": "CNE Chile Energy Commission",
+      "country": "Chile",
+      "region": "Americas",
+      "website": "https://www.cne.cl",
+      "priority": "medium"
+    },
+    {
+      "id": "nea_singapore",
+      "name": "NEA Singapore",
+      "country": "Singapore",
+      "region": "APAC",
+      "website": "https://www.nea.gov.sg",
+      "priority": "high"
+    },
+    {
+      "id": "ema_singapore",
+      "name": "EMA Singapore Energy Market Authority",
+      "country": "Singapore",
+      "region": "APAC",
+      "website": "https://www.ema.gov.sg",
+      "priority": "high"
+    },
+    {
+      "id": "meti_japan",
+      "name": "METI Japan",
+      "country": "Japan",
+      "region": "APAC",
+      "website": "https://www.meti.go.jp",
+      "priority": "medium"
+    },
+    {
+      "id": "motie_korea",
+      "name": "MOTIE Korea",
+      "country": "South Korea",
+      "region": "APAC",
+      "website": "https://english.motie.go.kr",
+      "priority": "medium"
+    },
+    {
+      "id": "aemc_australia",
+      "name": "AEMC Australia",
+      "country": "Australia",
+      "region": "APAC",
+      "website": "https://www.aemc.gov.au",
+      "priority": "medium"
+    },
+    {
+      "id": "cerc_india",
+      "name": "CERC India Central Electricity Regulatory",
+      "country": "India",
+      "region": "APAC",
+      "website": "https://cercind.gov.in",
+      "priority": "medium"
+    },
+    {
+      "id": "nrdc_china",
+      "name": "NDRC China",
+      "country": "China",
+      "region": "APAC",
+      "website": "https://en.ndrc.gov.cn",
+      "priority": "medium"
+    }
   ],
   "trade_press": [
-    { "id": "esn", "name": "Energy Storage News", "rss": "https://www.energy-storage.news/feed", "region": "Global", "priority": "critical" },
-    { "id": "maritime_exec", "name": "Maritime Executive", "rss": "https://www.maritime-executive.com/articles.rss", "region": "Global", "priority": "high" },
-    { "id": "offshore_energy", "name": "Offshore Energy", "rss": "https://www.offshore-energy.biz/feed", "region": "Global", "priority": "high" },
-    { "id": "plugboats", "name": "Plugboats", "rss": "https://plugboats.com/feed", "region": "Global", "priority": "high" },
-    { "id": "electrive", "name": "electrive.com", "rss": "https://www.electrive.com/feed", "region": "Global", "priority": "high" },
-    { "id": "pv_magazine", "name": "PV Magazine", "rss": "https://www.pv-magazine.com/feed", "region": "Global", "priority": "high" },
-    { "id": "gulf_construction", "name": "Gulf Construction", "rss": "https://www.gulfconstructionworldwide.com/feed", "region": "EMEA", "priority": "medium" },
-    { "id": "construction_week", "name": "Construction Week Middle East", "rss": "https://www.constructionweekonline.com/rss", "region": "EMEA", "priority": "medium" },
-    { "id": "middle_east_energy", "name": "Middle East Energy / Big 5 Insider", "rss": "https://www.middleeastelectricity.com/en-gb/news.rss.html", "region": "EMEA", "priority": "high" },
-    { "id": "zawya_energy", "name": "Zawya Energy", "rss": "https://www.zawya.com/en/business/energy/rss", "region": "EMEA", "priority": "high" },
-    { "id": "port_strategy", "name": "Port Strategy", "rss": "https://www.portstrategy.com/news.rss", "region": "Global", "priority": "medium" },
-    { "id": "mining_weekly", "name": "Mining Weekly", "rss": "https://www.miningweekly.com/topic/africa/rss", "region": "Global", "priority": "medium" },
-    { "id": "enerji_gunlugu", "name": "Enerji Günlüğü Turkey", "rss": "https://www.enerjigunlugu.net/rss", "region": "EMEA", "priority": "medium" },
-    { "id": "deniz_haber", "name": "DenizHaber Turkey", "rss": "https://www.denizhaber.com.tr/rss", "region": "EMEA", "priority": "low" },
-    { "id": "renewable_energy_world", "name": "Renewable Energy World", "rss": "https://www.renewableenergyworld.com/feed", "region": "Global", "priority": "high" },
-    { "id": "power_engineering", "name": "Power Engineering", "rss": "https://www.power-eng.com/feed", "region": "Americas", "priority": "medium" },
-    { "id": "greentechmedia", "name": "Canary Media", "rss": "https://www.canarymedia.com/feed", "region": "Americas", "priority": "high" },
-    { "id": "utility_dive", "name": "Utility Dive", "rss": "https://www.utilitydive.com/feeds/news/", "region": "Americas", "priority": "high" },
-    { "id": "bessresearch_au", "name": "Renew Economy Australia", "rss": "https://reneweconomy.com.au/feed", "region": "APAC", "priority": "high" },
-    { "id": "asia_renewables", "name": "Asia Renewable Energy News", "rss": "https://www.renewableenergyworld.com/feed", "region": "APAC", "priority": "medium" }
+    {
+      "id": "esn",
+      "name": "Energy Storage News",
+      "rss": "https://www.energy-storage.news/feed",
+      "region": "Global",
+      "priority": "critical"
+    },
+    {
+      "id": "maritime_exec",
+      "name": "Maritime Executive",
+      "rss": "https://www.maritime-executive.com/articles.rss",
+      "region": "Global",
+      "priority": "high"
+    },
+    {
+      "id": "offshore_energy",
+      "name": "Offshore Energy",
+      "rss": "https://www.offshore-energy.biz/feed",
+      "region": "Global",
+      "priority": "high"
+    },
+    {
+      "id": "plugboats",
+      "name": "Plugboats",
+      "rss": "https://plugboats.com/feed",
+      "region": "Global",
+      "priority": "high"
+    },
+    {
+      "id": "electrive",
+      "name": "electrive.com",
+      "rss": "https://www.electrive.com/feed",
+      "region": "Global",
+      "priority": "high"
+    },
+    {
+      "id": "pv_magazine",
+      "name": "PV Magazine",
+      "rss": "https://www.pv-magazine.com/feed",
+      "region": "Global",
+      "priority": "high"
+    },
+    {
+      "id": "gulf_construction",
+      "name": "Gulf Construction",
+      "rss": "https://www.gulfconstructionworldwide.com/feed",
+      "region": "MEA_T",
+      "priority": "medium"
+    },
+    {
+      "id": "construction_week",
+      "name": "Construction Week Middle East",
+      "rss": "https://www.constructionweekonline.com/rss",
+      "region": "MEA_T",
+      "priority": "medium"
+    },
+    {
+      "id": "middle_east_energy",
+      "name": "Middle East Energy / Big 5 Insider",
+      "rss": "https://www.middleeastelectricity.com/en-gb/news.rss.html",
+      "region": "MEA_T",
+      "priority": "high"
+    },
+    {
+      "id": "zawya_energy",
+      "name": "Zawya Energy",
+      "rss": "https://www.zawya.com/en/business/energy/rss",
+      "region": "MEA_T",
+      "priority": "high"
+    },
+    {
+      "id": "port_strategy",
+      "name": "Port Strategy",
+      "rss": "https://www.portstrategy.com/news.rss",
+      "region": "Global",
+      "priority": "medium"
+    },
+    {
+      "id": "mining_weekly",
+      "name": "Mining Weekly",
+      "rss": "https://www.miningweekly.com/topic/africa/rss",
+      "region": "Global",
+      "priority": "medium"
+    },
+    {
+      "id": "enerji_gunlugu",
+      "name": "Enerji Günlüğü Turkey",
+      "rss": "https://www.enerjigunlugu.net/rss",
+      "region": "MEA_T",
+      "priority": "medium"
+    },
+    {
+      "id": "deniz_haber",
+      "name": "DenizHaber Turkey",
+      "rss": "https://www.denizhaber.com.tr/rss",
+      "region": "MEA_T",
+      "priority": "low"
+    },
+    {
+      "id": "renewable_energy_world",
+      "name": "Renewable Energy World",
+      "rss": "https://www.renewableenergyworld.com/feed",
+      "region": "Global",
+      "priority": "high"
+    },
+    {
+      "id": "power_engineering",
+      "name": "Power Engineering",
+      "rss": "https://www.power-eng.com/feed",
+      "region": "Americas",
+      "priority": "medium"
+    },
+    {
+      "id": "greentechmedia",
+      "name": "Canary Media",
+      "rss": "https://www.canarymedia.com/feed",
+      "region": "Americas",
+      "priority": "high"
+    },
+    {
+      "id": "utility_dive",
+      "name": "Utility Dive",
+      "rss": "https://www.utilitydive.com/feeds/news/",
+      "region": "Americas",
+      "priority": "high"
+    },
+    {
+      "id": "bessresearch_au",
+      "name": "Renew Economy Australia",
+      "rss": "https://reneweconomy.com.au/feed",
+      "region": "APAC",
+      "priority": "high"
+    },
+    {
+      "id": "asia_renewables",
+      "name": "Asia Renewable Energy News",
+      "rss": "https://www.renewableenergyworld.com/feed",
+      "region": "APAC",
+      "priority": "medium"
+    }
   ],
   "themes": [
     "mobile battery storage Middle East",

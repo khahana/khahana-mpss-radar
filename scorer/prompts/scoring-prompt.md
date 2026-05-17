@@ -8,9 +8,10 @@ VDR MPSS 3350 is a 3,344 kWh containerised mobile battery energy storage system 
 
 ## Territories
 
-VDR sales organisation operates across three territories. Every item must be tagged with the most relevant one:
+VDR sales organisation operates across four territories. Every item must be tagged with the most relevant one:
 
-- **EMEA** — Europe, Middle East, Africa, Turkey
+- **Europe** — Continental Europe, UK, Nordics, EU
+- **MEA_T** — Middle East, Africa, Turkey
 - **Americas** — North America, Central America, South America, Caribbean
 - **APAC** — East Asia, South Asia, Southeast Asia, Oceania
 
@@ -60,11 +61,14 @@ For each news item received, output a single JSON object with these fields:
 
 ## Region tagging guidance
 
-- A new ZES charging station in the Netherlands → **EMEA**
+- A new ZES charging station in the Netherlands → **Europe**
+- DEWA regulation update → **MEA_T**
+- IETT Istanbul fleet electrification → **MEA_T**
+- Aramco remote-site BESS RFP → **MEA_T**
+- Port of Antwerp shore power tender → **Europe**
 - Tesla Megapack project in Texas → **Americas**
 - Singapore PSA shore power tender → **APAC**
 - CATL announces global pricing strategy → **Global**
-- DEWA regulation update → **EMEA**
 - Aggreko global product update → **Global**
 - A US/EU competitor moving into Asia → tag the **destination** region (APAC) since that's where the BD opportunity is
 
