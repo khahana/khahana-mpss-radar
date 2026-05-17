@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 /**
- * MPSS Radar — Watchlist Seeder
- * Loads config/watchlist.json into the Supabase watchlist table.
- * Run once after first Supabase setup, then again whenever you edit watchlist.json.
+ * MPSS Radar v2.0 — Watchlist Seeder
+ * Loads config/watchlist.json (v2 flat-array format with region tags) into Supabase.
  *
  *   node scripts/seed-watchlist.js
  */
@@ -24,49 +23,50 @@ const watchlist = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config'
 
 const rows = [];
 
-// Competitors
-for (const [bucket, list] of Object.entries(watchlist.competitors || {})) {
-  for (const c of list) {
-    rows.push({
-      entity_type: 'competitor',
-      entity_id: c.id,
-      name: c.name,
-      category: bucket,
-      country: c.country,
-      priority: c.priority,
-      website: c.website,
-      linkedin_company: c.linkedin_company,
-      notes: (c.products || []).join('; '),
-      is_active: true
-    });
-  }
+// Competitors (flat array in v2)
+for (const c of (watchlist.competitors || [])) {
+  rows.push({
+    entity_type: 'competitor',
+    entity_id: c.id,
+    name: c.name,
+    category: c.subcategory,
+    subcategory: c.subcategory,
+    country: c.country,
+    region: c.region,
+    priority: c.priority,
+    website: c.website,
+    linkedin_company: c.linkedin_company,
+    notes: (c.products || []).join('; '),
+    is_active: true
+  });
 }
 
-// Prospects
-for (const [bucket, list] of Object.entries(watchlist.prospects || {})) {
-  for (const p of list) {
-    rows.push({
-      entity_type: 'prospect',
-      entity_id: p.id,
-      name: p.name,
-      category: bucket,
-      country: p.country,
-      priority: p.priority,
-      website: p.website,
-      linkedin_company: p.linkedin_company,
-      notes: p.notes || null,
-      is_active: true
-    });
-  }
+// Prospects (flat array in v2)
+for (const p of (watchlist.prospects || [])) {
+  rows.push({
+    entity_type: 'prospect',
+    entity_id: p.id,
+    name: p.name,
+    category: p.subcategory,
+    subcategory: p.subcategory,
+    country: p.country,
+    region: p.region,
+    priority: p.priority,
+    website: p.website,
+    linkedin_company: p.linkedin_company,
+    notes: p.notes || null,
+    is_active: true
+  });
 }
 
 // Regulators
-for (const r of watchlist.regulators || []) {
+for (const r of (watchlist.regulators || [])) {
   rows.push({
     entity_type: 'regulator',
     entity_id: r.id,
     name: r.name,
     country: r.country,
+    region: r.region,
     priority: r.priority,
     website: r.website,
     is_active: true
@@ -74,11 +74,12 @@ for (const r of watchlist.regulators || []) {
 }
 
 // Trade press
-for (const t of watchlist.trade_press || []) {
+for (const t of (watchlist.trade_press || [])) {
   rows.push({
     entity_type: 'trade_press',
     entity_id: t.id,
     name: t.name,
+    region: t.region,
     priority: t.priority,
     rss_url: t.rss,
     is_active: true
@@ -91,15 +92,15 @@ for (const t of watchlist.trade_press || []) {
     entity_type: 'theme',
     entity_id: 'theme_' + (i + 1),
     name: theme,
+    region: 'Global',
     priority: 'medium',
     is_active: true
   });
 });
 
 async function seed() {
-  console.log(`Seeding ${rows.length} watchlist entries...`);
+  console.log(`Seeding ${rows.length} watchlist entries (v2 global)...`);
 
-  // Upsert in batches of 50
   for (let i = 0; i < rows.length; i += 50) {
     const batch = rows.slice(i, i + 50);
     const { error } = await supabase
@@ -112,6 +113,14 @@ async function seed() {
     }
   }
 
+  // Region summary
+  const summary = {};
+  rows.forEach(r => {
+    const key = `${r.entity_type}/${r.region || 'unknown'}`;
+    summary[key] = (summary[key] || 0) + 1;
+  });
+  console.log('\nDistribution:');
+  Object.keys(summary).sort().forEach(k => console.log(`  ${k}: ${summary[k]}`));
   console.log('\nDone.');
 }
 

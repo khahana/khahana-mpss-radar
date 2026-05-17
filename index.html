@@ -66,10 +66,42 @@
     }
     .topbar-meta {
       display: flex;
-      gap: 24px;
+      gap: 16px;
       align-items: center;
       font-size: 12px;
       color: var(--text-dim);
+    }
+    .region-selector {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: var(--panel-2);
+      border: 1px solid var(--cyan);
+      border-radius: 8px;
+      box-shadow: 0 0 0 1px rgba(0, 212, 170, 0.15);
+    }
+    .region-selector label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--cyan);
+      font-weight: 700;
+    }
+    .region-selector select {
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 2px 4px;
+      outline: none;
+    }
+    .region-selector select option {
+      background: var(--panel);
+      color: var(--text);
     }
     .status-pill {
       display: inline-flex;
@@ -523,6 +555,15 @@
       <span class="sub">Market Intelligence · KhahanA Insights</span>
     </div>
     <div class="topbar-meta">
+      <div class="region-selector">
+        <label>Region</label>
+        <select id="regionFilter" onchange="onRegionChange()">
+          <option value="Global">🌐 Global</option>
+          <option value="EMEA">EMEA</option>
+          <option value="Americas">Americas</option>
+          <option value="APAC">APAC</option>
+        </select>
+      </div>
       <span id="lastUpdate">Last update: —</span>
       <span class="status-pill" id="connectionStatus">
         <span class="dot"></span>
@@ -654,9 +695,30 @@
         url: localStorage.getItem('mpss_supabase_url') || '',
         key: localStorage.getItem('mpss_supabase_key') || ''
       },
+      region: localStorage.getItem('mpss_region') || 'Global', // default on first load
       currentDraft: null,
       panel: 'dashboard'
     };
+
+    // ============ REGION FILTER ============
+    function onRegionChange() {
+      const newRegion = document.getElementById('regionFilter').value;
+      state.region = newRegion;
+      localStorage.setItem('mpss_region', newRegion);
+      // refresh current panel
+      if (state.panel === 'dashboard') loadDashboard();
+      if (state.panel === 'content') loadContent();
+      if (state.panel === 'watchlist') loadWatchlist();
+    }
+
+    function applyRegionFilter(query) {
+      // helper: when state.region is 'Global', no filter applied (shows everything)
+      // otherwise filter by region column
+      if (state.region && state.region !== 'Global') {
+        return query.eq('region', state.region);
+      }
+      return query;
+    }
 
     // ============ CONFIG ============
     function openConfig() {
@@ -722,10 +784,10 @@
         return;
       }
 
-      // KPIs
-      const { data: briefData } = await state.supabase
-        .from('v_morning_brief')
-        .select('*');
+      // KPIs - apply region filter
+      let briefQuery = state.supabase.from('v_morning_brief').select('*');
+      briefQuery = applyRegionFilter(briefQuery);
+      const { data: briefData } = await briefQuery;
 
       if (briefData) {
         const critical = briefData.filter(d => d.priority === 'critical').length;
@@ -733,7 +795,8 @@
         document.getElementById('kpiCritical').textContent = critical;
         document.getElementById('kpiHigh').textContent = high;
         document.getElementById('briefCount').textContent = critical + high;
-        document.getElementById('briefSubtitle').textContent = `${briefData.length} items in last 48h`;
+        document.getElementById('briefSubtitle').textContent =
+          `${briefData.length} items in last 48h · ${state.region}`;
         renderBrief(briefData);
       }
 
@@ -788,6 +851,7 @@
           ${it.strategic_angle ? `<div class="item-angle">${escapeHtml(it.strategic_angle)}</div>` : ''}
           <div class="item-meta">
             <span class="tag category">${it.category}</span>
+            ${it.region ? `<span class="tag" style="border-color: rgba(0, 212, 170, 0.4); color: var(--cyan);">${it.region}</span>` : ''}
             ${(it.related_entities || []).map(e => `<span class="tag">${e}</span>`).join('')}
             <span style="margin-left: auto;">${formatDate(it.published_at || it.scraped_at)}</span>
           </div>
@@ -804,11 +868,16 @@
     // ============ CONTENT STUDIO ============
     async function loadContent() {
       if (!state.supabase) return;
-      const { data: drafts } = await state.supabase
+      // For Content Studio, filter drafts by their underlying scored_item's region
+      let query = state.supabase
         .from('drafts')
-        .select('*')
+        .select('*, scored_items!inner(region)')
         .in('status', ['draft', 'edited'])
         .order('generated_at', { ascending: false });
+      if (state.region && state.region !== 'Global') {
+        query = query.eq('scored_items.region', state.region);
+      }
+      const { data: drafts } = await query;
       renderDraftList(drafts || []);
     }
 
@@ -912,11 +981,15 @@
     // ============ WATCHLIST ============
     async function loadWatchlist() {
       if (!state.supabase) return;
-      const { data } = await state.supabase
+      let query = state.supabase
         .from('watchlist')
         .select('*')
         .eq('is_active', true)
         .order('entity_type, priority, name');
+      if (state.region && state.region !== 'Global') {
+        query = query.or(`region.eq.${state.region},region.eq.Global,region.is.null`);
+      }
+      const { data } = await query;
       renderWatchlist(data || []);
     }
 
@@ -970,6 +1043,9 @@
     }
 
     // ============ BOOT ============
+    // Set region dropdown to remembered value
+    document.getElementById('regionFilter').value = state.region;
+
     if (state.config.url && state.config.key) {
       connect();
     } else {
