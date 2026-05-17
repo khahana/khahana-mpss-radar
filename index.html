@@ -449,6 +449,212 @@
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .watchlist-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-1px);
+    }
+    .watchlist-card.has-profile {
+      border-color: rgba(0, 212, 170, 0.25);
+    }
+    .watchlist-card.has-profile:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 4px 16px rgba(0, 212, 170, 0.1);
+    }
+    .profile-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--cyan);
+      border-radius: 50%;
+      margin-left: 4px;
+      vertical-align: middle;
+      box-shadow: 0 0 6px var(--cyan);
+    }
+    .profile-preview {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-dim);
+      font-style: italic;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tier-badge {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-right: 6px;
+    }
+    .tier-badge.tier-1 { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+    .tier-badge.tier-2 { background: rgba(245, 158, 11, 0.15); color: var(--warn); }
+    .tier-badge.tier-3 { background: rgba(0, 212, 170, 0.15); color: var(--cyan); }
+
+    /* ====== PROFILE MODAL ====== */
+    .profile-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow-y: auto;
+    }
+    .profile-modal-overlay.active { display: flex; }
+    .profile-modal {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      max-width: 820px;
+      width: 100%;
+      padding: 32px 36px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+      animation: modalIn 0.18s ease-out;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--cyan);
+      margin-bottom: 22px;
+    }
+    .profile-name {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .profile-subhead {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 6px;
+    }
+    .profile-tier {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 3px 10px;
+      background: rgba(0, 212, 170, 0.1);
+      border: 1px solid var(--cyan);
+      border-radius: 100px;
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .profile-relationship {
+      display: inline-block;
+      margin-top: 6px;
+      margin-left: 6px;
+      padding: 3px 10px;
+      background: rgba(43, 94, 167, 0.15);
+      border: 1px solid var(--blue);
+      border-radius: 100px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      font-size: 28px;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.15s;
+    }
+    .modal-close:hover { background: var(--panel-2); color: var(--text); }
+    .profile-summary {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.55;
+      padding: 14px 16px;
+      background: rgba(0, 212, 170, 0.06);
+      border-left: 3px solid var(--cyan);
+      border-radius: 6px;
+      margin-bottom: 22px;
+    }
+    .profile-section {
+      margin-bottom: 16px;
+    }
+    .profile-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+    .profile-section-body {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .profile-stub {
+      background: var(--panel-2);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .profile-stub h3 {
+      color: var(--text);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .profile-stub p {
+      color: var(--text-faint);
+      font-size: 12px;
+    }
+    .profile-sources {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .profile-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .profile-link {
+      padding: 6px 14px;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 12px;
+      transition: all 0.15s;
+    }
+    .profile-link:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
     }
     .watchlist-section-head {
       font-size: 12px;
@@ -688,6 +894,13 @@
         <button class="btn primary" onclick="saveConfig()">Save & Connect</button>
         <button class="btn ghost" onclick="closeConfig()">Cancel</button>
       </div>
+    </div>
+  </div>
+
+  <!-- PROFILE MODAL -->
+  <div class="profile-modal-overlay" id="profileModal" onclick="if (event.target === this) closeEntityProfile()">
+    <div class="profile-modal" id="profileModalBody">
+      <!-- Profile content rendered here dynamically -->
     </div>
   </div>
 
@@ -1001,6 +1214,7 @@
       document.getElementById('watchlistCount').textContent = `${items.length} entities tracked`;
       const sections = {
         competitor: 'Competitors',
+        ecosystem: 'Ecosystem & Strategic Actors',
         prospect: 'Prospects',
         regulator: 'Regulators',
         trade_press: 'Trade Press',
@@ -1013,20 +1227,106 @@
         html += `<div class="watchlist-section-head">${label} (${list.length})</div>`;
         html += '<div class="watchlist-grid">';
         for (const w of list) {
+          const hasProfile = w.profile && (w.profile.summary || w.profile.what_they_do);
+          const tier = w.profile && w.profile.tier;
+          const tierBadge = tier ? `<span class="tier-badge tier-${tier}">T${tier}</span>` : '';
+          const profileIndicator = hasProfile ? '<span class="profile-dot" title="Detailed profile available"></span>' : '';
           html += `
-            <div class="watchlist-card">
-              <div class="name">${escapeHtml(w.name)}</div>
+            <div class="watchlist-card ${hasProfile ? 'has-profile' : ''}" data-entity-id="${escapeHtml(w.entity_id || '')}" onclick='openEntityProfile(${JSON.stringify(w).replace(/'/g, "&#39;")})'>
+              <div class="name">${escapeHtml(w.name)} ${profileIndicator}</div>
               <div class="meta">
+                ${tierBadge}
                 ${w.country ? w.country + ' · ' : ''}
                 ${w.category || w.entity_type}
                 ${w.priority ? ' · ' + w.priority : ''}
               </div>
+              ${hasProfile && w.profile.summary ? `<div class="profile-preview">${escapeHtml(w.profile.summary)}</div>` : ''}
             </div>`;
         }
         html += '</div>';
       }
       document.getElementById('watchlistContent').innerHTML = html || '<div class="empty"><h3>Watchlist empty</h3><p>Load watchlist.json into Supabase to populate.</p></div>';
     }
+
+    // ============ ENTITY PROFILE MODAL ============
+    function openEntityProfile(entity) {
+      const profile = entity.profile || {};
+      const isCompetitor = entity.entity_type === 'competitor';
+      const isProspect = entity.entity_type === 'prospect';
+      const isEcosystem = entity.entity_type === 'ecosystem';
+      const hasContent = profile.summary || profile.what_they_do;
+
+      const tierLabels = { 1: 'Tier 1 — Direct competitor', 2: 'Tier 2 — Adjacent', 3: 'Tier 3 — Watch' };
+      const tierLabel = profile.tier ? tierLabels[profile.tier] : '';
+
+      const sectionHtml = (title, content) => content ? `
+        <div class="profile-section">
+          <div class="profile-section-title">${title}</div>
+          <div class="profile-section-body">${escapeHtml(content)}</div>
+        </div>` : '';
+
+      const sourceHtml = profile.sources ? `
+        <div class="profile-section profile-sources">
+          <div class="profile-section-title">Sources</div>
+          <div class="profile-section-body" style="font-size: 11px; color: var(--text-faint);">${escapeHtml(profile.sources)}</div>
+        </div>` : '';
+
+      const stubMessage = !hasContent ? `
+        <div class="profile-stub">
+          <h3>Profile not yet expanded</h3>
+          <p>This entity is tracked in the watchlist but doesn't yet have a detailed profile. Profiles are being added incrementally for Tier 1, Tier 2, and key ecosystem players.</p>
+        </div>` : '';
+
+      document.getElementById('profileModalBody').innerHTML = `
+        <div class="profile-header">
+          <div>
+            <div class="profile-name">${escapeHtml(entity.name)}</div>
+            <div class="profile-subhead">
+              ${entity.country ? entity.country + ' · ' : ''}
+              ${entity.region ? entity.region + ' · ' : ''}
+              ${entity.category || entity.entity_type}
+              ${entity.priority ? ' · ' + entity.priority + ' priority' : ''}
+            </div>
+            ${tierLabel ? `<div class="profile-tier">${tierLabel}</div>` : ''}
+            ${entity.relationship_type ? `<div class="profile-relationship">${entity.relationship_type.replace(/_/g, ' ')}</div>` : ''}
+          </div>
+          <button class="modal-close" onclick="closeEntityProfile()">×</button>
+        </div>
+
+        ${stubMessage}
+
+        ${profile.summary ? `<div class="profile-summary">${escapeHtml(profile.summary)}</div>` : ''}
+
+        ${sectionHtml('What they do', profile.what_they_do || profile.what_they_do_now)}
+        ${sectionHtml('Products / offering', profile.products || profile.products_legacy)}
+        ${sectionHtml('Customer base & GTM', profile.customer_base)}
+        ${sectionHtml('Pain points (BD angle)', profile.pain_points)}
+        ${sectionHtml('BD angle for VDR', profile.bd_angle)}
+        ${sectionHtml('Where they are strong', profile.where_strong)}
+        ${sectionHtml('Where they are weak vs MPSS', profile.where_weak_vs_mpss)}
+        ${sectionHtml('Recent moves', profile.recent_moves)}
+        ${sectionHtml('Strategic angle for VDR', profile.strategic_angle)}
+        ${sectionHtml('Contacts to target', profile.contacts_to_target)}
+        ${entity.notes ? sectionHtml('Notes', entity.notes) : ''}
+
+        ${sourceHtml}
+
+        <div class="profile-links">
+          ${entity.website ? `<a href="${entity.website}" target="_blank" class="profile-link">🌐 Website</a>` : ''}
+          ${entity.linkedin_company ? `<a href="https://linkedin.com/company/${entity.linkedin_company}" target="_blank" class="profile-link">in LinkedIn</a>` : ''}
+        </div>
+      `;
+      document.getElementById('profileModal').classList.add('active');
+    }
+
+    function closeEntityProfile() {
+      document.getElementById('profileModal').classList.remove('active');
+    }
+
+    // Close modal on Escape or backdrop click
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeEntityProfile();
+    });
 
     // ============ UTILS ============
     function escapeHtml(s) {

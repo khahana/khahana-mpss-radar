@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * MPSS Radar v2.0 — Watchlist Seeder
- * Loads config/watchlist.json (v2 flat-array format with region tags) into Supabase.
+ * MPSS Radar v2.3 — Watchlist Seeder
+ * Loads config/watchlist.json into Supabase, including ecosystem entities and profiles.
  *
  *   node scripts/seed-watchlist.js
  */
@@ -23,7 +23,7 @@ const watchlist = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config'
 
 const rows = [];
 
-// Competitors (flat array in v2)
+// Competitors
 for (const c of (watchlist.competitors || [])) {
   rows.push({
     entity_type: 'competitor',
@@ -36,12 +36,13 @@ for (const c of (watchlist.competitors || [])) {
     priority: c.priority,
     website: c.website,
     linkedin_company: c.linkedin_company,
-    notes: (c.products || []).join('; '),
+    notes: (c.products || []).join('; ') || c.notes || null,
+    profile: c.profile || null,
     is_active: true
   });
 }
 
-// Prospects (flat array in v2)
+// Prospects
 for (const p of (watchlist.prospects || [])) {
   rows.push({
     entity_type: 'prospect',
@@ -55,6 +56,27 @@ for (const p of (watchlist.prospects || [])) {
     website: p.website,
     linkedin_company: p.linkedin_company,
     notes: p.notes || null,
+    profile: p.profile || null,
+    is_active: true
+  });
+}
+
+// Ecosystem (NEW in v2.3)
+for (const e of (watchlist.ecosystem || [])) {
+  rows.push({
+    entity_type: 'ecosystem',
+    entity_id: e.id,
+    name: e.name,
+    category: e.subcategory,
+    subcategory: e.subcategory,
+    country: e.country,
+    region: e.region,
+    priority: e.priority,
+    website: e.website,
+    linkedin_company: e.linkedin_company,
+    notes: e.notes || null,
+    relationship_type: e.relationship_type,
+    profile: e.profile || null,
     is_active: true
   });
 }
@@ -99,7 +121,7 @@ for (const t of (watchlist.trade_press || [])) {
 });
 
 async function seed() {
-  console.log(`Seeding ${rows.length} watchlist entries (v2 global)...`);
+  console.log(`Seeding ${rows.length} watchlist entries (v2.3 with ecosystem + profiles)...`);
 
   for (let i = 0; i < rows.length; i += 50) {
     const batch = rows.slice(i, i + 50);
@@ -113,14 +135,15 @@ async function seed() {
     }
   }
 
-  // Region summary
-  const summary = {};
+  // Summary
+  const byType = {};
   rows.forEach(r => {
-    const key = `${r.entity_type}/${r.region || 'unknown'}`;
-    summary[key] = (summary[key] || 0) + 1;
+    byType[r.entity_type] = (byType[r.entity_type] || 0) + 1;
   });
-  console.log('\nDistribution:');
-  Object.keys(summary).sort().forEach(k => console.log(`  ${k}: ${summary[k]}`));
+  const profileCount = rows.filter(r => r.profile).length;
+  console.log('\nBy entity type:');
+  Object.entries(byType).sort().forEach(([k, v]) => console.log(`  ${k}: ${v}`));
+  console.log(`\nWith detailed profile: ${profileCount}`);
   console.log('\nDone.');
 }
 

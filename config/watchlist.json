@@ -1,5 +1,5 @@
 {
-  "version": "2.2",
+  "version": "2.3",
   "last_updated": "2026-05-17",
   "strategy_context": {
     "product": "VDR MPSS 3350 — 3,344 kWh containerised mobile BESS",
@@ -48,7 +48,19 @@
       ],
       "linkedin_company": "zero-emission-services-bv",
       "website": "https://zeroemissionservices.nl",
-      "priority": "critical"
+      "priority": "critical",
+      "profile": {
+        "tier": 1,
+        "summary": "Dutch mobile battery container provider; pioneer of pay-per-use battery swap for inland marine. Strongest reference case in mobile BESS, but narrowest in deployment model.",
+        "what_they_do": "Zero Emission Services (ZES) is a Dutch operator founded in 2020 as a JV of ING Bank, Wärtsilä, Engie, and Port of Rotterdam. They deliver mobile battery containers (ZESpack) to inland shipping operators on a pay-per-use basis. Customers swap empty packs for full ones at dedicated docks along Dutch and Belgian inland waterways, eliminating diesel and onboard battery investment.",
+        "products": "ZESpack 2.0 — 2.9 MWh LFP containerised battery, 20-ft ISO, MCS 1 MW bidirectional charging. Standardised across the fleet for hot-swap operations.",
+        "customer_base": "Inland shipping operators on Rhine, Maas, Scheldt corridors. Anchor customer Heineken (10-year offtake for beer transport). Funded under Dutch Growth Fund 75-unit programme. Expanding into Belgium 2025.",
+        "where_strong": "Proven operating reference. Verticalised pay-per-use model captured first-mover narrative in MCS-enabled mobile BESS. Strong shareholder ecosystem (port, utility, OEM, bank). Standards-setting on European MCS adoption.",
+        "where_weak_vs_mpss": "Pay-per-use only — no sale, no lease, no EaaS variants. NL/BE inland marine focus only. No IP rating disclosed publicly. Smaller capacity (2.9 MWh vs MPSS 3.34 MWh). No -30 to +55 °C envelope advertised. Lock-in to ZES-only swap stations.",
+        "recent_moves": "Q1 2025 expansion announcement into Belgium. New shore-side charging infrastructure investments. 30+ vessels operating on ZES batteries by end 2024. 75-unit fleet target funded by Dutch Growth Fund.",
+        "strategic_angle": "VDR competes on commercial flexibility (Sale + Lease + EaaS + TotalCare) where ZES offers only pay-per-use. MPSS works across applications (mining, ports, construction, fleet) where ZES is locked to inland marine. Position MPSS as \"the ZES model but with full commercial flexibility and broader application set\" in conversations with European port operators.",
+        "sources": "T1: ZES press releases, Logistiek Hoevenaars interview 2022 (€1M+ price anchor). T2: Energy-Storage News coverage 2024-2025. NP: IP rating, temperature envelope."
+      }
     },
     {
       "id": "atlas_copco",
@@ -61,7 +73,19 @@
       ],
       "linkedin_company": "atlas-copco",
       "website": "https://www.atlascopco.com",
-      "priority": "critical"
+      "priority": "critical",
+      "profile": {
+        "tier": 1,
+        "summary": "Swedish industrial OEM, global rental + sales footprint, ZBC product line. Strongest competitor on distribution, weakest on largest capacity tier.",
+        "what_they_do": "Atlas Copco AB is a Stockholm-listed industrial group (revenue €18B+). The Power Technique division produces ZBC battery storage containers as part of a broader rental fleet including generators, compressors, light towers. Sold globally through Atlas Copco direct sales + rental partners.",
+        "products": "ZBC 250, ZBC 500, ZBC 1000 — capacities from 250 kWh to 1 MWh. LFP chemistry. Standalone or paralleled. Optional hybrid-with-diesel deployments. Modular form factor smaller than 20-ft container.",
+        "customer_base": "Global rental network — construction, events, mining, utilities, emergency response. Multi-region presence: NA, EU, MEA, APAC, LatAm. Often deployed via local rental partners alongside diesel gensets.",
+        "where_strong": "Global distribution footprint — likely the strongest of any mobile BESS player. Trusted brand for industrial customers. Hybrid configurations with their own diesel gensets create one-stop offers. Established lease/rental commercial models. Strong African and Middle East presence through existing dealer network.",
+        "where_weak_vs_mpss": "Maximum unit size 1 MWh vs MPSS 3.34 MWh — meaningful gap for high-power applications (port shore power, MW-class fast-charging). Modular paralleling adds footprint and complexity. No EaaS pay-per-use model. Atlas Copco brand is \"generator company plus battery\" not \"BESS first.\"",
+        "recent_moves": "Q3 2024 ZBC range expansion. New rental hubs in Saudi Arabia (Riyadh) and UAE. Increased focus on hybrid configurations replacing pure-diesel rentals.",
+        "strategic_angle": "Where Atlas Copco wins: pure rental events, distributed multi-unit deployments, customers with existing dealer relationships. Where MPSS wins: single-unit MW-class applications (one MPSS = three to four ZBC 1000s), customers wanting purchase or long-term lease ownership, commercial flexibility with TotalCare lifecycle. Position MPSS against Atlas Copco on \"capacity density per container\" and \"commercial model flexibility.\"",
+        "sources": "T1: Atlas Copco product specs (public). T2: Industry trade press, rental industry reports."
+      }
     },
     {
       "id": "aggreko",
@@ -74,7 +98,19 @@
       ],
       "linkedin_company": "aggreko",
       "website": "https://www.aggreko.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 1,
+        "summary": "UK-headquartered global energy rental giant, Y.Cube battery line. Strongest in MEA + Africa where existing diesel rental network gives natural battery cross-sell.",
+        "what_they_do": "Aggreko plc is a global temporary power and temperature control rental provider (private since 2021, owned by TDR Capital + I Squared Capital). Y.Cube is their battery storage line, deployed both standalone and in diesel-hybrid configurations with their existing genset fleet.",
+        "products": "Y.Cube — 250 kWh per cube, modular paralleling, LFP chemistry. Deployed up to multi-MWh combinations for events, mining, oil and gas remote sites.",
+        "customer_base": "Heavy presence MEA, Africa, mining sites globally. Major customers in oil and gas, large events (Olympic Games, F1 races), construction sites. Channel mix is direct + dealer.",
+        "where_strong": "Strongest existing dealer and service network in Middle East and Africa. Long-standing relationships with mining majors (Anglo American, BHP, First Quantum) and oil and gas (Aramco, ADNOC) where MPSS targets. Established hybrid deployments with diesel reduce risk for conservative procurement. Y.Cube + Aggreko service is a complete package.",
+        "where_weak_vs_mpss": "Y.Cube max 250 kWh per unit — same density disadvantage as Atlas Copco. Aggreko brand is \"diesel rental plus battery\" not \"battery-first.\" No standalone EaaS pricing model published. Hybrid focus actually reinforces diesel rather than displaces it — a contradiction in the energy transition narrative.",
+        "recent_moves": "Continued Middle East expansion 2024-2025. New BESS-focused contracts at large infrastructure projects (NEOM, Saudi giga-projects). Sustainability narrative emphasising hybrid deployments and emission reductions.",
+        "strategic_angle": "Aggreko is the most direct competitor in MEA territory because of customer overlap (Aramco, ADNOC, NEOM, mining). VDR-MPSS positioning vs Aggreko: \"3.34 MWh per container vs 250 kWh, full LFP without diesel hybrid, true zero-emission narrative for the energy transition, commercial flexibility from Sale to EaaS.\" Aggreko wins on familiarity; MPSS wins on capability and clean credential.",
+        "sources": "T1: Aggreko product literature, press releases. T2: Trade press coverage of mining/oil-gas deployments. T3: Estimates on dealer footprint."
+      }
     },
     {
       "id": "powr2",
@@ -87,7 +123,17 @@
       ],
       "linkedin_company": "powr2",
       "website": "https://www.powr2.com",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 2,
+        "summary": "UK Powrbank mobile BESS — small unit size, construction and events focus. Diesel-replacement positioning.",
+        "what_they_do": "POWR2 Ltd is a UK mobile BESS specialist focused on diesel-generator replacement at construction sites and events. Powrbank series provides 30-50 kWh per unit, designed to power tools, lighting, and small site loads with optional diesel hybrid recharging.",
+        "products": "Powrbank 30, Powrbank 50, Powrbank Hybrid (with on-board diesel charger). Modular small units.",
+        "customer_base": "Construction sites, outdoor events, film production in UK and EU.",
+        "where_weak_vs_mpss": "Capacity tier completely different — Powrbank 50 kWh vs MPSS 3,344 kWh. Aimed at micro applications. Not a meaningful competitor for industrial or grid-edge use cases.",
+        "strategic_angle": "Position only relevant in conversations where customer is comparing small mobile units. Refer down to Powrbank for genuinely small loads; up to MPSS for anything serious.",
+        "sources": "T1: POWR2 product literature. T2: UK construction trade press."
+      }
     },
     {
       "id": "northvolt",
@@ -100,7 +146,14 @@
       ],
       "linkedin_company": "northvolt",
       "website": "https://northvolt.com",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 2,
+        "summary": "BANKRUPT March 2025. Voltpack Mobile / Voltpack Core business sold to Scania (April 2025). Remaining assets acquired by Lyten (US lithium-sulfur startup) August 2025.",
+        "what_they_do_now": "Northvolt AB filed bankruptcy in Sweden 12 March 2025 following Chapter 11 filing in US 21 November 2024. Largest industrial bankruptcy in modern Swedish history. The mobile/industrial battery business (Voltpack Core, used in mining, construction, material handling) was acquired by Scania for ~$6M with ~260 employees. Sold over 3,300 Voltpack Core units pre-bankruptcy. Headquartered Gdańsk PL + Stockholm R&D.",
+        "strategic_angle": "Northvolt as independent competitor is gone. Voltpack Mobile under Scania ownership is now an OEM-led product within the Scania/Traton/Milence ecosystem. Treat as part of the Milence/Traton ecosystem strategic actor, not as a standalone competitor. In customer conversations: \"Northvolt has consolidated into Scania ownership; for true independent mobile BESS, MPSS is the obvious choice.\"",
+        "sources": "T1: Northvolt official bankruptcy filings (March 2025). T1: Scania press release April 2025. T2: ArcticStartup, Energy-Storage News, Euronews coverage."
+      }
     },
     {
       "id": "nomad",
@@ -113,7 +166,16 @@
       ],
       "linkedin_company": "nomad-power",
       "website": "https://www.nomad.global",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 2,
+        "summary": "UK Nomad Traveler — events and broadcast battery power. Premium UK rental brand.",
+        "what_they_do": "Nomad Global Ltd is a UK mobile battery power rental specialist. Niche focus on broadcast (TV outside broadcast vans), events (Glastonbury and similar UK festivals), and film. Around 29 employees per industry reports 2025.",
+        "products": "Nomad Traveler — multiple capacity options up to several hundred kWh per unit. Premium rental focus, often customised for client.",
+        "where_weak_vs_mpss": "Boutique scale. UK-only footprint. Capacity below MPSS tier.",
+        "strategic_angle": "No direct overlap with MPSS strategic territory. Not a serious concern.",
+        "sources": "T2: UK media + events trade press."
+      }
     },
     {
       "id": "wartsila_es",
@@ -126,7 +188,19 @@
       ],
       "linkedin_company": "wartsila-energy-storage",
       "website": "https://www.wartsila.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 1,
+        "summary": "Finnish marine + energy storage major. GridSolv Quantum stationary product. Former ZES first-generation supplier. Strong marine credentials, ambiguous mobile strategy.",
+        "what_they_do": "Wärtsilä Corporation is a Finnish marine and energy major (revenue €5B+). The Energy Storage and Optimisation business sells utility-scale BESS containers (GridSolv Quantum) primarily for stationary grid applications. Strong project-engineering culture inherited from marine business.",
+        "products": "GridSolv Quantum — modular utility-scale BESS containers, 5+ MWh per assembly. GEMS Power Plant Controller software. Primarily stationary grid-scale + marine vessel integration.",
+        "customer_base": "Utilities and grid operators in NA, EU, Asia. Marine vessel operators (cruise lines, offshore support). Mining and oil-and-gas hybrid microgrid projects.",
+        "where_strong": "Engineering credibility from marine heritage (extreme operating conditions, certification rigor). GEMS controller is industry-leading software. Strong project execution at utility-scale. Existing relationships with port and shipping operators.",
+        "where_weak_vs_mpss": "Stationary positioning — mobile deployments are secondary. Wärtsilä BESS is project-engineered, not productised for rapid deploy. Pricing favours large multi-MWh stationary deals over MW-class mobile use cases. ZES first-gen relationship suggests they would partner with ZES rather than compete head-on for inland marine — leaves space in mobile.",
+        "recent_moves": "Multiple large-scale stationary BESS contract wins 2024-2025 in US and Australia. Expanding GEMS software licensing. Less visible mobile/transportable activity.",
+        "strategic_angle": "Wärtsilä is a tier-2 mobile competitor in practice — they could pivot but their commercial model and product positioning are aimed at stationary. Where they overlap with MPSS: marine and port applications where their existing customer base is decisive. Position MPSS vs Wärtsilä on \"purpose-built mobility, commercial flexibility, faster deployment.\" Avoid head-to-head on stationary grid-scale projects where Wärtsilä is overwhelmingly stronger.",
+        "sources": "T1: Wärtsilä Energy Storage product literature. T2: Energy-Storage News project deal coverage 2024-2025."
+      }
     },
     {
       "id": "engie",
@@ -139,7 +213,13 @@
       ],
       "linkedin_company": "engie",
       "website": "https://www.engie.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 3,
+        "summary": "ENGIE France — utility, ZES shareholder. Project developer.",
+        "strategic_angle": "Partnership candidate, especially around ZES European expansion.",
+        "sources": "T1: ENGIE press."
+      }
     },
     {
       "id": "edf_renewables",
@@ -152,7 +232,13 @@
       ],
       "linkedin_company": "edf-renewables",
       "website": "https://www.edf-renewables.com",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 3,
+        "summary": "EDF Renewables storage projects.",
+        "strategic_angle": "Project developer; potential MPSS customer for site-specific deployments.",
+        "sources": "T1: EDF Renewables."
+      }
     },
     {
       "id": "iberdrola",
@@ -165,7 +251,13 @@
       ],
       "linkedin_company": "iberdrola",
       "website": "https://www.iberdrola.com",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 3,
+        "summary": "Iberdrola Spain — utility BESS deployments. Launching 1MW MCS chargers in Murcia.",
+        "strategic_angle": "Customer + partnership angle, especially MCS-related.",
+        "sources": "T1: Iberdrola press."
+      }
     },
     {
       "id": "enel_x",
@@ -178,7 +270,13 @@
       ],
       "linkedin_company": "enel-x",
       "website": "https://www.enelx.com",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 3,
+        "summary": "Enel X Italy — mobile + stationary storage product mix.",
+        "strategic_angle": "Both competitor and channel partner depending on application.",
+        "sources": "T1: Enel X product page."
+      }
     },
     {
       "id": "saft",
@@ -191,7 +289,14 @@
       ],
       "linkedin_company": "saft",
       "website": "https://www.saftbatteries.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 2,
+        "summary": "TotalEnergies-owned French battery integrator. Intensium product line. Strong defence and rail experience.",
+        "what_they_do": "Saft (acquired by TotalEnergies 2016) is a French battery systems integrator. Intensium Max and Shift product lines target stationary grid-scale and industrial. Defence and rail markets give long-cycle credibility.",
+        "strategic_angle": "TotalEnergies backing gives Saft strong oil-gas customer access. Where they compete: stationary BESS at industrial sites. Limited mobile focus.",
+        "sources": "T1: Saft product literature."
+      }
     },
     {
       "id": "siemens_energy_storage",
@@ -204,7 +309,14 @@
       ],
       "linkedin_company": "siemens-energy",
       "website": "https://www.siemens-energy.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 2,
+        "summary": "Siemens Energy SIESTORAGE. Large industrial OEM, stationary focus, project-engineered approach.",
+        "what_they_do": "Siemens Energy Storage business provides SIESTORAGE BESS systems. Project-engineered for large industrial customers. Siemens parentage gives global presence.",
+        "strategic_angle": "Project-scale stationary competitor. Not direct mobile threat.",
+        "sources": "T1: Siemens product literature."
+      }
     },
     {
       "id": "abb_energy_storage",
@@ -269,7 +381,13 @@
       ],
       "linkedin_company": "masdar",
       "website": "https://masdar.ae",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 3,
+        "summary": "UAE clean energy developer. Project developer for BESS, not OEM.",
+        "strategic_angle": "Could be MPSS customer for project deployments. Partnership candidate.",
+        "sources": "T1: Masdar press releases."
+      }
     },
     {
       "id": "acwa",
@@ -282,7 +400,13 @@
       ],
       "linkedin_company": "acwa-power",
       "website": "https://acwapower.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 3,
+        "summary": "ACWA Power Saudi. Renewable + storage project developer.",
+        "strategic_angle": "Project developer; potential MPSS customer at Sudair and other sites.",
+        "sources": "T1: ACWA reports."
+      }
     },
     {
       "id": "amea_power",
@@ -295,7 +419,13 @@
       ],
       "linkedin_company": "amea-power",
       "website": "https://ameapower.com",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 3,
+        "summary": "AMEA Power UAE — regional renewable + storage developer.",
+        "strategic_angle": "Same as ACWA — project channel rather than competitor.",
+        "sources": "T2: MEA energy press."
+      }
     },
     {
       "id": "moxion",
@@ -308,7 +438,16 @@
       ],
       "linkedin_company": "moxion-power",
       "website": "https://www.moxionpower.com",
-      "priority": "critical"
+      "priority": "critical",
+      "profile": {
+        "tier": 2,
+        "summary": "US Moxion Power filed Chapter 7 bankruptcy August 2024. Assets acquired by Viridi Parente (Sep-Oct 2024). Former CEO launched successor venture Anode Technology Company (Sep 2025).",
+        "what_they_do": "Moxion Power Co. was a Richmond, California mobile BESS startup founded 2020. Raised $110M+ from Energy Impact Partners, Tamarack Global, Amazon Climate Pledge Fund, Microsoft Climate Innovation Fund, Sunbelt Rentals. Filed Chapter 7 bankruptcy 12 August 2024 with $201,980 cash, $33M secured claim. 247 layoffs.",
+        "products_legacy": "MP-75 Mobile Power Unit — 75 kW, 600 kWh. Delivered 400+ first-gen units. Targeted construction, film, events, EV fleet charging, defence.",
+        "where_strong": "Founder Paul Huelskamp returned September 2025 with Anode Technology Company ($9M seed). Contract manufacturing model, smaller footprint than Moxion. Viridi Parente operates former Moxion facility with $9.3M CEC grant April 2025.",
+        "strategic_angle": "Watch closely. Moxion bankruptcy is the most important market signal of 2024-2025: it proves the mobile BESS market is real (Moxion did real revenue and customer adoption) but punishes badly capitalised, vertically integrated players. MPSS at VDR has the advantage of disciplined OEM backing without venture-funded burn pressure. Use Moxion as a teaching case in customer conversations — \"we are not Moxion.\"",
+        "sources": "T1: TechCrunch, Latitude Media, Energy-Storage News (Sep 2025-Apr 2025 coverage). Bankruptcy court records. T2: CB Insights."
+      }
     },
     {
       "id": "portable_electric",
@@ -321,7 +460,16 @@
       ],
       "linkedin_company": "portable-electric",
       "website": "https://www.portable-electric.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 2,
+        "summary": "Canadian Voltstack mobile BESS — film and events focus, expanding to construction.",
+        "what_they_do": "Portable Electric Inc. is a Vancouver-based mobile battery power company. Voltstack product line aimed at film production, outdoor events, and construction sites. Modular unit sizes.",
+        "products": "Voltstack 5K, 20K, 30K — capacities up to ~30 kWh per unit. Designed for portability and easy transport.",
+        "where_weak_vs_mpss": "Sub-MWh tier. Niche.",
+        "strategic_angle": "No meaningful overlap with MPSS BD.",
+        "sources": "T2: Canadian construction and film trade press."
+      }
     },
     {
       "id": "enchanted_rock",
@@ -334,7 +482,15 @@
       ],
       "linkedin_company": "enchanted-rock",
       "website": "https://www.enchantedrock.com",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 2,
+        "summary": "US gas-powered backup microgrids. Hybrid model overlapping MPSS in critical infrastructure use cases.",
+        "what_they_do": "Enchanted Rock LLC (Houston) provides backup power microgrids using natural gas generators. Expanding into hybrid battery-gas configurations. Customers include data centres, hospitals, water utilities.",
+        "where_weak_vs_mpss": "Gas-based — not aligned with energy transition narrative. Stationary deployments dominate. Less mobile than positioning suggests.",
+        "strategic_angle": "In conversations about critical infrastructure resilience, MPSS can compete on zero-emission credential where Enchanted Rock relies on gas. Tier-2 watch only.",
+        "sources": "T2: US utility trade press."
+      }
     },
     {
       "id": "fluence",
@@ -347,7 +503,19 @@
       ],
       "linkedin_company": "fluence-energy",
       "website": "https://fluenceenergy.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 1,
+        "summary": "US Siemens-AES JV, public-listed BESS pure-play. Largest pure BESS company globally. Stationary-dominated but expanding into adjacent mobile-relevant products.",
+        "what_they_do": "Fluence Energy (NASDAQ: FLNC) is a global BESS provider, JV of Siemens and AES. Largest pure-play BESS company by deployed gigawatt-hours. Products span utility-scale grid storage, commercial and industrial, plus newer Gridstack Pro and Edgestack platforms.",
+        "products": "Gridstack — utility-scale grid storage. Gridstack Pro — recent generation with longer duration. Sunstack — solar integration. Edgestack — distributed grid edge. All primarily stationary; transportable variants emerging but not yet dominant.",
+        "customer_base": "Major utility customers globally (Edison Energy, NextEra, AGL). Strong US, Australia, EU presence. Limited MEA penetration to date.",
+        "where_strong": "Scale. Software (Fluence IQ). Public-company governance and balance sheet. Engineering depth from Siemens parentage. Operations and maintenance fleet largest in industry.",
+        "where_weak_vs_mpss": "Stationary-first orientation. Mobile/transportable products are not Fluence priority. Public-company quarterly pressure pushes them to scale wins not mobile-specific innovation. Less responsive to small-volume (single-unit) opportunities.",
+        "recent_moves": "Continued utility deal wins 2024-2025. Software platform expansion. Modest mobile/transportable product mentions but no flagship product equivalent to MPSS.",
+        "strategic_angle": "Fluence rarely competes head-to-head with MPSS in mobile BD conversations. Where they appear: large multi-MWh projects where customer may consider stationary Fluence vs mobile MPSS. Frame the conversation around use-case fit (does the customer need to move it? how often? what is the cost of grid connection delay?). For pure stationary multi-MWh, concede to Fluence; for any mobility or rapid deployment angle, MPSS wins decisively.",
+        "sources": "T1: Fluence investor reports (publicly listed). T2: Energy-Storage News continuous coverage."
+      }
     },
     {
       "id": "tesla_megapack",
@@ -360,7 +528,15 @@
       ],
       "linkedin_company": "tesla-motors",
       "website": "https://www.tesla.com/megapack",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 2,
+        "summary": "Tesla Megapack stationary utility BESS. Tier-1 brand but stationary-only — not a direct MPSS competitor.",
+        "what_they_do": "Tesla Megapack is the utility-scale BESS line. Up to 3.9 MWh per unit, factory-built integrated. Deployed at utility and grid sites globally.",
+        "where_weak_vs_mpss": "Stationary only. Not designed for mobile redeploy. Tesla brand premium pricing.",
+        "strategic_angle": "Same logic as Fluence — stationary vs mobile competition. Cede stationary to Tesla; own mobility.",
+        "sources": "T1: Tesla product page."
+      }
     },
     {
       "id": "powin",
@@ -373,7 +549,14 @@
       ],
       "linkedin_company": "powin-energy",
       "website": "https://powin.com",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 2,
+        "summary": "US BESS integrator, stationary utility-scale focus. Centipede and Pod product lines.",
+        "what_they_do": "Powin Energy is a Portland Oregon BESS integrator. Centipede and Pod product lines aimed at utility-scale projects. US and APAC deployments.",
+        "strategic_angle": "Stationary competitor. Limited mobile crossover.",
+        "sources": "T2: Industry coverage."
+      }
     },
     {
       "id": "sunrun",
@@ -425,7 +608,13 @@
       ],
       "linkedin_company": "catl",
       "website": "https://www.catl.com",
-      "priority": "critical"
+      "priority": "critical",
+      "profile": {
+        "tier": 3,
+        "summary": "CATL TENER stationary BESS line. Strategic threat if they pivot to mobile. Watch closely.",
+        "strategic_angle": "Chinese supply chain advantage. Currently stationary-focused. Mobile pivot would be disruptive.",
+        "sources": "T1: CATL product page."
+      }
     },
     {
       "id": "sungrow",
@@ -438,7 +627,13 @@
       ],
       "linkedin_company": "sungrow",
       "website": "https://en.sungrowpower.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 3,
+        "summary": "Sungrow PowerStack — Chinese stationary BESS, aggressive global pricing. Watch.",
+        "strategic_angle": "Pricing competitive threat in any tender. Stationary-only currently.",
+        "sources": "T1: Sungrow product page."
+      }
     },
     {
       "id": "byd_bb",
@@ -451,7 +646,13 @@
       ],
       "linkedin_company": "byd-company",
       "website": "https://en.byd.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 3,
+        "summary": "BYD Cube/Chess BESS. Chinese OEM with vertical integration. Watch.",
+        "strategic_angle": "BYD truck division gives them captive customer for any mobile BESS development.",
+        "sources": "T1: BYD product page."
+      }
     },
     {
       "id": "trina",
@@ -464,7 +665,13 @@
       ],
       "linkedin_company": "trina-solar",
       "website": "https://www.trinasolar.com",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 3,
+        "summary": "Trina Elementa BESS. Chinese stationary BESS player.",
+        "strategic_angle": "Stationary-only. Limited threat.",
+        "sources": "T2: Industry coverage."
+      }
     },
     {
       "id": "eve_energy",
@@ -477,7 +684,13 @@
       ],
       "linkedin_company": "eve-energy",
       "website": "https://www.evebattery.com",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 3,
+        "summary": "EVE Mr.Big/Mr.Giant commercial BESS. Chinese.",
+        "strategic_angle": "Stationary only.",
+        "sources": "T2: Industry coverage."
+      }
     },
     {
       "id": "huawei_digital_power",
@@ -490,7 +703,13 @@
       ],
       "linkedin_company": "huawei-digital-power",
       "website": "https://digitalpower.huawei.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 3,
+        "summary": "Huawei LUNA2000/StorPro BESS. Chinese tech giant in stationary BESS.",
+        "strategic_angle": "Tech-software differentiator. Stationary-focused.",
+        "sources": "T1: Huawei product page."
+      }
     },
     {
       "id": "hyosung",
@@ -503,7 +722,13 @@
       ],
       "linkedin_company": "hyosung",
       "website": "https://www.hyosung.com",
-      "priority": "medium"
+      "priority": "medium",
+      "profile": {
+        "tier": 3,
+        "summary": "Hyosung Heavy Industries BESS containers. Korean.",
+        "strategic_angle": "Stationary project competitor.",
+        "sources": "T2: Industry coverage."
+      }
     },
     {
       "id": "lg_energy_solution",
@@ -516,7 +741,13 @@
       ],
       "linkedin_company": "lg-energy-solution",
       "website": "https://www.lgensol.com",
-      "priority": "high"
+      "priority": "high",
+      "profile": {
+        "tier": 3,
+        "summary": "LG ES RESU/ESS containers. Korean major.",
+        "strategic_angle": "Stationary major. Limited mobile activity.",
+        "sources": "T1: LG ES product page."
+      }
     }
   ],
   "prospects": [
@@ -4261,5 +4492,422 @@
     "diesel replacement battery",
     "MPSS mobile power storage",
     "containerized BESS deployment"
+  ],
+  "ecosystem": [
+    {
+      "id": "milence",
+      "entity_type": "ecosystem",
+      "name": "Milence",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "charging_network_eu",
+      "relationship_type": "competitor_and_prospect",
+      "priority": "critical",
+      "linkedin_company": "milence",
+      "website": "https://milence.com",
+      "notes": "JV Daimler Truck + TRATON + Volvo. €500M equity + €120M debt (May 2026). 34 hubs across 8 EU countries, 90 target by end 2028. MCS lead in Europe.",
+      "profile": {
+        "tier": 1,
+        "summary": "Daimler Truck + TRATON + Volvo JV building the largest public heavy-duty charging network in Europe. Direct overlap with MPSS use cases at logistics depots and along freight corridors.",
+        "what_they_do": "Commercial Vehicle Charging Europe BV (Milence) is a joint venture founded 2022 by Daimler Truck, TRATON GROUP (VW), and Volvo Group. Mission: build a pan-European public charging network for medium and heavy electric trucks. Sites strategically located along Europe key freight corridors.",
+        "products": "High-power CCS2 and MCS charging hubs. 1.44 MW MCS lead deployment. Current network: 34 operational hubs across 8 European countries. Target: 90 hubs by end of 2028. Pricing transitioning January 2026 from pan-European to market-based regional pricing.",
+        "customer_base": "Heavy-duty trucking operators (Kuehne+Nagel was first UK customer at Immingham). All major European truck OEMs by definition (the founding shareholders use Milence to support their EV truck customers). MILES project funded 284 MCS stations across 71 locations to 2027.",
+        "where_strong": "€500M equity + €120M new debt facility (May 2026). First MCS corridor operational. Strong sponsor alignment with Big Three EU truck OEMs. EU AFIF €111M grant. Leading MCS rollout = market standard setter. First-mover in dedicated heavy-truck charging.",
+        "where_weak_vs_mpss": "Fixed infrastructure only. Each site requires grid connection — Milence customers face 12-24 month grid permit waits for any new hub. Cannot deploy where the truck is — only where the hub already exists. Capacity-constrained at peak load when many trucks arrive simultaneously.",
+        "strategic_angle": "Milence is simultaneously competitor and customer. As competitor: customers electrifying truck fleets may choose Milence public charging over MPSS-based depot charging. As customer: Milence themselves need temporary power solutions while waiting for grid upgrades at new sites, and overflow capacity at saturated hubs. The MPSS sales pitch to Milence: \"Bridge your grid wait, expand your effective capacity, deploy at temporary sites.\" Worth a dedicated outreach.",
+        "sources": "T1: Milence official press releases (May 2026 financing, March 2026 Paris-Berlin demo). T2: Energy-Storage News, electrive.com, motortransport.co.uk coverage 2026."
+      }
+    },
+    {
+      "id": "allego",
+      "entity_type": "ecosystem",
+      "name": "Allego",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "charging_network_eu",
+      "relationship_type": "prospect_primary",
+      "priority": "high",
+      "linkedin_company": "allego",
+      "website": "https://www.allego.eu",
+      "notes": "Pan-European EV charging operator. 35,000+ charging points. Expanding into heavy-duty truck charging at logistics hubs."
+    },
+    {
+      "id": "ionity",
+      "entity_type": "ecosystem",
+      "name": "IONITY",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "charging_network_eu",
+      "relationship_type": "prospect_primary",
+      "priority": "medium",
+      "linkedin_company": "ionity",
+      "website": "https://ionity.eu",
+      "notes": "JV BMW, Daimler, Ford, Hyundai-Kia, Volkswagen. 600+ HPC stations. Truck charging through partnerships."
+    },
+    {
+      "id": "bp_pulse_eu",
+      "entity_type": "ecosystem",
+      "name": "BP Pulse (truck)",
+      "country": "UK",
+      "region": "Europe",
+      "subcategory": "charging_network_eu",
+      "relationship_type": "competitor_and_prospect",
+      "priority": "high",
+      "linkedin_company": "bp-pulse",
+      "website": "https://bppulse.com",
+      "notes": "First 1MW MCS charger announced at Ashford International Truckstop 2026. Up to 20 MCS chargers planned at single site."
+    },
+    {
+      "id": "shell_recharge",
+      "entity_type": "ecosystem",
+      "name": "Shell Recharge",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "charging_network_eu",
+      "relationship_type": "prospect_primary",
+      "priority": "medium",
+      "linkedin_company": "shell",
+      "website": "https://www.shell.com/recharge",
+      "notes": "Shell-owned EV charging network expanding into heavy-duty. Strong overlap with existing fuel station network."
+    },
+    {
+      "id": "kempower",
+      "entity_type": "ecosystem",
+      "name": "Kempower",
+      "country": "Finland",
+      "region": "Europe",
+      "subcategory": "charging_network_eu",
+      "relationship_type": "partnership_candidate",
+      "priority": "medium",
+      "linkedin_company": "kempower",
+      "website": "https://kempower.com",
+      "notes": "Finnish DC fast charging manufacturer. Strong Nordic presence. MCS hardware supplier to Milence and others."
+    },
+    {
+      "id": "greenlane",
+      "entity_type": "ecosystem",
+      "name": "Greenlane",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "charging_network_americas",
+      "relationship_type": "competitor_and_prospect",
+      "priority": "critical",
+      "linkedin_company": "drivegreenlane",
+      "website": "https://www.drivegreenlane.com",
+      "notes": "JV Daimler Truck NA + NextEra + BlackRock. $675M committed. Flagship hub Colton CA April 2025 (40+ chargers). I-10 corridor CA-AZ expanding.",
+      "profile": {
+        "tier": 1,
+        "summary": "Americas equivalent of Milence. $675M JV Daimler Truck NA + NextEra + BlackRock. Flagship Colton CA hub April 2025.",
+        "what_they_do": "Greenlane is a $675M joint venture announced April 2023 between Daimler Truck North America, NextEra Energy Resources, and BlackRock Alternatives Climate Infrastructure. Building a nationwide US charging and hydrogen network for medium and heavy-duty commercial vehicles.",
+        "products": "Public truck charging centres. Colton CA flagship: 40+ high-speed chargers including 12 pull-through and 29 bobtail lanes. I-10 corridor expansion CA-AZ. Partnership with Windrose for long-haul electric truck demonstration.",
+        "where_strong": "BlackRock balance sheet. NextEra renewable energy expertise. Daimler Truck NA customer pull-through. First-mover in US heavy-duty truck charging at scale.",
+        "where_weak_vs_mpss": "Fixed infrastructure only. Grid connection times in California are notoriously long (interconnection queues 3-5 years). MPSS bridges this gap. Greenlane sites cannot easily expand capacity at saturated locations.",
+        "strategic_angle": "Same playbook as Milence: simultaneously competitor (some Greenlane customers may not need depot charging) and customer (Greenlane needs grid-bridging power, temporary site power, overflow capacity). Direct outreach to Greenlane is a strong v1.1 BD priority for VDR Americas.",
+        "sources": "T1: Greenlane press releases (April 2023 launch, April 2025 Colton opening). T2: EV Magazine, Sustainability Magazine, Supply Chain Magazine coverage 2025."
+      }
+    },
+    {
+      "id": "wattev",
+      "entity_type": "ecosystem",
+      "name": "WattEV",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "charging_network_americas",
+      "relationship_type": "competitor_and_prospect",
+      "priority": "high",
+      "linkedin_company": "wattev",
+      "website": "https://wattev.com",
+      "notes": "Truck-focused public charging plus Truck-as-a-Service. Multiple California depots. Public-private model."
+    },
+    {
+      "id": "voltera",
+      "entity_type": "ecosystem",
+      "name": "Voltera",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "charging_network_americas",
+      "relationship_type": "competitor_and_prospect",
+      "priority": "high",
+      "linkedin_company": "voltera-power",
+      "website": "https://voltera.com",
+      "notes": "EQT Infrastructure-backed. Develops, owns, operates fleet charging real estate. Significant US footprint."
+    },
+    {
+      "id": "forum_mobility",
+      "entity_type": "ecosystem",
+      "name": "Forum Mobility",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "charging_network_americas",
+      "relationship_type": "prospect_primary",
+      "priority": "high",
+      "linkedin_company": "forum-mobility",
+      "website": "https://www.forummobility.com",
+      "notes": "Drayage truck charging at California ports. $400M financing 2023. Direct overlap with shore power + port BD."
+    },
+    {
+      "id": "terawatt",
+      "entity_type": "ecosystem",
+      "name": "TeraWatt Infrastructure",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "charging_network_americas",
+      "relationship_type": "competitor_and_prospect",
+      "priority": "high",
+      "linkedin_company": "terawatt-infrastructure",
+      "website": "https://www.terawattinfrastructure.com",
+      "notes": "$1B+ funding (BlackRock, Vision Ridge). Fleet charging real estate model. National scale."
+    },
+    {
+      "id": "electric_era",
+      "entity_type": "ecosystem",
+      "name": "Electric Era",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "charging_network_americas",
+      "relationship_type": "competitor_and_prospect",
+      "priority": "medium",
+      "linkedin_company": "electric-era-technologies",
+      "website": "https://www.electricera.tech",
+      "notes": "Microgrid-equipped fast charging with on-site battery. Bypasses grid bottlenecks. Direct alternative to MPSS in shape."
+    },
+    {
+      "id": "evgo",
+      "entity_type": "ecosystem",
+      "name": "EVgo",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "charging_network_americas",
+      "relationship_type": "prospect_primary",
+      "priority": "medium",
+      "linkedin_company": "evgo",
+      "website": "https://www.evgo.com",
+      "notes": "Public fast charging operator. Heavy-duty expansion underway. Public listed (NASDAQ: EVGO)."
+    },
+    {
+      "id": "rivian_adventure_network",
+      "entity_type": "ecosystem",
+      "name": "Rivian Adventure Network",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "charging_network_americas",
+      "relationship_type": "partnership_candidate",
+      "priority": "low",
+      "linkedin_company": "rivian",
+      "website": "https://rivian.com",
+      "notes": "Rivian-owned charging network. Commercial fleet focus through Amazon delivery vans."
+    },
+    {
+      "id": "daimler_estations",
+      "entity_type": "ecosystem",
+      "name": "Daimler Truck eStations",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "oem_charging",
+      "relationship_type": "partnership_candidate",
+      "priority": "high",
+      "linkedin_company": "daimler-truck-ag",
+      "website": "https://www.daimlertruck.com",
+      "notes": "Daimler OEM-led charging infrastructure. Behind Milence (EU) and Greenlane (US). Sets industry standards."
+    },
+    {
+      "id": "volvo_energy",
+      "entity_type": "ecosystem",
+      "name": "Volvo Energy",
+      "country": "Sweden",
+      "region": "Europe",
+      "subcategory": "oem_charging",
+      "relationship_type": "partnership_candidate",
+      "priority": "high",
+      "linkedin_company": "volvo-group",
+      "website": "https://www.volvogroup.com/en/about-us/business-areas/volvo-energy.html",
+      "notes": "Volvo Group business area for electromobility. Battery second-life + charging infrastructure. Co-founder of Milence."
+    },
+    {
+      "id": "tesla_semi_network",
+      "entity_type": "ecosystem",
+      "name": "Tesla Semi Megacharger Network",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "oem_charging",
+      "relationship_type": "competitor_primary",
+      "priority": "high",
+      "linkedin_company": "tesla-motors",
+      "website": "https://www.tesla.com/semi",
+      "notes": "1.2 MW MCS stations operational (Sparks NV, Carson CA). I-5/I-10/I-95/I-65 corridors planned. 60% charge in 30 min."
+    },
+    {
+      "id": "scania_charging",
+      "entity_type": "ecosystem",
+      "name": "Scania Charging",
+      "country": "Sweden",
+      "region": "Europe",
+      "subcategory": "oem_charging",
+      "relationship_type": "partnership_candidate",
+      "priority": "medium",
+      "linkedin_company": "scania-group",
+      "website": "https://www.scania.com",
+      "notes": "Scania (Traton) charging infrastructure efforts. Co-founder of Milence. Acquired Northvolt Industrial division (Voltpack Core, 2025)."
+    },
+    {
+      "id": "man_charging",
+      "entity_type": "ecosystem",
+      "name": "MAN Truck eMobility",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "oem_charging",
+      "relationship_type": "partnership_candidate",
+      "priority": "medium",
+      "linkedin_company": "man-truck-bus",
+      "website": "https://www.man.eu",
+      "notes": "MAN (Traton) charging infrastructure ventures. Part of Milence ecosystem."
+    },
+    {
+      "id": "walmart_charging",
+      "entity_type": "ecosystem",
+      "name": "Walmart Fleet Electrification",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_captive",
+      "relationship_type": "prospect_primary",
+      "priority": "high",
+      "linkedin_company": "walmart",
+      "website": "https://corporate.walmart.com",
+      "notes": "10,000+ tractors target electrification by 2040. Distribution centre charging. Direct MPSS opportunity for depot bridging."
+    },
+    {
+      "id": "amazon_fleet",
+      "entity_type": "ecosystem",
+      "name": "Amazon Transportation Services",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_captive",
+      "relationship_type": "prospect_primary",
+      "priority": "critical",
+      "linkedin_company": "amazon",
+      "website": "https://www.aboutamazon.com",
+      "notes": "100K Rivian EDV order. Heavy-duty truck pilots underway. Climate Pledge Fund. Likely MPSS opportunity at last-mile depots.",
+      "profile": {
+        "tier": 1,
+        "summary": "Climate Pledge signatory with massive last-mile + middle-mile electrification programme. Most critical Americas prospect for MPSS.",
+        "what_they_do": "Amazon Transportation Services operates one of the largest commercial fleets in the world. 100K Rivian electric delivery vans ordered. Heavy-duty truck electrification pilots underway. Amazon Climate Pledge Fund invested in Moxion (now defunct) showing direct interest in mobile BESS thesis.",
+        "pain_points": "Last-mile depot grid capacity. Middle-mile truck charging. Peak demand during package surge periods. Difficulty getting permanent grid upgrades approved at warehouse locations.",
+        "bd_angle": "MPSS as bridge while permanent grid is upgraded. MPSS as peak-demand overflow. MPSS at temporary distribution hubs (peak season pop-up depots). Amazon already invested in Moxion thesis = thesis-aligned customer who lost their supplier.",
+        "contacts_to_target": "Amazon Worldwide Sustainability, Amazon Transportation Services, Climate Pledge Fund partner team.",
+        "sources": "T1: Amazon Climate Pledge public reports. T2: Reuters, Wall Street Journal coverage of Rivian deal. T2: TechCrunch on Moxion investment."
+      }
+    },
+    {
+      "id": "fedex_fleet",
+      "entity_type": "ecosystem",
+      "name": "FedEx Sustainability",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_captive",
+      "relationship_type": "prospect_primary",
+      "priority": "high",
+      "linkedin_company": "fedex",
+      "website": "https://www.fedex.com",
+      "notes": "Carbon neutral by 2040 commitment. Heavy investment in EV trucks + charging at hub airports."
+    },
+    {
+      "id": "ups_fleet",
+      "entity_type": "ecosystem",
+      "name": "UPS Fleet Electrification",
+      "country": "USA",
+      "region": "Americas",
+      "subcategory": "fleet_captive",
+      "relationship_type": "prospect_primary",
+      "priority": "high",
+      "linkedin_company": "united-parcel-service",
+      "website": "https://www.ups.com",
+      "notes": "Carbon neutral by 2050. 10,000 Arrival vans ordered (now cancelled). Active EV truck depot deployment."
+    },
+    {
+      "id": "dhl_fleet",
+      "entity_type": "ecosystem",
+      "name": "DHL eVehicle Programme",
+      "country": "Germany",
+      "region": "Europe",
+      "subcategory": "fleet_captive",
+      "relationship_type": "prospect_primary",
+      "priority": "high",
+      "linkedin_company": "dhl",
+      "website": "https://www.dhl.com",
+      "notes": "Global decarbonisation target net-zero by 2050. EV depot electrification across EMEA + Americas + APAC."
+    },
+    {
+      "id": "maersk_fleet",
+      "entity_type": "ecosystem",
+      "name": "Maersk Decarbonisation",
+      "country": "Denmark",
+      "region": "Europe",
+      "subcategory": "fleet_captive",
+      "relationship_type": "prospect_primary",
+      "priority": "critical",
+      "linkedin_company": "maersk-group",
+      "website": "https://www.maersk.com",
+      "notes": "Global logistics giant. Shore power + port electrification + EV truck adoption. Strong overlap with MPSS port applications.",
+      "profile": {
+        "tier": 1,
+        "summary": "Global shipping giant decarbonising shore power + EV truck operations across multiple ports.",
+        "what_they_do": "Maersk operates one of the worlds largest container fleets + integrated logistics. Net-zero by 2040 commitment. Shore power deployment at terminals. EV truck adoption at landside operations. Methanol-fuelled vessels deploying.",
+        "pain_points": "Terminal grid capacity for shore power. EV truck depot infrastructure. Inland container terminals with limited grid access.",
+        "bd_angle": "Most strategic single account for MPSS in ports vertical. Shore power needs map directly to MPSS capacity tier. Terminal locations span EMEA, Americas, APAC = three-region opportunity.",
+        "sources": "T1: Maersk Decarbonisation reports. T2: Lloyd List shipping coverage."
+      }
+    },
+    {
+      "id": "kuehne_nagel",
+      "entity_type": "ecosystem",
+      "name": "Kuehne+Nagel",
+      "country": "Switzerland",
+      "region": "Europe",
+      "subcategory": "fleet_captive",
+      "relationship_type": "prospect_primary",
+      "priority": "medium",
+      "linkedin_company": "kuehne-nagel",
+      "website": "https://www.kuehne-nagel.com",
+      "notes": "Major logistics operator. First UK Milence hub customer (Immingham 2025). EV fleet rollout."
+    },
+    {
+      "id": "dsv_fleet",
+      "entity_type": "ecosystem",
+      "name": "DSV (logistics fleet)",
+      "country": "Denmark",
+      "region": "Europe",
+      "subcategory": "fleet_captive",
+      "relationship_type": "prospect_primary",
+      "priority": "medium",
+      "linkedin_company": "dsv",
+      "website": "https://www.dsv.com",
+      "notes": "Major European 3PL. Fleet electrification commitments. Acquired DB Schenker 2025 making it largest 3PL."
+    },
+    {
+      "id": "gls_fleet",
+      "entity_type": "ecosystem",
+      "name": "GLS Group",
+      "country": "Netherlands",
+      "region": "Europe",
+      "subcategory": "fleet_captive",
+      "relationship_type": "prospect_primary",
+      "priority": "low",
+      "linkedin_company": "gls-group",
+      "website": "https://gls-group.com",
+      "notes": "Parcel logistics, expanding EV fleet across Europe."
+    },
+    {
+      "id": "aramex",
+      "entity_type": "ecosystem",
+      "name": "Aramex",
+      "country": "UAE",
+      "region": "MEA_T",
+      "subcategory": "fleet_captive",
+      "relationship_type": "prospect_primary",
+      "priority": "high",
+      "linkedin_company": "aramex",
+      "website": "https://www.aramex.com",
+      "notes": "MEA logistics leader. Owned by Q Logistics (Qatar). EV pilot programmes in UAE and Saudi."
+    }
   ]
 }
