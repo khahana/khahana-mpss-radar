@@ -753,6 +753,125 @@
       color: var(--text-faint);
       margin-top: 4px;
     }
+
+    /* ====== ADMIN MODE ====== */
+    #adminToggle {
+      transition: all 0.2s;
+    }
+    body.admin-unlocked #adminToggle {
+      background: rgba(0, 212, 170, 0.15);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    body.admin-unlocked .admin-only {
+      display: inline-flex !important;
+    }
+    .admin-only {
+      display: none !important;
+    }
+    .delete-entity-btn {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid var(--danger);
+      color: var(--danger);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.15s;
+    }
+    .delete-entity-btn:hover {
+      background: var(--danger);
+      color: white;
+    }
+
+    /* ====== ADD ENTITY MODAL ====== */
+    .add-entity-modal {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px 36px;
+      max-width: 640px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+    .add-entity-modal h2 {
+      font-size: 22px;
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+    .add-entity-modal .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 18px;
+      margin-top: 18px;
+    }
+    .add-entity-modal .form-grid .full-width {
+      grid-column: 1 / -1;
+    }
+    .add-entity-modal label {
+      font-size: 11px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .add-entity-modal input,
+    .add-entity-modal select,
+    .add-entity-modal textarea {
+      width: 100%;
+      padding: 10px 12px;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+    .add-entity-modal input:focus,
+    .add-entity-modal select:focus,
+    .add-entity-modal textarea:focus {
+      outline: none;
+      border-color: var(--cyan);
+    }
+    .add-entity-modal textarea {
+      resize: vertical;
+      min-height: 72px;
+    }
+    .add-entity-modal .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+      justify-content: flex-end;
+    }
+    .form-field-hint {
+      font-size: 11px;
+      color: var(--text-faint);
+      margin-top: 4px;
+    }
+    .form-error {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--danger);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-top: 14px;
+      display: none;
+    }
+    .form-error.active { display: block; }
+    .form-success {
+      background: rgba(0, 212, 170, 0.1);
+      color: var(--cyan);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-top: 14px;
+      display: none;
+    }
+    .form-success.active { display: block; }
   </style>
 </head>
 <body>
@@ -779,6 +898,7 @@
         <span class="dot"></span>
         <span>Not connected</span>
       </span>
+      <button class="btn ghost" onclick="toggleAdminMode()" id="adminToggle" title="Admin mode">🔒</button>
       <button class="btn ghost" onclick="openConfig()">⚙ Config</button>
     </div>
   </div>
@@ -853,6 +973,7 @@
       <div class="section-header">
         <h2>Watchlist</h2>
         <span class="sub" id="watchlistCount">—</span>
+        <button class="btn primary admin-only" onclick="openAddEntityModal()" id="addEntityBtn" style="display: none; margin-left: auto;">+ Add Entity</button>
       </div>
       <div id="watchlistContent">
         <div class="empty">
@@ -901,6 +1022,116 @@
   <div class="profile-modal-overlay" id="profileModal" onclick="if (event.target === this) closeEntityProfile()">
     <div class="profile-modal" id="profileModalBody">
       <!-- Profile content rendered here dynamically -->
+    </div>
+  </div>
+
+  <!-- ADMIN PASSWORD MODAL -->
+  <div class="config-overlay" id="adminPasswordOverlay">
+    <div class="config-modal" style="max-width: 420px;">
+      <h2>🔒 Admin Mode</h2>
+      <p style="color: var(--text-dim); font-size: 13px; margin-bottom: 14px;">
+        Enter the admin password to unlock add/delete features.
+      </p>
+      <label>Admin password</label>
+      <input id="adminPwdInput" type="password" placeholder="Enter password">
+      <div class="form-error" id="adminPwdError">Incorrect password</div>
+      <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <button class="btn primary" onclick="submitAdminPassword()">Unlock</button>
+        <button class="btn ghost" onclick="closeAdminPasswordModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD ENTITY MODAL -->
+  <div class="profile-modal-overlay" id="addEntityOverlay" onclick="if (event.target === this) closeAddEntityModal()">
+    <div class="add-entity-modal">
+      <h2>+ Add New Entity</h2>
+      <p style="color: var(--text-dim); font-size: 13px;">
+        Add a competitor, prospect, ecosystem player, or regulator to the watchlist. Saved instantly to Supabase.
+      </p>
+
+      <div class="form-grid">
+        <div class="full-width">
+          <label>Name *</label>
+          <input id="entName" placeholder="e.g. Pacific Energy Storage">
+        </div>
+
+        <div>
+          <label>Entity type *</label>
+          <select id="entType">
+            <option value="competitor">Competitor</option>
+            <option value="prospect">Prospect</option>
+            <option value="ecosystem">Ecosystem</option>
+            <option value="regulator">Regulator</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Region *</label>
+          <select id="entRegion">
+            <option value="Europe">Europe</option>
+            <option value="MEA_T">MEA & Turkey</option>
+            <option value="Americas">Americas</option>
+            <option value="APAC">APAC</option>
+            <option value="Global">Global</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Country *</label>
+          <input id="entCountry" placeholder="e.g. USA, Germany, UAE">
+        </div>
+
+        <div>
+          <label>Priority</label>
+          <select id="entPriority">
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="critical">Critical</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Subcategory</label>
+          <input id="entSubcat" placeholder="e.g. direct_mobile_bess, fleet_electrification">
+        </div>
+
+        <div>
+          <label>Relationship type</label>
+          <select id="entRelType">
+            <option value="">— None —</option>
+            <option value="competitor_primary">Competitor primary</option>
+            <option value="prospect_primary">Prospect primary</option>
+            <option value="competitor_and_prospect">Competitor and prospect</option>
+            <option value="partnership_candidate">Partnership candidate</option>
+          </select>
+        </div>
+
+        <div class="full-width">
+          <label>Website</label>
+          <input id="entWebsite" placeholder="https://...">
+        </div>
+
+        <div class="full-width">
+          <label>LinkedIn company slug</label>
+          <input id="entLinkedin" placeholder="e.g. tesla-motors (not the full URL)">
+          <div class="form-field-hint">The part after linkedin.com/company/</div>
+        </div>
+
+        <div class="full-width">
+          <label>Notes</label>
+          <textarea id="entNotes" placeholder="Brief notes about this entity"></textarea>
+        </div>
+      </div>
+
+      <div class="form-error" id="entFormError"></div>
+      <div class="form-success" id="entFormSuccess"></div>
+
+      <div class="actions">
+        <button class="btn primary" onclick="submitNewEntity()">Add Entity</button>
+        <button class="btn ghost" onclick="closeAddEntityModal()">Cancel</button>
+      </div>
     </div>
   </div>
 
@@ -1314,6 +1545,7 @@
         <div class="profile-links">
           ${entity.website ? `<a href="${entity.website}" target="_blank" class="profile-link">🌐 Website</a>` : ''}
           ${entity.linkedin_company ? `<a href="https://linkedin.com/company/${entity.linkedin_company}" target="_blank" class="profile-link">in LinkedIn</a>` : ''}
+          <button class="delete-entity-btn admin-only" onclick='deleteEntity(${JSON.stringify(entity.entity_id || "")}, ${JSON.stringify(entity.name)})' style="margin-left: auto;">🗑 Delete entity</button>
         </div>
       `;
       document.getElementById('profileModal').classList.add('active');
@@ -1346,9 +1578,191 @@
       return d.toLocaleDateString();
     }
 
+    // ============ ADMIN MODE ============
+    // Default admin password is hardcoded but should be changed.
+    // To change: edit ADMIN_PASSWORD_HASH below with a new SHA-256 hash of your password.
+    // Default password is "khahana2026" — CHANGE THIS BEFORE SHARING THE URL.
+    const ADMIN_PASSWORD_HASH = '71ec621062248cb4f9fe63e1115e79af75c57d6c950ac60ce2b9f0fb205e5110';
+    // ^^^ SHA-256("khahana2026") -- generate new one at https://emn178.github.io/online-tools/sha256.html
+
+    async function hashPassword(password) {
+      const buf = new TextEncoder().encode(password);
+      const hash = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function isAdminUnlocked() {
+      return sessionStorage.getItem('mpss_admin_unlocked') === 'true';
+    }
+
+    function setAdminUnlocked(unlocked) {
+      if (unlocked) {
+        sessionStorage.setItem('mpss_admin_unlocked', 'true');
+        document.body.classList.add('admin-unlocked');
+        document.getElementById('adminToggle').textContent = '🔓';
+        document.getElementById('adminToggle').title = 'Admin unlocked — click to lock';
+      } else {
+        sessionStorage.removeItem('mpss_admin_unlocked');
+        document.body.classList.remove('admin-unlocked');
+        document.getElementById('adminToggle').textContent = '🔒';
+        document.getElementById('adminToggle').title = 'Admin locked — click to unlock';
+      }
+    }
+
+    function toggleAdminMode() {
+      if (isAdminUnlocked()) {
+        setAdminUnlocked(false);
+      } else {
+        document.getElementById('adminPwdInput').value = '';
+        document.getElementById('adminPwdError').classList.remove('active');
+        document.getElementById('adminPasswordOverlay').classList.add('active');
+        setTimeout(() => document.getElementById('adminPwdInput').focus(), 100);
+      }
+    }
+
+    async function submitAdminPassword() {
+      const password = document.getElementById('adminPwdInput').value;
+      const hash = await hashPassword(password);
+      if (hash === ADMIN_PASSWORD_HASH) {
+        setAdminUnlocked(true);
+        closeAdminPasswordModal();
+      } else {
+        document.getElementById('adminPwdError').classList.add('active');
+      }
+    }
+
+    function closeAdminPasswordModal() {
+      document.getElementById('adminPasswordOverlay').classList.remove('active');
+    }
+
+    // Submit admin password on Enter key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && document.getElementById('adminPasswordOverlay').classList.contains('active')) {
+        submitAdminPassword();
+      }
+    });
+
+    // ============ ADD ENTITY ============
+    function openAddEntityModal() {
+      if (!isAdminUnlocked()) {
+        alert('Unlock admin mode first (click the 🔒 icon in the topbar)');
+        return;
+      }
+      // Clear previous values
+      ['entName', 'entCountry', 'entSubcat', 'entWebsite', 'entLinkedin', 'entNotes'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      document.getElementById('entType').value = 'competitor';
+      document.getElementById('entRegion').value = 'Europe';
+      document.getElementById('entPriority').value = 'medium';
+      document.getElementById('entRelType').value = '';
+      document.getElementById('entFormError').classList.remove('active');
+      document.getElementById('entFormSuccess').classList.remove('active');
+      document.getElementById('addEntityOverlay').classList.add('active');
+    }
+
+    function closeAddEntityModal() {
+      document.getElementById('addEntityOverlay').classList.remove('active');
+    }
+
+    function slugify(text) {
+      return text.toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .slice(0, 50);
+    }
+
+    async function submitNewEntity() {
+      const name = document.getElementById('entName').value.trim();
+      const type = document.getElementById('entType').value;
+      const region = document.getElementById('entRegion').value;
+      const country = document.getElementById('entCountry').value.trim();
+      const priority = document.getElementById('entPriority').value;
+      const subcategory = document.getElementById('entSubcat').value.trim() || null;
+      const relType = document.getElementById('entRelType').value || null;
+      const website = document.getElementById('entWebsite').value.trim() || null;
+      const linkedin = document.getElementById('entLinkedin').value.trim() || null;
+      const notes = document.getElementById('entNotes').value.trim() || null;
+
+      // Validation
+      const errorEl = document.getElementById('entFormError');
+      const successEl = document.getElementById('entFormSuccess');
+      errorEl.classList.remove('active');
+      successEl.classList.remove('active');
+
+      if (!name || !country) {
+        errorEl.textContent = 'Name and country are required.';
+        errorEl.classList.add('active');
+        return;
+      }
+
+      // Generate entity_id from name (timestamp-suffixed to avoid collisions)
+      const entityId = slugify(name) + '_' + Date.now().toString(36).slice(-4);
+
+      const row = {
+        entity_type: type,
+        entity_id: entityId,
+        name,
+        category: subcategory,
+        subcategory,
+        country,
+        region,
+        priority,
+        relationship_type: relType,
+        website,
+        linkedin_company: linkedin,
+        notes,
+        is_active: true
+      };
+
+      const { error } = await state.supabase.from('watchlist').insert(row);
+
+      if (error) {
+        errorEl.textContent = 'Error: ' + error.message;
+        errorEl.classList.add('active');
+        return;
+      }
+
+      successEl.textContent = `Added "${name}" successfully. Refreshing watchlist...`;
+      successEl.classList.add('active');
+
+      setTimeout(() => {
+        closeAddEntityModal();
+        loadWatchlist();
+      }, 1200);
+    }
+
+    // ============ DELETE ENTITY ============
+    async function deleteEntity(entityId, entityName) {
+      if (!isAdminUnlocked()) {
+        alert('Unlock admin mode first');
+        return;
+      }
+      const confirmed = confirm(`Delete "${entityName}" from the watchlist?\n\nThis cannot be undone.`);
+      if (!confirmed) return;
+
+      const { error } = await state.supabase
+        .from('watchlist')
+        .delete()
+        .eq('entity_id', entityId);
+
+      if (error) {
+        alert('Error deleting: ' + error.message);
+        return;
+      }
+
+      closeEntityProfile();
+      loadWatchlist();
+    }
+
     // ============ BOOT ============
     // Set region dropdown to remembered value
     document.getElementById('regionFilter').value = state.region;
+
+    // Restore admin state if previously unlocked in this session
+    if (isAdminUnlocked()) {
+      setAdminUnlocked(true);
+    }
 
     if (state.config.url && state.config.key) {
       connect();
