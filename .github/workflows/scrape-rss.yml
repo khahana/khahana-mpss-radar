@@ -1,9 +1,8 @@
-name: Scrape RSS Feeds
+﻿name: Scrape RSS Feeds
 
 on:
   schedule:
-    # Twice daily: 06:00 UTC and 18:00 UTC (10:00 and 22:00 Dubai)
-    - cron: '0 6,18 * * *'
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 jobs:
@@ -12,21 +11,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-
       - name: Install dependencies
         run: npm install
-
       - name: Run RSS scraper
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: node scrapers/rss-scraper.js
-
       - name: Run scorer
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
