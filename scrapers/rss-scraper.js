@@ -1,6 +1,6 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
- * MPSS Radar v2.4 — RSS Scraper
+ * MPSS Radar v2.4 â€” RSS Scraper
  * Pulls RSS feeds, deduplicates by URL across sources, and filters out items
  * published more than 60 days ago (whether by feed pubDate or detected from title).
  *
@@ -73,7 +73,7 @@ function hasHistoricalYear(title, currentYear = new Date().getFullYear()) {
 // Check if item is too old based on its pubDate
 function isTooOld(item, maxAgeDays = MAX_AGE_DAYS) {
   const pubStr = item.isoDate || item.pubDate;
-  if (!pubStr) return false; // unknown date — don't filter
+  if (!pubStr) return false; // unknown date â€” don't filter
   const pubDate = new Date(pubStr);
   if (isNaN(pubDate.getTime())) return false;
   const ageDays = (Date.now() - pubDate.getTime()) / (1000 * 60 * 60 * 24);
@@ -119,7 +119,7 @@ async function loadExistingUrls() {
 
 async function scrapeFeed(feed) {
   const start = Date.now();
-  console.log(`\n→ ${feed.name} (${feed.rss})`);
+  console.log(`\nâ†’ ${feed.name} (${feed.rss})`);
 
   try {
     const parsed = await parser.parseURL(feed.rss);
@@ -189,11 +189,11 @@ async function scrapeFeed(feed) {
     if (historicalCount > 0) breakdown.push(`${historicalCount} historical`);
     if (dedupedCount > 0) breakdown.push(`${dedupedCount} dup`);
     const breakdownStr = breakdown.length > 0 ? ` (${breakdown.join(', ')})` : '';
-    console.log(`  ✓ ${newCount} new items inserted${breakdownStr}`);
+    console.log(`  âœ“ ${newCount} new items inserted${breakdownStr}`);
     return { found: items.length, new: newCount };
 
   } catch (err) {
-    console.error(`  ✗ Failed: ${err.message}`);
+    console.error(`  âœ— Failed: ${err.message}`);
     await logRun('rss-scraper', feed.id, 0, 0, err.message, Date.now() - start);
     return { found: 0, new: 0, error: err.message };
   }
@@ -201,7 +201,7 @@ async function scrapeFeed(feed) {
 
 async function main() {
   console.log('========================================');
-  console.log('MPSS Radar v2.4 — RSS Scraper');
+  console.log('MPSS Radar v2.4 â€” RSS Scraper');
   console.log('========================================');
   console.log(`Run started: ${new Date().toISOString()}`);
   console.log(`Max age filter: ${MAX_AGE_DAYS} days`);
@@ -226,7 +226,6 @@ async function main() {
   console.log('========================================');
 }
 
-main().catch(err => {
-  console.error('Fatal:', err);
-  process.exit(1);
-});
+main()
+  .then(() => process.exit(0))
+  .catch(err => { console.error('Fatal:', err); process.exit(1); });

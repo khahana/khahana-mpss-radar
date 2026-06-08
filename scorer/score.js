@@ -1,6 +1,6 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
- * MPSS Radar v2.0 — Scoring Agent (region-aware)
+ * MPSS Radar v2.0 â€” Scoring Agent (region-aware)
  * Reads unscored items, scores via Claude, writes results including region tag,
  * generates content drafts for high-relevance items.
  */
@@ -93,7 +93,7 @@ Generate the post.`;
 
 async function main() {
   console.log('========================================');
-  console.log('MPSS Radar v2 — Scoring Agent');
+  console.log('MPSS Radar v2 â€” Scoring Agent');
   console.log('========================================');
   console.log(`Run started: ${new Date().toISOString()}`);
 
@@ -111,7 +111,7 @@ async function main() {
   const regionCounts = { EMEA: 0, Americas: 0, APAC: 0, Global: 0 };
 
   for (const item of items) {
-    console.log(`\n→ ${item.title.slice(0, 80)}`);
+    console.log(`\nâ†’ ${item.title.slice(0, 80)}`);
     const result = await scoreItem(item);
 
     if (!result) {
@@ -140,12 +140,12 @@ async function main() {
     await supabase.from('raw_items').update({ scored: true }).eq('id', item.id);
     scored++;
     regionCounts[result.region] = (regionCounts[result.region] || 0) + 1;
-    console.log(`  ✓ Scored ${result.relevance_score} (${result.priority}) [${result.region}] — ${result.category}`);
+    console.log(`  âœ“ Scored ${result.relevance_score} (${result.priority}) [${result.region}] â€” ${result.category}`);
 
     if (result.recommended_action === 'dismiss') { dismissed++; continue; }
 
     if (result.recommended_action === 'linkedin_post' && result.relevance_score >= 70) {
-      console.log('  → generating drafts (both tones)...');
+      console.log('  â†’ generating drafts (both tones)...');
       for (const tone of ['technical_neutral', 'personal_authoritative']) {
         const draft = await generateContent(scoredRow, item, tone);
         if (!draft) continue;
@@ -170,4 +170,6 @@ async function main() {
   console.log('========================================');
 }
 
-main().catch(err => { console.error('Fatal:', err); process.exit(1); });
+main()
+  .then(() => process.exit(0))
+  .catch(err => { console.error('Fatal:', err); process.exit(1); });
