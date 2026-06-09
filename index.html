@@ -1066,7 +1066,7 @@
         <div class="user-menu" id="userMenu" onclick="event.stopPropagation()">
           <button class="user-menu-item admin-only" onclick="switchPanel('users'); closeUserMenu();">👥 Manage users</button>
           <div class="user-menu-divider admin-only"></div>
-          <button class="user-menu-item" onclick="handlePasswordChange()">🔑 Change password</button>
+          <button class="user-menu-item" onclick="openChangePasswordModal(); closeUserMenu();">🔑 Change password</button>
           <div class="user-menu-divider"></div>
           <button class="user-menu-item danger" onclick="handleLogout()">↩ Sign out</button>
         </div>
@@ -1226,6 +1226,41 @@
       <div class="actions">
         <button class="btn primary" onclick="submitInviteUser()">Send Invitation</button>
         <button class="btn ghost" onclick="closeInviteUserModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANGE PASSWORD MODAL -->
+  <div class="profile-modal-overlay" id="changePasswordOverlay" onclick="if (event.target === this) closeChangePasswordModal()">
+    <div class="add-entity-modal">
+      <h2>🔑 Change Password</h2>
+      <p style="color: var(--text-dim); font-size: 13px;">
+        Enter your current password, then choose a new one. Minimum 8 characters.
+      </p>
+
+      <div class="form-grid">
+        <div class="full-width">
+          <label>Current password *</label>
+          <input id="currentPwd" type="password" placeholder="Your current password" autocomplete="current-password">
+        </div>
+
+        <div class="full-width">
+          <label>New password *</label>
+          <input id="newPwd" type="password" placeholder="At least 8 characters" autocomplete="new-password">
+        </div>
+
+        <div class="full-width">
+          <label>Confirm new password *</label>
+          <input id="confirmPwd" type="password" placeholder="Re-enter new password" autocomplete="new-password">
+        </div>
+      </div>
+
+      <div class="form-error" id="changePwdError"></div>
+      <div class="form-success" id="changePwdSuccess"></div>
+
+      <div class="actions">
+        <button class="btn primary" id="changePwdSubmit" onclick="submitChangePassword()">Update Password</button>
+        <button class="btn ghost" onclick="closeChangePasswordModal()">Cancel</button>
       </div>
     </div>
   </div>
@@ -1551,16 +1586,87 @@
       }
     }
 
-    async function handlePasswordChange() {
-      const newPwd = prompt('Enter your new password (minimum 8 characters):');
-      if (!newPwd || newPwd.length < 8) return;
-      const { error } = await state.supabase.auth.updateUser({ password: newPwd });
-      if (error) {
-        alert('Password change failed: ' + error.message);
-      } else {
-        alert('Password changed successfully.');
-        closeUserMenu();
+    function openChangePasswordModal() {
+      document.getElementById('currentPwd').value = '';
+      document.getElementById('newPwd').value = '';
+      document.getElementById('confirmPwd').value = '';
+      document.getElementById('changePwdError').textContent = '';
+      document.getElementById('changePwdSuccess').textContent = '';
+      document.getElementById('changePasswordOverlay').classList.add('active');
+    }
+
+    function closeChangePasswordModal() {
+      document.getElementById('changePasswordOverlay').classList.remove('active');
+    }
+
+    async function submitChangePassword() {
+      const currentPwd = document.getElementById('currentPwd').value;
+      const newPwd = document.getElementById('newPwd').value;
+      const confirmPwd = document.getElementById('confirmPwd').value;
+      const errEl = document.getElementById('changePwdError');
+      const okEl = document.getElementById('changePwdSuccess');
+      const btn = document.getElementById('changePwdSubmit');
+      errEl.textContent = '';
+      okEl.textContent = '';
+
+      // Validation
+      if (!currentPwd || !newPwd || !confirmPwd) {
+        errEl.textContent = 'Please fill in all three fields.';
+        return;
       }
+      if (newPwd.length < 8) {
+        errEl.textContent = 'New password must be at least 8 characters.';
+        return;
+      }
+      if (newPwd !== confirmPwd) {
+        errEl.textContent = 'New password and confirmation do not match.';
+        return;
+      }
+      if (newPwd === currentPwd) {
+        errEl.textContent = 'New password must be different from the current one.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Verifying...';
+
+      // Step 1: verify current password by re-authenticating
+      const email = state.profile?.email || state.session?.user?.email;
+      if (!email) {
+        errEl.textContent = 'Could not determine your account email. Try signing out and back in.';
+        btn.disabled = false;
+        btn.textContent = 'Update Password';
+        return;
+      }
+
+      const { error: verifyError } = await state.supabase.auth.signInWithPassword({
+        email: email,
+        password: currentPwd
+      });
+      if (verifyError) {
+        errEl.textContent = 'Current password is incorrect.';
+        btn.disabled = false;
+        btn.textContent = 'Update Password';
+        return;
+      }
+
+      // Step 2: set the new password
+      btn.textContent = 'Updating...';
+      const { error: updateError } = await state.supabase.auth.updateUser({ password: newPwd });
+      if (updateError) {
+        errEl.textContent = 'Update failed: ' + updateError.message;
+        btn.disabled = false;
+        btn.textContent = 'Update Password';
+        return;
+      }
+
+      okEl.textContent = 'Password updated successfully.';
+      btn.textContent = 'Done';
+      setTimeout(() => {
+        closeChangePasswordModal();
+        btn.disabled = false;
+        btn.textContent = 'Update Password';
+      }, 2000);
     }
 
     async function handleLogout() {
