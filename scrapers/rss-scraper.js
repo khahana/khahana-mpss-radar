@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * MPSS Radar v2.4 â€” RSS Scraper
  * Pulls RSS feeds, deduplicates by URL across sources, and filters out items

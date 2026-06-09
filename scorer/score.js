@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * MPSS Radar v2.0 â€” Scoring Agent (region-aware)
  * Reads unscored items, scores via Claude, writes results including region tag,
