@@ -1660,13 +1660,22 @@
         return;
       }
 
-      okEl.textContent = 'Password updated successfully.';
+      okEl.textContent = 'Password updated. Signing you out, please log back in with your new password.';
       btn.textContent = 'Done';
-      setTimeout(() => {
+      // A password change invalidates the current session token. Sign out cleanly
+      // and return to the login screen so the user re-authenticates with a fresh
+      // token, avoiding the stale-session hang.
+      setTimeout(async () => {
         closeChangePasswordModal();
         btn.disabled = false;
         btn.textContent = 'Update Password';
-      }, 2000);
+        closeUserMenu();
+        await state.supabase.auth.signOut();
+        state.session = null;
+        state.profile = null;
+        document.body.classList.add('not-authenticated');
+        document.body.classList.remove('user-is-admin', 'user-is-viewer');
+      }, 2500);
     }
 
     async function handleLogout() {
