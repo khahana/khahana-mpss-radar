@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MPSS Radar · KhahanA Insights</title>
+  <title>MPSS Radar · VDR Energy Systems</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -754,16 +754,9 @@
       margin-top: 4px;
     }
 
-    /* ====== ADMIN MODE ====== */
-    #adminToggle {
-      transition: all 0.2s;
-    }
-    body.admin-unlocked #adminToggle {
-      background: rgba(0, 212, 170, 0.15);
-      border-color: var(--cyan);
-      color: var(--cyan);
-    }
-    body.admin-unlocked .admin-only {
+    /* ====== ROLE-BASED VISIBILITY ====== */
+    /* .admin-only elements visible only when user.role === 'admin' */
+    body.user-is-admin .admin-only {
       display: inline-flex !important;
     }
     .admin-only {
@@ -872,6 +865,172 @@
       display: none;
     }
     .form-success.active { display: block; }
+
+    /* ====== LOGIN SCREEN ====== */
+    body.not-authenticated .topbar,
+    body.not-authenticated .tabs,
+    body.not-authenticated .panel,
+    body.not-authenticated .profile-modal-overlay,
+    body.not-authenticated #addEntityOverlay,
+    body.not-authenticated #adminPasswordOverlay {
+      display: none !important;
+    }
+    .login-screen {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #0A0A0A 0%, #0F1014 100%);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 2000;
+    }
+    body.not-authenticated .login-screen { display: flex; }
+    .login-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 40px 38px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    }
+    .login-brand {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .login-logo {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--cyan);
+    }
+    .login-subtitle {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 4px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .login-card h2 {
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .login-card label {
+      display: block;
+      font-size: 11px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .login-card input {
+      width: 100%;
+      padding: 11px 14px;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+    .login-card input:focus {
+      outline: none;
+      border-color: var(--cyan);
+    }
+
+    /* ====== USER PROFILE PILL (in topbar) ====== */
+    .user-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 12px 4px 4px;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.15s;
+      position: relative;
+    }
+    .user-pill:hover { border-color: var(--cyan); }
+    .user-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #0A0A0A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .user-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.2;
+    }
+    .user-name {
+      font-size: 12px;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .user-role {
+      font-size: 10px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .user-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px;
+      min-width: 200px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      z-index: 200;
+    }
+    .user-menu.active { display: block; }
+    .user-menu-item {
+      display: block;
+      width: 100%;
+      padding: 8px 12px;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12px;
+      text-align: left;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .user-menu-item:hover { background: var(--panel-2); }
+    .user-menu-item.danger:hover { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+    .user-menu-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 4px 0;
+    }
+
+    /* Lock region selector for viewers */
+    .region-selector.locked select {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .region-selector.locked::after {
+      content: '🔒';
+      font-size: 11px;
+      margin-left: 4px;
+      opacity: 0.5;
+    }
   </style>
 </head>
 <body>
@@ -880,7 +1039,7 @@
   <div class="topbar">
     <div class="brand">
       <span class="name">MPSS Radar</span>
-      <span class="sub">Market Intelligence · KhahanA Insights</span>
+      <span class="sub">Market Intelligence · VDR Energy Systems</span>
     </div>
     <div class="topbar-meta">
       <div class="region-selector">
@@ -898,17 +1057,30 @@
         <span class="dot"></span>
         <span>Not connected</span>
       </span>
-      <button class="btn ghost" onclick="toggleAdminMode()" id="adminToggle" title="Admin mode">🔒</button>
-      <button class="btn ghost" onclick="openConfig()">⚙ Config</button>
+      <div class="user-pill" onclick="toggleUserMenu(event)" id="userPill">
+        <div class="user-avatar" id="userAvatar">?</div>
+        <div class="user-meta">
+          <div class="user-name" id="userName">—</div>
+          <div class="user-role" id="userRole">—</div>
+        </div>
+        <div class="user-menu" id="userMenu" onclick="event.stopPropagation()">
+          <button class="user-menu-item admin-only" onclick="switchPanel('users'); closeUserMenu();">👥 Manage users</button>
+          <div class="user-menu-divider admin-only"></div>
+          <button class="user-menu-item" onclick="handlePasswordChange()">🔑 Change password</button>
+          <div class="user-menu-divider"></div>
+          <button class="user-menu-item danger" onclick="handleLogout()">↩ Sign out</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- TABS -->
   <div class="tabs">
-    <div class="tab active" data-panel="dashboard" onclick="switchPanel('dashboard')">Morning Brief <span class="badge" id="briefCount">0</span></div>
+    <div class="tab active" data-panel="dashboard" onclick="switchPanel('dashboard')">Daily Brief <span class="badge" id="briefCount">0</span></div>
     <div class="tab" data-panel="content" onclick="switchPanel('content')">Content Studio <span class="badge" id="contentCount">0</span></div>
     <div class="tab" data-panel="watchlist" onclick="switchPanel('watchlist')">Watchlist</div>
     <div class="tab" data-panel="history" onclick="switchPanel('history')">History</div>
+    <div class="tab admin-only" data-panel="users" onclick="switchPanel('users')">👥 Users</div>
   </div>
 
   <main>
@@ -924,15 +1096,14 @@
       </div>
 
       <div class="section-header">
-        <h2>Today's Intelligence Brief</h2>
+        <h2>Daily Brief</h2>
         <span class="sub" id="briefSubtitle">Loading...</span>
       </div>
 
       <div class="item-list" id="briefList">
         <div class="empty">
-          <h3>Not connected yet</h3>
-          <p>Click <code>⚙ Config</code> in the top right to add your Supabase credentials.</p>
-          <p class="hint">If you haven't set up Supabase yet, see the README for the 30-min setup walkthrough.</p>
+          <h3>Loading brief...</h3>
+          <p>Fetching the latest scored items for your region.</p>
         </div>
       </div>
 
@@ -993,28 +1164,156 @@
       </div>
     </div>
 
+    <!-- USERS (admin only) -->
+    <div class="panel" id="panel-users">
+      <div class="section-header">
+        <h2>Team Members</h2>
+        <span class="sub" id="usersCount">—</span>
+        <button class="btn primary" onclick="openInviteUserModal()" style="margin-left: auto;">+ Invite User</button>
+      </div>
+      <div id="usersContent">
+        <div class="empty">
+          <h3>Loading users...</h3>
+        </div>
+      </div>
+    </div>
+
   </main>
 
-  <!-- CONFIG MODAL -->
-  <div class="config-overlay" id="configOverlay">
-    <div class="config-modal">
-      <h2>Configure MPSS Radar</h2>
-      <p style="color: var(--text-dim); font-size: 13px; margin-bottom: 16px;">
-        Enter your Supabase credentials. These are stored only in your browser's local storage.
+  <!-- INVITE USER MODAL -->
+  <div class="profile-modal-overlay" id="inviteUserOverlay" onclick="if (event.target === this) closeInviteUserModal()">
+    <div class="add-entity-modal">
+      <h2>+ Invite New User</h2>
+      <p style="color: var(--text-dim); font-size: 13px;">
+        Send an invitation. They'll receive an email to set their password and access the dashboard.
       </p>
 
-      <label>Supabase Project URL</label>
-      <input id="cfgUrl" placeholder="https://xxxxx.supabase.co">
-      <p class="hint">From Supabase dashboard → Settings → API</p>
+      <div class="form-grid">
+        <div class="full-width">
+          <label>Email *</label>
+          <input id="newUserEmail" type="email" placeholder="newuser@vdr.com">
+        </div>
 
-      <label>Supabase Anon Key</label>
-      <input id="cfgKey" placeholder="eyJ...">
-      <p class="hint">The "anon public" key, not the service_role key</p>
+        <div class="full-width">
+          <label>Full name</label>
+          <input id="newUserName" placeholder="e.g. Hub Hendrickx">
+        </div>
 
-      <div style="display: flex; gap: 10px; margin-top: 24px;">
-        <button class="btn primary" onclick="saveConfig()">Save & Connect</button>
-        <button class="btn ghost" onclick="closeConfig()">Cancel</button>
+        <div>
+          <label>Role *</label>
+          <select id="newUserRole">
+            <option value="viewer">Viewer (region-scoped)</option>
+            <option value="admin">Admin (full access)</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Region *</label>
+          <select id="newUserRegion">
+            <option value="Europe">Europe</option>
+            <option value="MEA_T">MEA & Turkey</option>
+            <option value="Americas">Americas</option>
+            <option value="APAC">APAC</option>
+            <option value="global">Global (all regions)</option>
+          </select>
+          <div class="form-field-hint">Admins typically get "global". Viewers get one specific region.</div>
+        </div>
       </div>
+
+      <div class="form-error" id="inviteUserError"></div>
+      <div class="form-success" id="inviteUserSuccess"></div>
+
+      <div class="actions">
+        <button class="btn primary" onclick="submitInviteUser()">Send Invitation</button>
+        <button class="btn ghost" onclick="closeInviteUserModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT USER MODAL -->
+  <div class="profile-modal-overlay" id="editUserOverlay" onclick="if (event.target === this) closeEditUserModal()">
+    <div class="add-entity-modal">
+      <h2>Edit User</h2>
+      <div id="editUserBody">
+        <div class="form-grid">
+          <div class="full-width">
+            <label>Email</label>
+            <input id="editUserEmail" disabled>
+          </div>
+
+          <div class="full-width">
+            <label>Full name</label>
+            <input id="editUserName">
+          </div>
+
+          <div>
+            <label>Role</label>
+            <select id="editUserRole">
+              <option value="viewer">Viewer</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Region</label>
+            <select id="editUserRegion">
+              <option value="Europe">Europe</option>
+              <option value="MEA_T">MEA & Turkey</option>
+              <option value="Americas">Americas</option>
+              <option value="APAC">APAC</option>
+              <option value="global">Global</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Status</label>
+            <select id="editUserActive">
+              <option value="true">Active</option>
+              <option value="false">Deactivated</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-error" id="editUserError"></div>
+        <div class="form-success" id="editUserSuccess"></div>
+
+        <div class="actions">
+          <button class="btn primary" onclick="submitEditUser()">Save Changes</button>
+          <button class="btn ghost" onclick="closeEditUserModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN SCREEN -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="login-logo">MPSS Radar</div>
+        <div class="login-subtitle">Market Intelligence · VDR Energy Systems</div>
+      </div>
+
+      <h2>Sign in</h2>
+      <p style="color: var(--text-dim); font-size: 13px; margin-bottom: 18px;">
+        Enter your VDR credentials to access the dashboard.
+      </p>
+
+      <label>Email</label>
+      <input id="loginEmail" type="email" placeholder="you@vdr.com" autocomplete="email">
+
+      <label style="margin-top: 14px;">Password</label>
+      <input id="loginPwd" type="password" placeholder="••••••••" autocomplete="current-password">
+
+      <div class="form-error" id="loginError"></div>
+
+      <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 10px;">
+        <button class="btn primary" onclick="handleLogin()" id="loginSubmitBtn" style="width: 100%;">Sign in</button>
+        <button class="btn ghost" onclick="handlePasswordReset()" style="width: 100%; font-size: 12px;">Forgot password?</button>
+      </div>
+
+      <p style="color: var(--text-faint); font-size: 11px; margin-top: 20px; text-align: center;">
+        Access by invitation only. Contact your administrator to request access.
+      </p>
     </div>
   </div>
 
@@ -1022,23 +1321,6 @@
   <div class="profile-modal-overlay" id="profileModal" onclick="if (event.target === this) closeEntityProfile()">
     <div class="profile-modal" id="profileModalBody">
       <!-- Profile content rendered here dynamically -->
-    </div>
-  </div>
-
-  <!-- ADMIN PASSWORD MODAL -->
-  <div class="config-overlay" id="adminPasswordOverlay">
-    <div class="config-modal" style="max-width: 420px;">
-      <h2>🔒 Admin Mode</h2>
-      <p style="color: var(--text-dim); font-size: 13px; margin-bottom: 14px;">
-        Enter the admin password to unlock add/delete features.
-      </p>
-      <label>Admin password</label>
-      <input id="adminPwdInput" type="password" placeholder="Enter password">
-      <div class="form-error" id="adminPwdError">Incorrect password</div>
-      <div style="display: flex; gap: 10px; margin-top: 20px;">
-        <button class="btn primary" onclick="submitAdminPassword()">Unlock</button>
-        <button class="btn ghost" onclick="closeAdminPasswordModal()">Cancel</button>
-      </div>
     </div>
   </div>
 
@@ -1136,74 +1418,241 @@
   </div>
 
   <script>
+    // ============ CONFIG (injected at build time by Vercel or set below) ============
+    // Replace these values when deploying. For local development, paste your
+    // Supabase URL and ANON key here. For production, Vercel injects them.
+    const SUPABASE_URL = window.SUPABASE_URL || 'https://fmvzjclauegqiyurnxap.supabase.co';
+    const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || '';
+    // ^^^ Replace these strings for local testing, OR keep them blank and let
+    //     Vercel inject them at deploy time via the build script.
+
     // ============ STATE ============
     const state = {
       supabase: null,
-      config: {
-        url: localStorage.getItem('mpss_supabase_url') || '',
-        key: localStorage.getItem('mpss_supabase_key') || ''
-      },
-      region: localStorage.getItem('mpss_region') || 'Global', // default on first load
+      session: null,         // current auth session
+      profile: null,         // current user's profile row from Supabase (name, region, role)
+      region: 'Global',      // active region filter (admins can change; viewers locked)
       currentDraft: null,
       panel: 'dashboard'
     };
 
+    // ============ AUTHENTICATION ============
+    async function initSupabaseClient() {
+      if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+        showLoginError('System configuration error. Contact your administrator.');
+        return false;
+      }
+      state.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+        auth: {
+          persistSession: true,
+          autoRefreshToken: true,
+          detectSessionInUrl: true,
+          storage: window.localStorage,
+          storageKey: 'mpss_radar_auth'
+        }
+      });
+      return true;
+    }
+
+    async function checkSession() {
+      if (!state.supabase) return false;
+      const { data: { session }, error } = await state.supabase.auth.getSession();
+      if (error || !session) return false;
+      state.session = session;
+      const profileLoaded = await loadCurrentUserProfile();
+      return profileLoaded;
+    }
+
+    async function loadCurrentUserProfile() {
+      if (!state.session) return false;
+      const { data, error } = await state.supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', state.session.user.id)
+        .single();
+      if (error || !data) {
+        console.error('Profile load failed:', error);
+        return false;
+      }
+      if (!data.is_active) {
+        showLoginError('Your account has been deactivated. Contact admin.');
+        await state.supabase.auth.signOut();
+        return false;
+      }
+      state.profile = data;
+      // Update last_login_at (fire and forget)
+      state.supabase.from('profiles')
+        .update({ last_login_at: new Date().toISOString() })
+        .eq('id', state.session.user.id)
+        .then(() => {});
+      return true;
+    }
+
+    async function handleLogin() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPwd').value;
+      const errorEl = document.getElementById('loginError');
+      const btn = document.getElementById('loginSubmitBtn');
+
+      errorEl.classList.remove('active');
+
+      if (!email || !password) {
+        showLoginError('Email and password required.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Signing in...';
+
+      try {
+        const { data, error } = await state.supabase.auth.signInWithPassword({ email, password });
+        if (error) {
+          showLoginError(error.message || 'Sign-in failed.');
+          btn.disabled = false;
+          btn.textContent = 'Sign in';
+          return;
+        }
+        state.session = data.session;
+        const profileLoaded = await loadCurrentUserProfile();
+        if (!profileLoaded) {
+          showLoginError('Profile could not be loaded.');
+          btn.disabled = false;
+          btn.textContent = 'Sign in';
+          return;
+        }
+        enterDashboard();
+      } catch (e) {
+        showLoginError('Unexpected error: ' + e.message);
+        btn.disabled = false;
+        btn.textContent = 'Sign in';
+      }
+    }
+
+    function showLoginError(msg) {
+      const errorEl = document.getElementById('loginError');
+      errorEl.textContent = msg;
+      errorEl.classList.add('active');
+    }
+
+    async function handlePasswordReset() {
+      const email = document.getElementById('loginEmail').value.trim();
+      if (!email) {
+        showLoginError('Enter your email first, then click "Forgot password?"');
+        return;
+      }
+      const { error } = await state.supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin
+      });
+      if (error) {
+        showLoginError('Reset failed: ' + error.message);
+      } else {
+        showLoginError('Password reset email sent. Check your inbox.');
+        document.getElementById('loginError').style.color = 'var(--cyan)';
+      }
+    }
+
+    async function handlePasswordChange() {
+      const newPwd = prompt('Enter your new password (minimum 8 characters):');
+      if (!newPwd || newPwd.length < 8) return;
+      const { error } = await state.supabase.auth.updateUser({ password: newPwd });
+      if (error) {
+        alert('Password change failed: ' + error.message);
+      } else {
+        alert('Password changed successfully.');
+        closeUserMenu();
+      }
+    }
+
+    async function handleLogout() {
+      if (!confirm('Sign out?')) return;
+      await state.supabase.auth.signOut();
+      state.session = null;
+      state.profile = null;
+      document.body.classList.add('not-authenticated');
+      document.body.classList.remove('user-is-admin', 'user-is-viewer');
+      closeUserMenu();
+    }
+
+    // ============ POST-LOGIN: ENTER DASHBOARD ============
+    function enterDashboard() {
+      // Hide login screen, show dashboard
+      document.body.classList.remove('not-authenticated');
+
+      // Apply role-based body class for CSS gating
+      if (state.profile.role === 'admin') {
+        document.body.classList.add('user-is-admin');
+        document.body.classList.remove('user-is-viewer');
+      } else {
+        document.body.classList.add('user-is-viewer');
+        document.body.classList.remove('user-is-admin');
+      }
+
+      // Populate user pill
+      const initials = (state.profile.name || state.profile.email)
+        .split(/[\s.@]/)
+        .filter(Boolean)
+        .slice(0, 2)
+        .map(s => s[0].toUpperCase())
+        .join('');
+      document.getElementById('userAvatar').textContent = initials || '?';
+      document.getElementById('userName').textContent = state.profile.name || state.profile.email.split('@')[0];
+      document.getElementById('userRole').textContent = state.profile.role +
+        (state.profile.region !== 'global' ? ' · ' + state.profile.region : '');
+
+      // Configure region selector based on role
+      const regionSelector = document.querySelector('.region-selector');
+      const regionFilter = document.getElementById('regionFilter');
+      if (state.profile.role === 'admin' || state.profile.region === 'global') {
+        // Admins can switch regions
+        state.region = localStorage.getItem('mpss_region') || 'Global';
+        regionFilter.value = state.region;
+        regionSelector.classList.remove('locked');
+      } else {
+        // Viewers are locked to their region
+        state.region = state.profile.region;
+        // Ensure the dropdown shows the user's region
+        regionFilter.value = state.profile.region;
+        regionSelector.classList.add('locked');
+      }
+
+      setStatus('Connected', 'ok');
+      loadDashboard();
+    }
+
+    // ============ USER MENU TOGGLE ============
+    function toggleUserMenu(event) {
+      event.stopPropagation();
+      document.getElementById('userMenu').classList.toggle('active');
+    }
+    function closeUserMenu() {
+      document.getElementById('userMenu').classList.remove('active');
+    }
+    document.addEventListener('click', () => closeUserMenu());
+
     // ============ REGION FILTER ============
     function onRegionChange() {
+      // Viewers can't change region (UI is locked, but defensive check)
+      if (state.profile && state.profile.role !== 'admin' && state.profile.region !== 'global') {
+        document.getElementById('regionFilter').value = state.profile.region;
+        return;
+      }
       const newRegion = document.getElementById('regionFilter').value;
       state.region = newRegion;
       localStorage.setItem('mpss_region', newRegion);
-      // refresh current panel
       if (state.panel === 'dashboard') loadDashboard();
       if (state.panel === 'content') loadContent();
       if (state.panel === 'watchlist') loadWatchlist();
     }
 
     function applyRegionFilter(query) {
-      // helper: when state.region is 'Global', no filter applied (shows everything)
-      // otherwise filter by region column
+      // RLS handles per-row scoping at the database level.
+      // Client-side filter only applies for admins switching the dropdown.
       if (state.region && state.region !== 'Global') {
         return query.eq('region', state.region);
       }
       return query;
     }
 
-    // ============ CONFIG ============
-    function openConfig() {
-      document.getElementById('cfgUrl').value = state.config.url;
-      document.getElementById('cfgKey').value = state.config.key;
-      document.getElementById('configOverlay').classList.add('active');
-    }
-    function closeConfig() {
-      document.getElementById('configOverlay').classList.remove('active');
-    }
-    function saveConfig() {
-      const url = document.getElementById('cfgUrl').value.trim();
-      const key = document.getElementById('cfgKey').value.trim();
-      if (!url || !key) { alert('Both fields required'); return; }
-      state.config.url = url;
-      state.config.key = key;
-      localStorage.setItem('mpss_supabase_url', url);
-      localStorage.setItem('mpss_supabase_key', key);
-      closeConfig();
-      connect();
-    }
-
-    // ============ CONNECTION ============
-    function connect() {
-      if (!state.config.url || !state.config.key) {
-        setStatus('Not connected', 'err');
-        return;
-      }
-      try {
-        state.supabase = supabase.createClient(state.config.url, state.config.key);
-        setStatus('Connected', 'ok');
-        loadDashboard();
-      } catch (e) {
-        setStatus('Connection failed', 'err');
-        console.error(e);
-      }
-    }
     function setStatus(label, level) {
       const pill = document.getElementById('connectionStatus');
       pill.className = 'status-pill ' + (level === 'err' ? 'err' : level === 'warn' ? 'warn' : '');
@@ -1218,21 +1667,14 @@
       if (name === 'content') loadContent();
       if (name === 'watchlist') loadWatchlist();
       if (name === 'dashboard') loadDashboard();
+      if (name === 'users') loadUsers();
     }
 
     // ============ DASHBOARD ============
     async function loadDashboard() {
-      if (!state.supabase) {
-        document.getElementById('briefList').innerHTML = `
-          <div class="empty">
-            <h3>Not connected yet</h3>
-            <p>Click <code>⚙ Config</code> in the top right to add your Supabase credentials.</p>
-          </div>
-        `;
-        return;
-      }
+      if (!state.supabase || !state.session) return;
 
-      // KPIs - apply region filter
+      // KPIs - RLS auto-scopes by region. Admin's region filter further restricts.
       let briefQuery = state.supabase.from('v_morning_brief').select('*');
       briefQuery = applyRegionFilter(briefQuery);
       const { data: briefData } = await briefQuery;
@@ -1244,7 +1686,7 @@
         document.getElementById('kpiHigh').textContent = high;
         document.getElementById('briefCount').textContent = critical + high;
         document.getElementById('briefSubtitle').textContent =
-          `${briefData.length} items in last 48h · ${state.region}`;
+          `${briefData.length} items · ${state.region} · Updated each morning, Central European Time`;
         renderBrief(briefData);
       }
 
@@ -1578,74 +2020,20 @@
       return d.toLocaleDateString();
     }
 
-    // ============ ADMIN MODE ============
-    // Default admin password is hardcoded but should be changed.
-    // To change: edit ADMIN_PASSWORD_HASH below with a new SHA-256 hash of your password.
-    // Default password is "khahana2026" — CHANGE THIS BEFORE SHARING THE URL.
-    const ADMIN_PASSWORD_HASH = '71ec621062248cb4f9fe63e1115e79af75c57d6c950ac60ce2b9f0fb205e5110';
-    // ^^^ SHA-256("khahana2026") -- generate new one at https://emn178.github.io/online-tools/sha256.html
-
-    async function hashPassword(password) {
-      const buf = new TextEncoder().encode(password);
-      const hash = await crypto.subtle.digest('SHA-256', buf);
-      return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
-    }
+    // ============ ROLE-BASED GATING ============
+    // In v3.0, "admin" is determined by the user's profile role from Supabase.
+    // The CSS classes "user-is-admin" and "user-is-viewer" on <body> control visibility.
+    // The .admin-only class shows elements only when body.user-is-admin is set.
 
     function isAdminUnlocked() {
-      return sessionStorage.getItem('mpss_admin_unlocked') === 'true';
+      // Backward-compatible name used elsewhere in the code
+      return state.profile && state.profile.role === 'admin';
     }
-
-    function setAdminUnlocked(unlocked) {
-      if (unlocked) {
-        sessionStorage.setItem('mpss_admin_unlocked', 'true');
-        document.body.classList.add('admin-unlocked');
-        document.getElementById('adminToggle').textContent = '🔓';
-        document.getElementById('adminToggle').title = 'Admin unlocked — click to lock';
-      } else {
-        sessionStorage.removeItem('mpss_admin_unlocked');
-        document.body.classList.remove('admin-unlocked');
-        document.getElementById('adminToggle').textContent = '🔒';
-        document.getElementById('adminToggle').title = 'Admin locked — click to unlock';
-      }
-    }
-
-    function toggleAdminMode() {
-      if (isAdminUnlocked()) {
-        setAdminUnlocked(false);
-      } else {
-        document.getElementById('adminPwdInput').value = '';
-        document.getElementById('adminPwdError').classList.remove('active');
-        document.getElementById('adminPasswordOverlay').classList.add('active');
-        setTimeout(() => document.getElementById('adminPwdInput').focus(), 100);
-      }
-    }
-
-    async function submitAdminPassword() {
-      const password = document.getElementById('adminPwdInput').value;
-      const hash = await hashPassword(password);
-      if (hash === ADMIN_PASSWORD_HASH) {
-        setAdminUnlocked(true);
-        closeAdminPasswordModal();
-      } else {
-        document.getElementById('adminPwdError').classList.add('active');
-      }
-    }
-
-    function closeAdminPasswordModal() {
-      document.getElementById('adminPasswordOverlay').classList.remove('active');
-    }
-
-    // Submit admin password on Enter key
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Enter' && document.getElementById('adminPasswordOverlay').classList.contains('active')) {
-        submitAdminPassword();
-      }
-    });
 
     // ============ ADD ENTITY ============
     function openAddEntityModal() {
       if (!isAdminUnlocked()) {
-        alert('Unlock admin mode first (click the 🔒 icon in the topbar)');
+        alert('Admin role required to add entities.');
         return;
       }
       // Clear previous values
@@ -1755,20 +2143,206 @@
       loadWatchlist();
     }
 
+    // ============ USERS PANEL (admin only) ============
+    async function loadUsers() {
+      if (!state.supabase || !isAdminUnlocked()) {
+        document.getElementById('usersContent').innerHTML = `
+          <div class="empty">
+            <h3>Admin access required</h3>
+            <p>Only admins can view and manage users.</p>
+          </div>`;
+        return;
+      }
+
+      const { data, error } = await state.supabase
+        .from('profiles')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        document.getElementById('usersContent').innerHTML = `
+          <div class="empty">
+            <h3>Could not load users</h3>
+            <p>${escapeHtml(error.message)}</p>
+          </div>`;
+        return;
+      }
+
+      document.getElementById('usersCount').textContent = `${data.length} users`;
+
+      let html = '<div class="watchlist-grid" style="grid-template-columns: 1fr;">';
+      for (const u of data) {
+        const roleBadge = u.role === 'admin'
+          ? '<span class="tag" style="border-color: var(--cyan); color: var(--cyan);">admin</span>'
+          : '<span class="tag">viewer</span>';
+        const regionLabel = u.region === 'global' ? '🌐 Global' : u.region;
+        const statusBadge = u.is_active
+          ? '<span class="tag" style="border-color: rgba(0, 212, 170, 0.4); color: var(--cyan);">active</span>'
+          : '<span class="tag" style="border-color: var(--danger); color: var(--danger);">deactivated</span>';
+        const lastLogin = u.last_login_at ? formatDate(u.last_login_at) : 'never';
+
+        html += `
+          <div class="watchlist-card has-profile" onclick='openEditUserModal(${JSON.stringify(u).replace(/'/g, "&#39;")})'>
+            <div class="name">
+              ${escapeHtml(u.name || u.email)}
+              <span class="profile-dot" title="Click to edit"></span>
+            </div>
+            <div class="meta">
+              ${roleBadge}
+              <span class="tag">${regionLabel}</span>
+              ${statusBadge}
+              <span style="margin-left: auto;">Last login: ${lastLogin}</span>
+            </div>
+            <div class="profile-preview">${escapeHtml(u.email)}</div>
+          </div>`;
+      }
+      html += '</div>';
+      document.getElementById('usersContent').innerHTML = html;
+    }
+
+    function openInviteUserModal() {
+      ['newUserEmail', 'newUserName'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('newUserRole').value = 'viewer';
+      document.getElementById('newUserRegion').value = 'Europe';
+      document.getElementById('inviteUserError').classList.remove('active');
+      document.getElementById('inviteUserSuccess').classList.remove('active');
+      document.getElementById('inviteUserOverlay').classList.add('active');
+    }
+
+    function closeInviteUserModal() {
+      document.getElementById('inviteUserOverlay').classList.remove('active');
+    }
+
+    async function submitInviteUser() {
+      const email = document.getElementById('newUserEmail').value.trim().toLowerCase();
+      const name = document.getElementById('newUserName').value.trim();
+      const role = document.getElementById('newUserRole').value;
+      const region = document.getElementById('newUserRegion').value;
+      const errEl = document.getElementById('inviteUserError');
+      const okEl = document.getElementById('inviteUserSuccess');
+
+      errEl.classList.remove('active');
+      okEl.classList.remove('active');
+
+      if (!email || !email.includes('@')) {
+        errEl.textContent = 'Valid email address required.';
+        errEl.classList.add('active');
+        return;
+      }
+
+      // Generate a temporary random password the user will reset on first login
+      const tempPwd = 'Mpss' + Math.random().toString(36).slice(2, 10) + '!';
+
+      const { data, error } = await state.supabase.auth.signUp({
+        email,
+        password: tempPwd,
+        options: {
+          data: { name, region, role }
+        }
+      });
+
+      if (error) {
+        errEl.textContent = 'Invite failed: ' + error.message;
+        errEl.classList.add('active');
+        return;
+      }
+
+      // After signup, immediately update the profile row to set the correct region/role
+      // (the auto-create trigger sets defaults; we override with the invite values)
+      if (data.user) {
+        await state.supabase
+          .from('profiles')
+          .update({ name, region, role })
+          .eq('id', data.user.id);
+
+        // Send password reset email so user can set their own password
+        await state.supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: window.location.origin
+        });
+      }
+
+      okEl.textContent = `Invitation sent to ${email}. They'll receive an email to set their password.`;
+      okEl.classList.add('active');
+
+      setTimeout(() => {
+        closeInviteUserModal();
+        loadUsers();
+      }, 2000);
+    }
+
+    let editingUserId = null;
+    function openEditUserModal(user) {
+      editingUserId = user.id;
+      document.getElementById('editUserEmail').value = user.email;
+      document.getElementById('editUserName').value = user.name || '';
+      document.getElementById('editUserRole').value = user.role;
+      document.getElementById('editUserRegion').value = user.region;
+      document.getElementById('editUserActive').value = user.is_active.toString();
+      document.getElementById('editUserError').classList.remove('active');
+      document.getElementById('editUserSuccess').classList.remove('active');
+      document.getElementById('editUserOverlay').classList.add('active');
+    }
+
+    function closeEditUserModal() {
+      document.getElementById('editUserOverlay').classList.remove('active');
+      editingUserId = null;
+    }
+
+    async function submitEditUser() {
+      if (!editingUserId) return;
+      const name = document.getElementById('editUserName').value.trim();
+      const role = document.getElementById('editUserRole').value;
+      const region = document.getElementById('editUserRegion').value;
+      const isActive = document.getElementById('editUserActive').value === 'true';
+      const errEl = document.getElementById('editUserError');
+      const okEl = document.getElementById('editUserSuccess');
+
+      errEl.classList.remove('active');
+      okEl.classList.remove('active');
+
+      const { error } = await state.supabase
+        .from('profiles')
+        .update({ name, role, region, is_active: isActive })
+        .eq('id', editingUserId);
+
+      if (error) {
+        errEl.textContent = 'Update failed: ' + error.message;
+        errEl.classList.add('active');
+        return;
+      }
+
+      okEl.textContent = 'User updated successfully.';
+      okEl.classList.add('active');
+
+      setTimeout(() => {
+        closeEditUserModal();
+        loadUsers();
+      }, 1200);
+    }
+
     // ============ BOOT ============
-    // Set region dropdown to remembered value
-    document.getElementById('regionFilter').value = state.region;
+    (async function boot() {
+      // Body starts in not-authenticated state (login screen visible, dashboard hidden)
+      document.body.classList.add('not-authenticated');
 
-    // Restore admin state if previously unlocked in this session
-    if (isAdminUnlocked()) {
-      setAdminUnlocked(true);
-    }
+      const clientReady = await initSupabaseClient();
+      if (!clientReady) return;
 
-    if (state.config.url && state.config.key) {
-      connect();
-    } else {
-      setStatus('Setup required', 'warn');
-    }
+      // Check if user already has an active session
+      const authed = await checkSession();
+      if (authed) {
+        enterDashboard();
+      }
+      // Otherwise login screen stays visible
+    })();
+
+    // Submit login on Enter key in password field
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && document.activeElement &&
+          (document.activeElement.id === 'loginEmail' || document.activeElement.id === 'loginPwd')) {
+        handleLogin();
+      }
+    });
   </script>
 </body>
 </html>
