@@ -238,6 +238,37 @@
       color: var(--text-faint);
     }
 
+    /* ====== HISTORY FILTER BAR ====== */
+    .history-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .history-filters input[type="text"] {
+      flex: 1 1 220px;
+      min-width: 180px;
+    }
+    .history-filters input,
+    .history-filters select {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      padding: 8px 10px;
+      font-size: 13px;
+      font-family: inherit;
+    }
+    .history-filters input:focus,
+    .history-filters select:focus {
+      outline: none;
+      border-color: var(--cyan);
+    }
+    .history-filters input[type="date"] {
+      color: var(--text-faint);
+    }
+
     /* ====== ITEM CARDS ====== */
     .item-list {
       display: flex;
@@ -1157,10 +1188,27 @@
     <div class="panel" id="panel-history">
       <div class="section-header">
         <h2>History & Search</h2>
+        <span class="sub" id="historyCount">—</span>
       </div>
-      <div class="empty">
-        <h3>History view coming on Day 5</h3>
-        <p>Will show all scored items with search, filter by category, date range, and entity.</p>
+
+      <div class="history-filters">
+        <input type="text" id="historySearch" placeholder="Search headlines..." oninput="debounceHistory()">
+        <select id="historyStatus" onchange="loadHistory()">
+          <option value="">All statuses</option>
+          <option value="new">In brief (new)</option>
+          <option value="actioned">Actioned</option>
+          <option value="dismissed">Dismissed</option>
+        </select>
+        <select id="historyCategory" onchange="loadHistory()">
+          <option value="">All categories</option>
+        </select>
+        <input type="date" id="historyFrom" onchange="loadHistory()" title="From date">
+        <input type="date" id="historyTo" onchange="loadHistory()" title="To date">
+        <button class="btn ghost" onclick="resetHistoryFilters()">Clear</button>
+      </div>
+
+      <div id="historyList">
+        <div class="empty"><h3>Loading history...</h3></div>
       </div>
     </div>
 
@@ -1782,6 +1830,7 @@
       if (name === 'content') loadContent();
       if (name === 'watchlist') loadWatchlist();
       if (name === 'dashboard') loadDashboard();
+      if (name === 'history') loadHistory();
       if (name === 'users') loadUsers();
     }
 
@@ -1981,6 +2030,158 @@
     async function dismissItem(id) {
       await state.supabase.from('scored_items').update({ action_status: 'dismissed' }).eq('id', id);
       loadDashboard();
+    }
+
+    // ============ HISTORY & SEARCH ============
+    let historyDebounceTimer = null;
+    function debounceHistory() {
+      clearTimeout(historyDebounceTimer);
+      historyDebounceTimer = setTimeout(loadHistory, 300);
+    }
+
+    function resetHistoryFilters() {
+      document.getElementById('historySearch').value = '';
+      document.getElementById('historyStatus').value = '';
+      document.getElementById('historyCategory').value = '';
+      document.getElementById('historyFrom').value = '';
+      document.getElementById('historyTo').value = '';
+      loadHistory();
+    }
+
+    async function loadHistory() {
+      if (!state.supabase || !state.session) return;
+      const listEl = document.getElementById('historyList');
+
+      // Query scored_items directly (all statuses) joined to raw_items for title/url/dates.
+      // RLS scopes rows by region at the database level; admins narrow further via dropdown.
+      let query = state.supabase
+        .from('scored_items')
+        .select('*, raw_items!inner(title, url, published_at, scraped_at)')
+        .order('scored_at', { ascending: false })
+        .limit(500);
+
+      // Region (mirror of brief logic)
+      if (state.region && state.region !== 'Global') {
+        query = query.eq('region', state.region);
+      }
+
+      // Status filter
+      const status = document.getElementById('historyStatus').value;
+      if (status) query = query.eq('action_status', status);
+
+      // Category filter
+      const category = document.getElementById('historyCategory').value;
+      if (category) query = query.eq('category', category);
+
+      // Date range (on scored_at)
+      const from = document.getElementById('historyFrom').value;
+      const to = document.getElementById('historyTo').value;
+      if (from) query = query.gte('scored_at', new Date(from).toISOString());
+      if (to) {
+        const end = new Date(to);
+        end.setHours(23, 59, 59, 999);
+        query = query.lte('scored_at', end.toISOString());
+      }
+
+      const { data, error } = await query;
+      if (error) {
+        listEl.innerHTML = `<div class="empty"><h3>Could not load history</h3><p>${escapeHtml(error.message)}</p></div>`;
+        return;
+      }
+
+      // Keyword search on title (client-side, since title lives on the joined raw_items)
+      const term = document.getElementById('historySearch').value.trim().toLowerCase();
+      let items = data || [];
+      if (term) {
+        items = items.filter(it =>
+          (it.raw_items?.title || '').toLowerCase().includes(term) ||
+          (it.strategic_angle || '').toLowerCase().includes(term)
+        );
+      }
+
+      populateHistoryCategories(data || []);
+      renderHistory(items);
+    }
+
+    // Fill the category dropdown from whatever categories are present (once populated, keep selection)
+    function populateHistoryCategories(data) {
+      const sel = document.getElementById('historyCategory');
+      const current = sel.value;
+      const cats = [...new Set(data.map(d => d.category).filter(Boolean))].sort();
+      // Only rebuild if options are missing
+      const existing = new Set([...sel.options].map(o => o.value));
+      if (cats.every(c => existing.has(c))) return;
+      sel.innerHTML = '<option value="">All categories</option>' +
+        cats.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+      sel.value = current;
+    }
+
+    function historyStatusBadge(status) {
+      const map = {
+        new:       { label: 'In brief',  color: 'var(--cyan)' },
+        actioned:  { label: 'Actioned',  color: '#5bc88a' },
+        dismissed: { label: 'Dismissed', color: '#8a93a0' }
+      };
+      const s = map[status] || { label: status || 'unknown', color: '#8a93a0' };
+      return `<span class="tag" style="border-color:${s.color}; color:${s.color};">${s.label}</span>`;
+    }
+
+    function renderHistory(items) {
+      const list = document.getElementById('historyList');
+      document.getElementById('historyCount').textContent =
+        `${items.length} item${items.length === 1 ? '' : 's'}`;
+
+      if (!items || items.length === 0) {
+        list.innerHTML = `
+          <div class="empty">
+            <h3>No matching items</h3>
+            <p>Try clearing the filters or widening the date range.</p>
+          </div>`;
+        return;
+      }
+
+      list.innerHTML = items.map(it => {
+        const r = it.raw_items || {};
+        const title = r.title || '(untitled)';
+        const when = r.published_at || r.scraped_at || it.scored_at;
+        return `
+        <div class="item">
+          <div class="item-head">
+            <span class="priority-badge ${it.priority}">${it.priority}</span>
+            <div class="item-title">
+              ${r.url ? `<a href="${r.url}" target="_blank">${escapeHtml(title)}</a>` : escapeHtml(title)}
+            </div>
+            <div class="item-score">Score <span class="num">${it.relevance_score}</span></div>
+          </div>
+          ${it.strategic_angle ? `<div class="item-angle">${escapeHtml(it.strategic_angle)}</div>` : ''}
+          <div class="item-meta">
+            ${historyStatusBadge(it.action_status)}
+            <span class="tag category">${it.category}</span>
+            ${it.region ? `<span class="tag" style="border-color: rgba(0, 212, 170, 0.4); color: var(--cyan);">${it.region}</span>` : ''}
+            ${(it.related_entities || []).map(e => `<span class="tag">${escapeHtml(e)}</span>`).join('')}
+            <span style="margin-left: auto;">${formatDate(when)}</span>
+          </div>
+          <div class="item-actions">
+            ${it.action_status !== 'new'
+              ? `<button class="btn primary" onclick="restoreItem(${it.id})">↺ Restore to brief</button>`
+              : `<span class="hint" style="align-self:center;">Currently in the brief</span>`}
+            ${r.url ? `<button class="btn ghost" onclick="window.open('${r.url}', '_blank')">↗ Open</button>` : ''}
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    async function restoreItem(id) {
+      // Send an actioned/dismissed item back to the brief by resetting its status.
+      const { error } = await state.supabase
+        .from('scored_items')
+        .update({ action_status: 'new', actioned_at: null })
+        .eq('id', id);
+      if (error) {
+        alert('Could not restore item: ' + error.message);
+        return;
+      }
+      loadHistory();
     }
 
     // ============ WATCHLIST ============
